@@ -1,9 +1,7 @@
 lib
-*.html
 *.pdf
 *.redxml
 *.swp
-*.txt
 *.upload
 *~
 .tags

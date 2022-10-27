@@ -5,13 +5,13 @@
 secdispatch                                          A. J. Campling, Ed.
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                             P. Vixie, Ed.
-Expires: 27 April 2023                                          Red Barn
+Expires: 30 April 2023                                          Red Barn
                                                           D. Wright, Ed.
                                                 UK Safer Internet Centre
                                                           A. Taddei, Ed.
                                                          S. Edwards, Ed.
                                                                 Broadcom
-                                                         24 October 2022
+                                                         27 October 2022
 
 
             Encrypted Client Hello Deployment Considerations
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 April 2023.
+   This Internet-Draft will expire on 30 April 2023.
 
 Copyright Notice
 
@@ -891,6 +891,14 @@ Contributors
 
    Gianpaolo contributed the research on the Digital Markets Act (DMA)
    EU law conflict with ECH.
+
+   Daniel Engberg
+   Skandinaviska Enskilda Banken AB (SEB)
+   Email: daniel.engberg@seb.se
+   URI:   https://www.linkedin.com/in/daniel-engberg-1561aaa/
+
+
+   Validate the issues for his organization.
 
 Authors' Addresses
 

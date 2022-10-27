@@ -23,28 +23,27 @@ important to the operators of private networks and shows how the loss
 of access to SNI data will cause difficulties in the provision of a
 range of services to many millions of end-users. 
     " name="description">
-<meta content="xml2rfc 3.12.10" name="generator">
+<meta content="xml2rfc 3.15.1" name="generator">
 <meta content="ECH" name="keyword">
 <meta content="Enterprises" name="keyword">
 <meta content="Operational Security" name="keyword">
 <meta content="draft-campling-ech-deployment-considerations-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.10
-    Python 3.6.8
+  xml2rfc 3.15.1
+    Python 3.9.6
     appdirs 1.4.4
     ConfigArgParse 1.5.3
     google-i18n-address 2.5.2
     html5lib 1.1
     intervaltree 3.1.0
-    Jinja2 2.11.3
+    Jinja2 3.1.2
     kitchen 1.2.6
     lxml 4.9.1
-    MarkupSafe 2.0.1
+    MarkupSafe 2.1.1
     pycountry 22.3.5
-    pyflakes 2.5.0
     PyYAML 6.0
-    requests 2.27.1
-    setuptools 59.6.0
+    requests 2.28.1
+    setuptools 65.5.0
     six 1.16.0
 -->
 <link href="draft-campling-ech-deployment-considerations.xml" rel="alternate" type="application/rfc+xml">
@@ -1047,7 +1046,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </style>
 
 </head>
-<body>
+<body class="xml2rfc">
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
@@ -1056,7 +1055,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Campling, et al.</td>
-<td class="center">Expires 27 April 2023</td>
+<td class="center">Expires 30 April 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1068,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-campling-ech-deployment-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-10-24" class="published">24 October 2022</time>
+<time datetime="2022-10-27" class="published">27 October 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-04-27">27 April 2023</time></dd>
+<dd class="expires"><time datetime="2023-04-30">30 April 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1139,7 +1138,7 @@ range of services to many millions of end-users.<a href="#section-abstract-2" cl
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 April 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 30 April 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1169,113 +1168,113 @@ range of services to many millions of end-users.<a href="#section-abstract-2" cl
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-encrypted-server-name-indic" class="xref">Encrypted Server Name Indication</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-encrypted-server-name-indic" class="internal xref">Encrypted Server Name Indication</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-the-education-sector" class="xref">The Education Sector</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-the-education-sector" class="internal xref">The Education Sector</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-context" class="xref">Context</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-context" class="internal xref">Context</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-why-content-filtering-matte" class="xref">Why Content Filtering Matters to Schools</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-why-content-filtering-matte" class="internal xref">Why Content Filtering Matters to Schools</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-mitigations" class="xref">Mitigations</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-mitigations" class="internal xref">Mitigations</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-transparent-proxies" class="xref">Transparent Proxies</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-transparent-proxies" class="internal xref">Transparent Proxies</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-the-need-for-operational-se" class="xref">The need for Operational security by Enterprises and Other Organisations</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-the-need-for-operational-se" class="internal xref">The need for Operational security by Enterprises and Other Organisations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-threat-landscape" class="xref">Threat landscape</a></p>
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-threat-landscape" class="internal xref">Threat landscape</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-implications-to-enterprises" class="xref">Implications to Enterprises and Organizations</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-implications-to-enterprises" class="internal xref">Implications to Enterprises and Organizations</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
-                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-the-main-requirements" class="xref">The main requirements</a></p>
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-the-main-requirements" class="internal xref">The main requirements</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
-                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="xref">5.4</a>.  <a href="#name-defence-in-depth-reminders" class="xref">Defence in Depth reminders</a></p>
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-defence-in-depth-reminders" class="internal xref">Defence in Depth reminders</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5">
-                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="xref">5.5</a>.  <a href="#name-evolution-of-defence-approa" class="xref">Evolution of defence approaches</a></p>
+                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-evolution-of-defence-approa" class="internal xref">Evolution of defence approaches</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6">
-                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="xref">5.6</a>.  <a href="#name-the-need-for-network-based-" class="xref">The need for Network based security</a></p>
+                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="auto internal xref">5.6</a>.  <a href="#name-the-need-for-network-based-" class="internal xref">The need for Network based security</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7">
-                <p id="section-toc.1-1.5.2.7.1"><a href="#section-5.7" class="xref">5.7</a>.  <a href="#name-network-security-deployment" class="xref">Network Security deployment</a></p>
+                <p id="section-toc.1-1.5.2.7.1"><a href="#section-5.7" class="auto internal xref">5.7</a>.  <a href="#name-network-security-deployment" class="internal xref">Network Security deployment</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-threat-detection" class="xref">Threat Detection</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-threat-detection" class="internal xref">Threat Detection</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-client-complications" class="xref">Client Complications</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-client-complications" class="internal xref">Client Complications</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-devices-are-not-trustable" class="xref">Devices are not trustable</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-devices-are-not-trustable" class="internal xref">Devices are not trustable</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-attacks-targeting-the-web-b" class="xref">Attacks targeting the web browser</a></p>
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-attacks-targeting-the-web-b" class="internal xref">Attacks targeting the web browser</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-mitigations-2" class="xref">Mitigations</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-mitigations-2" class="internal xref">Mitigations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-need-for-clarification-on-t" class="xref">Need for clarification on the ECH proposal</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-need-for-clarification-on-t" class="internal xref">Need for clarification on the ECH proposal</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-dns-impact" class="xref">DNS impact</a></p>
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-dns-impact" class="internal xref">DNS impact</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
-                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="xref">8.3</a>.  <a href="#name-client-facing-vs-backend-se" class="xref">Client Facing vs Backend Servers need a lot of clarification</a></p>
+                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-client-facing-vs-backend-se" class="internal xref">Client Facing vs Backend Servers need a lot of clarification</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.4">
-                <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="xref">8.4</a>.  <a href="#name-general-approaches" class="xref">General approaches</a></p>
+                <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="auto internal xref">8.4</a>.  <a href="#name-general-approaches" class="internal xref">General approaches</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-conclusions" class="xref">Conclusions</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-conclusions" class="internal xref">Conclusions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-11" class="xref">11</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-12" class="xref">12</a>. <a href="#name-acknowledgment" class="xref">Acknowledgment</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-acknowledgment" class="internal xref">Acknowledgment</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#section-13" class="xref">13</a>. <a href="#name-references" class="xref">References</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#section-13" class="auto internal xref">13</a>. <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1">
-                <p id="section-toc.1-1.13.2.1.1"><a href="#section-13.1" class="xref">13.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+                <p id="section-toc.1-1.13.2.1.1"><a href="#section-13.1" class="auto internal xref">13.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.2">
-                <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="xref">13.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+                <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="auto internal xref">13.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-A" class="xref"></a><a href="#name-contributors" class="xref">Contributors</a></p>
+            <p id="section-toc.1-1.14.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
-            <p id="section-toc.1-1.15.1"><a href="#appendix-B" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.15.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1302,20 +1301,20 @@ be undertaken lightly given both the architectural impact on the
 Internet and potentially adverse security implications for end users.
 Given these implications, it certainly should not be undertaken
 without either the knowledge or consultation of end users, as
-outlined in <span>[<a href="#RFC8890" class="xref">RFC8890</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
+outlined in <span>[<a href="#RFC8890" class="cite xref">RFC8890</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">NB Whilst it is reasonable to counter that VPNs also establish opaque
 paths, a primary difference is that the use of a VPN is a deliberate
 act by the user, rather than a choice made by client software,
 potentially without either the knowledge and/or consent of the end-
 user or device owner.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4"><span>[<a href="#RFC7258" class="xref">RFC7258</a>]</span> discusses the critical need to protect users'
+<p id="section-1-4"><span>[<a href="#RFC7258" class="cite xref">RFC7258</a>]</span> discusses the critical need to protect users'
 privacy when developing IETF specifications and also recognises that
 making networks unmanageable to mitigate pervasive monitoring is not
 an acceptable outcome.<a href="#section-1-4" class="pilcrow">¶</a></p>
-<p id="section-1-5"><span>[<a href="#RFC8404" class="xref">RFC8404</a>]</span> discusses current security and network operations
+<p id="section-1-5"><span>[<a href="#RFC8404" class="cite xref">RFC8404</a>]</span> discusses current security and network operations
 as well as management practices that may be impacted by the shift to
 increased use of encryption to help guide protocol development in
-support of manageable and secure networks.  As <span>[<a href="#RFC8404" class="xref">RFC8404</a>]</span> notes, "the
+support of manageable and secure networks.  As <span>[<a href="#RFC8404" class="cite xref">RFC8404</a>]</span> notes, "the
 implications for enterprises that own the data on their networks or
 that have explicit agreements that permit the monitoring of user
 traffic are very different from those for service providers who may
@@ -1336,13 +1335,13 @@ on-path security methods.<a href="#section-1-6" class="pilcrow">¶</a></p>
       <h2 id="name-encrypted-server-name-indic">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-encrypted-server-name-indic" class="section-name selfRef">Encrypted Server Name Indication</a>
       </h2>
-<p id="section-2-1"><span>[<a href="#RFC8744" class="xref">RFC8744</a>]</span> describes the general problem of encrypting the
+<p id="section-2-1"><span>[<a href="#RFC8744" class="cite xref">RFC8744</a>]</span> describes the general problem of encrypting the
 Server Name Identification (SNI) TLS extension.  The document
 includes a brief description of what it characterises as
 "unanticipated" usage of SNI information (section 2.1) as well as a
 brief (two paragraph) assessment of alternative options in the event
 that the SNI data is encrypted (section 2.3).<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">The text in <span>[<a href="#RFC8744" class="xref">RFC8744</a>]</span> suggests that most of the unanticipated SNI
+<p id="section-2-2">The text in <span>[<a href="#RFC8744" class="cite xref">RFC8744</a>]</span> suggests that most of the unanticipated SNI
 usage "could also be implemented by monitoring DNS traffic or
 controlling DNS usage", although it does then acknowledge the
 difficulties posed by encrypted DNS protocols.  It asserts, with
@@ -1360,12 +1359,12 @@ inappropriate in some manner.  The reality is that the development of
 the Internet has many examples of permissionless innovation and so
 these "unanticipated usages" should not be dismissed as lacking in
 either importance or validity.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">This document is intended to address the above limitations of <span>[<a href="#RFC8744" class="xref">RFC8744</a>]</span>
+<p id="section-2-4">This document is intended to address the above limitations of <span>[<a href="#RFC8744" class="cite xref">RFC8744</a>]</span>
 by providing more information about the issues posed by the
 introduction of ECH due to the loss of visibility of SNI data on
 private networks.  To do so it considers the situation within schools
 and enterprises, building on information previously documented in a
-report from a roundtable discussion <span>[<a href="#ECH_Roundtable" class="xref">ECH_Roundtable</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
+report from a roundtable discussion <span>[<a href="#ECH_Roundtable" class="cite xref">ECH_Roundtable</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="the-education-sector">
@@ -1383,7 +1382,7 @@ caused by ECH is that it is likely to circumvent the safeguards
 applied to protect children through content filtering, whether in the
 school or home environments, adding to adverse impacts already
 introduced through the use of encrypted DNS protocols such as DNS
-over HTTPS <span>[<a href="#RFC8484" class="xref">RFC8484</a>]</span>.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+over HTTPS <span>[<a href="#RFC8484" class="cite xref">RFC8484</a>]</span>.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1-2">Content filtering that leverages SNI information is used by education
 establishments to protect children from exposure to malicious, adult,
 extremist and other content that is deemed either age-inappropriate
@@ -1391,10 +1390,10 @@ or unsuitable for other reasons.  Any bypassing of content filtering
 by client software on devices will be problematic and may compromise
 duties placed on education establishments: for example, schools in
 the England and Wales have obligations to provide "appropriate
-filtering systems in place" <span>[<a href="#KCSE" class="xref">KCSE</a>]</span>; schools in the US use Internet
+filtering systems in place" <span>[<a href="#KCSE" class="cite xref">KCSE</a>]</span>; schools in the US use Internet
 filters and implement other measures to protect children from harmful
 online content as a condition for the receipt of certain federal
-funding, especially E-rate funds <span>[<a href="#CIPA" class="xref">CIPA</a>]</span>.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+funding, especially E-rate funds <span>[<a href="#CIPA" class="cite xref">CIPA</a>]</span>.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="why-content-filtering-matters-to-schools">
@@ -1406,7 +1405,7 @@ funding, especially E-rate funds <span>[<a href="#CIPA" class="xref">CIPA</a>]</
 educational institutions should not be underestimated.  For example, a
 coroner in the UK in 2021 ruled that a school's failure to prevent a
 pupil from accessing harmful material online on its equipment
-contributed to her taking her own life <span>[<a href="#Coroner" class="xref">Coroner</a>]</span>.  In this particular
+contributed to her taking her own life <span>[<a href="#Coroner" class="cite xref">Coroner</a>]</span>.  In this particular
 case, the filtering software installed at the school was either
 faulty or incorrectly configured but it highlights the harmful risks
 posed if the filtering is bypassed by client software using ECH.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
@@ -1491,7 +1490,7 @@ as is the case with ECH, will disrupt the use of transparent proxies.<a href="#s
         <h3 id="name-threat-landscape">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-threat-landscape" class="section-name selfRef">Threat landscape</a>
         </h3>
-<p id="section-5.1-1">The general threat landscape which was already very large (see <span>[<a href="#SMART" class="xref">SMART</a>]</span>), has significantly increased since the
+<p id="section-5.1-1">The general threat landscape which was already very large (see <span>[<a href="#SMART" class="cite xref">SMART</a>]</span>), has significantly increased since the
 COVID crisis. Indeed as the crisis forced many enterprises and organizations to accelerate their digital
 transformation, it increased the opportunity for the cyber criminals and nation states to launch more attacks,
 leverage innovations to their advantages, better select their targets, increase their efficiency and increase their
@@ -1559,7 +1558,7 @@ ECH-related, there are indications that US regulators are in the
 process of levying fines of $200m each on number of institutions
 because they were unable to track all communications by their
 employees because some were encrypted though the use of WhatsApp
-or Signal <span>[<a href="#Bloomberg" class="xref">Bloomberg</a>]</span>.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
+or Signal <span>[<a href="#Bloomberg" class="cite xref">Bloomberg</a>]</span>.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
 <p id="section-5.3-4">In addition to concerns about the loss of visibility of deliberate
 activity by users, the loss of visibility of potential command and
 control and other activity by malicious software is of concern to
@@ -1573,7 +1572,7 @@ privacy for the enterprise, its employees, suppliers and customers.<a href="#sec
         <h3 id="name-defence-in-depth-reminders">
 <a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-defence-in-depth-reminders" class="section-name selfRef">Defence in Depth reminders</a>
         </h3>
-<p id="section-5.4-1">The concept of Defence in Depth is not a new one <span>[<a href="#NIST-DID" class="xref">NIST-DID</a>]</span>, but it is still highly relevant today. Put simply
+<p id="section-5.4-1">The concept of Defence in Depth is not a new one <span>[<a href="#NIST-DID" class="cite xref">NIST-DID</a>]</span>, but it is still highly relevant today. Put simply
 Defence in Depth is about creating multiple layers of defence to stop hackers.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
 <p id="section-5.4-2">Normal internet traffic relies first on the DNS resolution and as discussed this can be a simple and effective way to block known bad sites i.e. check the domain name against a list of bad sites, or analyse the age of the domain and return a zero value if the site is known bad or has only existed for a short period of time.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
 <p id="section-5.4-3">Next as the HTTPS connection is made, checking the SNI, decrypting the traffic, and analyzing its content will ensure nothing sensitive is being sent or anything malicious is being received. Again, if anything is detected as bad, then block the request/response. This therefore forms the first levels of defence, it should also be noted that this network analysis does not have to be done  on-premise or as a traditional boundary defence, but can also be routed through an online service in the model of SASE (Secure Access Service Edge) allowing for greater flexibility for remote users and users working from home.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
@@ -1604,7 +1603,7 @@ Defence in Depth is about creating multiple layers of defence to stop hackers.<a
         <h3 id="name-the-need-for-network-based-">
 <a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-the-need-for-network-based-" class="section-name selfRef">The need for Network based security</a>
         </h3>
-<p id="section-5.6-1">In general <span>[<a href="#OPSECNSIMPACT" class="xref">OPSECNSIMPACT</a>]</span> covered several aspects of the impacts of pervasive encryption to Operational Network Security Practices.<a href="#section-5.6-1" class="pilcrow">¶</a></p>
+<p id="section-5.6-1">In general <span>[<a href="#OPSECNSIMPACT" class="cite xref">OPSECNSIMPACT</a>]</span> covered several aspects of the impacts of pervasive encryption to Operational Network Security Practices.<a href="#section-5.6-1" class="pilcrow">¶</a></p>
 <p id="section-5.6-2">Filtering is an important tool within many enterprises, with uses
 including the prevention of accidental access to malicious content
 due to phishing etc.  In the enterprise market, a number of vendors
@@ -1641,7 +1640,7 @@ controls.<a href="#section-5.6-6" class="pilcrow">¶</a></p>
 problems and limitations with this approach. One problem is that this endpoint software can be turned off and
 disabled. Even today, most endpoint security software (be it DLP or antimalware based) does not have Tamper Controls
 built into it. And as can be seen from many high profile attacks, such as the recent Sunburst attack that targeted
-the <span>[<a href="#SOLARWIND" class="xref">SOLARWIND</a>]</span> supply chain, the first thing that malware did was disable the anti-malware system so that attack
+the <span>[<a href="#SOLARWIND" class="cite xref">SOLARWIND</a>]</span> supply chain, the first thing that malware did was disable the anti-malware system so that attack
 would succeed. So, the need for network security as a Mandatory security control is much more effective than having
 endpoint based controls which can be turned on and off (and as such can be seen as a Discretionary control). The
 second problem arises because more and more organisations are moving applications and services to the cloud and the
@@ -1677,12 +1676,12 @@ taken into account when evaluating potential solutions.<a href="#section-5.7-2" 
       <h2 id="name-threat-detection">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-threat-detection" class="section-name selfRef">Threat Detection</a>
       </h2>
-<p id="section-6-1"><span>[<a href="#RFC8404" class="xref">RFC8404</a>]</span> identifies a number of issues arising from increased
+<p id="section-6-1"><span>[<a href="#RFC8404" class="cite xref">RFC8404</a>]</span> identifies a number of issues arising from increased
 encryption of data, some of which apply to ECH.  For example, it
 notes that an early trigger for DDoS mitigation involves
 distinguishing attacker traffic from legitimate user traffic; this
 become more difficult if traffic sources are obscured.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">The various indicators of compromise (IoCs) are documented in <span>[<a href="#I-D.draft-ietf-opsec-indicators-of-compromise" class="xref">I-D.draft-ietf-opsec-indicators-of-compromise</a>]</span>, which also describes how they
+<p id="section-6-2">The various indicators of compromise (IoCs) are documented in <span>[<a href="#I-D.draft-ietf-opsec-indicators-of-compromise" class="cite xref">I-D.draft-ietf-opsec-indicators-of-compromise</a>]</span>, which also describes how they
 are used effectively in cyber defence.  For example, section 4.1.1 of
 the document describes the importance of IoCs as part of a defence-
 in-depth strategy; in this context, SNI is just one of the range of
@@ -1709,7 +1708,7 @@ DNS, defences are weakened and the attack surface increased.<a href="#section-6-
         <h3 id="name-devices-are-not-trustable">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-devices-are-not-trustable" class="section-name selfRef">Devices are not trustable</a>
         </h3>
-<p id="section-7.1-1">As <span>[<a href="#CLESS" class="xref">CLESS</a>]</span> showed before its work was stopped, is that a strategy pushing security to only the two endpoints of a communication is doomed to a lot of trouble as the spectrum of limits affecting endpoint security solutions is a very big gap that has not been resolved in the past decades and won't be in any short term.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">As <span>[<a href="#CLESS" class="cite xref">CLESS</a>]</span> showed before its work was stopped, is that a strategy pushing security to only the two endpoints of a communication is doomed to a lot of trouble as the spectrum of limits affecting endpoint security solutions is a very big gap that has not been resolved in the past decades and won't be in any short term.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacks-targeting-the-web-browser">
@@ -1719,8 +1718,8 @@ DNS, defences are weakened and the attack surface increased.<a href="#section-6-
         </h3>
 <p id="section-7.2-1">As discussed, the web browser has now become the primary method used by users to access applications and services
 on the internet. Hackers know this and so increasingly use attacks that aim to compromise the browser including by
-performing and enabling a Man in the Browser <span>[<a href="#MITB" class="xref">MITB</a>]</span> attack, codified at T1185 in MITRE ATT&amp;CK framework
-<span>[<a href="#MITB-MITRE" class="xref">MITB-MITRE</a>]</span>.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+performing and enabling a Man in the Browser <span>[<a href="#MITB" class="cite xref">MITB</a>]</span> attack, codified at T1185 in MITRE ATT&amp;CK framework
+<span>[<a href="#MITB-MITRE" class="cite xref">MITB-MITRE</a>]</span>.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <p id="section-7.2-2">In the first instance we have Phishing attacks, which trick the user into clicking on a malicious link or opening a
 malicious file. Hackers create domains that look like legitimate websites which often are related to delivery
 companies or tax offices (and these can be blocked at the network level through analysing the SNI to understand the
@@ -1730,12 +1729,12 @@ website code itself (i.e. HTML or Java). In these cases, knowing the SNI is nece
 is essentially legitimate), so proper analysis on the whole page itself is much more important. In this case the web
 browser will not protect the user as it requires proper analysis, which can be done in transit from analysing the
 network traffic.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
-<p id="section-7.2-3">Other attacks work by compromising the legitimate website itself. <span>[<a href="#MALVERTISING" class="xref">MALVERTISING</a>]</span> (malicious advertising) attacks
+<p id="section-7.2-3">Other attacks work by compromising the legitimate website itself. <span>[<a href="#MALVERTISING" class="cite xref">MALVERTISING</a>]</span> (malicious advertising) attacks
 work by creating fake adverts that then get displayed on legitimate websites. In many cases the user can get
 infected by simply viewing the advert and again it is not always possible to stop these attacks with simply the SNI
 data; The SNI is necessary but it is only when the specific code hidden in the advert is analysed that the attack is
 detected and stopped. This, again, cannot be done in the browser alone.<a href="#section-7.2-3" class="pilcrow">¶</a></p>
-<p id="section-7.2-4"><span>[<a href="#MAGECART" class="xref">MAGECART</a>]</span>, or Web Skimming is a common form of attack which is intended to steal PII and credit card data.
+<p id="section-7.2-4"><span>[<a href="#MAGECART" class="cite xref">MAGECART</a>]</span>, or Web Skimming is a common form of attack which is intended to steal PII and credit card data.
 Hackers compromise legitimate websites, typically ecommerce related, and add JavaScripts which skim the credit card
 data used by a customer and send that data to the hacker. Other attacks will distribute the malware loaders to the
 user so again they get compromised by simply viewing the otherwise legitimate website. In both cases simply looking
@@ -1863,8 +1862,8 @@ It shows too that the current ECH drafts will implicitly:<a href="#section-9-1" 
 <p id="section-10-1">In addition to introducing new operational and financial issues, the
 introduction of SNI encryption poses new challenges for threat
 detection which this document outlines.  These do not appear to have
-been considered within either <span>[<a href="#RFC8744" class="xref">RFC8744</a>]</span> or the current ECH Internet-
-Draft <span>[<a href="#I-D.draft-ietf-tls-esni" class="xref">I-D.draft-ietf-tls-esni</a>]</span> and should be addressed fully within
+been considered within either <span>[<a href="#RFC8744" class="cite xref">RFC8744</a>]</span> or the current ECH Internet-
+Draft <span>[<a href="#I-D.draft-ietf-tls-esni" class="cite xref">I-D.draft-ietf-tls-esni</a>]</span> and should be addressed fully within
 the latter's security considerations section.<a href="#section-10-1" class="pilcrow">¶</a></p>
 <p id="section-10-2">This I-D should help improve Security Considerations for ECH.<a href="#section-10-2" class="pilcrow">¶</a></p>
 </section>
@@ -2020,6 +2019,19 @@ informal group of experts including the following people:<a href="#section-12-1"
 </div>
 </address>
 <p id="appendix-A-2">Gianpaolo contributed the research on the Digital Markets Act (DMA) EU law conflict with ECH.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Daniel Engberg</span></div>
+<div dir="auto" class="left"><span class="org">Skandinaviska Enskilda Banken AB (SEB)</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:daniel.engberg@seb.se" class="email">daniel.engberg@seb.se</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://www.linkedin.com/in/daniel-engberg-1561aaa/" class="url">https://www.linkedin.com/in/daniel-engberg-1561aaa/</a>
+</div>
+</address>
+<p id="appendix-A-3">Validate the issues for his organization.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">

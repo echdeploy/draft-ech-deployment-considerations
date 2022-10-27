@@ -74,6 +74,13 @@ contributor: # Same structure as author list, but goes into contributors
   uri: https://www.linkedin.com/in/gianpaoloscalone/
   contribution: |
     Gianpaolo contributed the research on the Digital Markets Act (DMA) EU law conflict with ECH.
+- name: Daniel Engberg
+  org: Skandinaviska Enskilda Banken AB (SEB)
+  email: daniel.engberg@seb.se
+  uri: https://www.linkedin.com/in/daniel-engberg-1561aaa/
+  contribution:
+    Validate the issues for his organization.
+
 
 normative:
   RFC8484:

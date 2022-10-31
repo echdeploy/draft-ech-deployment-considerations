@@ -76,14 +76,15 @@ Table of Contents
      3.2.  Why Content Filtering Matters to Schools
      3.3.  Mitigations
    4.  Transparent Proxies
-   5.  The need for Operational security by Enterprises and Other
-           Organisations
-     5.1.  Threat landscape
-     5.2.  Examples of regulatory implications
-     5.3.  Impact of ECH deployment on Network Security Operations
-       5.3.1.  Reminders on Network Security
-       5.3.2.  Implications from loss of Meta Data
-       5.3.3.  Implications from loss of Selective Decrypt
+   5.  Impact of ECH on Enterprises and Organizations
+     5.1.  The main requirements
+     5.2.  Examples of implications from the Threat Landscape and new
+           risks
+     5.3.  Examples of regulatory implications
+     5.4.  Impact of ECH deployment on Network Security Operations
+       5.4.1.  Reminders on Network Security
+       5.4.2.  Implications from loss of Meta Data
+       5.4.3.  Implications from loss of Selective Decrypt
    6.  Specific implications for SMBs
    7.  Public Network Service Providers
    8.  Threat Detection
@@ -290,20 +291,39 @@ Table of Contents
    requiring far more intrusive data inspection to be undertaken
    instead.
 
-5.  The need for Operational security by Enterprises and Other
-    Organisations
+5.  Impact of ECH on Enterprises and Organizations
 
-5.1.  Threat landscape
+5.1.  The main requirements
 
-   The general threat landscape which was already very large (see
-   [I-D.draft-mcfadden-smart-threat-changes]), has significantly
-   increased since the COVID crisis.  Indeed as the crisis forced many
-   enterprises and organizations to accelerate their digital
-   transformation, it increased the opportunity for the cyber criminals
-   and nation states to launch more attacks, leverage innovations to
-   their advantages, better select their targets, increase their
-   efficiency and increase their rewards, in particular with Ransomware
-   based attacks.
+   Enterprises and Organizations need to protect themselves for a vast
+   number of reasons, mainly:
+
+   *  Reduce their Risks.  And in particular as part of any Cyber
+      Resilience strategy.
+
+   *  Protect their Reputation.  The term Reputation includes many
+      aspects way beyond the traditional enterprises and organization
+      assets (data, etc.).
+
+   *  Comply to a growing diverse set of Policies, Regulations,
+      Certifications, Labeling and Guidelines.  This set of artifacts is
+      increasing by countries and regions in the world, by the nature of
+      the object of the artifact
+
+5.2.  Examples of implications from the Threat Landscape and new risks
+
+   In addition, the general threat landscape which was already very
+   large (see [I-D.draft-mcfadden-smart-threat-changes]), has
+   significantly increased in three ways: * COVID crisis generally
+   accelerated the overall attack landscape.  Indeed as the crisis
+   forced many enterprises and organizations to accelerate their digital
+   transformation, it increased the opportunity for cyber criminals and
+   nation states to launch more attacks, leverage innovations to their
+   advantages, better select their targets, increase their efficiency
+   and increase their rewards, in particular with Ransomware based
+   attacks. * The Supply Chain is under stress as per the [SOLARWIND]
+   attack * Nation State attacks are getting more visibility, among
+   other things, through the Ukraine crisis.
 
    Attacks are now damaging Enterprises and Organizations (with
    ransomware being the number 1 issue by large) in increasing severity
@@ -311,9 +331,8 @@ Table of Contents
    some countries:
 
    *  EUR1B loss of revenue for French organizations from January to
-      August 2022 [LOSSINREVENUE]
-
-   *  Loss in capitalisation between 1-5% [LOSSINCAP]
+      August 2022 [LOSSINREVENUE]* Loss in capitalisation between 1-5%
+      [LOSSINCAP]
 
    *  Degradation by credit notation agencies [LOSSINCREDITSCORE]
 
@@ -340,7 +359,7 @@ Table of Contents
    contractors that work across multiple organisations.  Among all
    mitigation considerations, costs and complexity prevail.
 
-5.2.  Examples of regulatory implications
+5.3.  Examples of regulatory implications
 
    Clear audit trails of any communications between parties are required
    in the finance sector amongst others for compliance purposes.  If it
@@ -362,9 +381,9 @@ Table of Contents
    privacy protections could lead to negative impacts on security and
    privacy for the enterprise, its employees, suppliers and customers.
 
-5.3.  Impact of ECH deployment on Network Security Operations
+5.4.  Impact of ECH deployment on Network Security Operations
 
-5.3.1.  Reminders on Network Security
+5.4.1.  Reminders on Network Security
 
    Network Security is a set of security capabilities which is
    articulated as part of a defense strategy, e.g.  Defense In Depth
@@ -380,7 +399,7 @@ Table of Contents
    [I-D.draft-ietf-opsec-indicators-of-compromise]) will have mostly two
    types of implications
 
-5.3.2.  Implications from loss of Meta Data
+5.4.2.  Implications from loss of Meta Data
 
    The loss of visibility of the SNI, at TLS level, will prevent
    transparent proxies to apply corporate policies to manage risk and
@@ -391,7 +410,7 @@ Table of Contents
    of excluded sites for compliancy reasons need alternatives to be
    blocked.
 
-5.3.3.  Implications from loss of Selective Decrypt
+5.4.3.  Implications from loss of Selective Decrypt
 
    TLS proxies also have the ability to selectively intercept, avoiding
    any visibility into or modification of the original application

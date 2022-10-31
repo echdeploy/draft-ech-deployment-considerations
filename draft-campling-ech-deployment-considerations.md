@@ -442,20 +442,26 @@ accessing inappropriate content without the need to inspect data
 beyond the SNI field.  Because of this, encryption of the SNI field,
 as is the case with ECH, will disrupt the use of transparent proxies, requiring far more intrusive data inspection to be undertaken instead.
 
-# The need for Operational security by Enterprises and Other Organisations
+# Impact of ECH on Enterprises and Organizations
 
-## Threat landscape
+## The main requirements
 
-The general threat landscape which was already very large (see {{I-D.draft-mcfadden-smart-threat-changes}}), has significantly increased since the
-COVID crisis. Indeed as the crisis forced many enterprises and organizations to accelerate their digital
-transformation, it increased the opportunity for the cyber criminals and nation states to launch more attacks,
-leverage innovations to their advantages, better select their targets, increase their efficiency and increase their
-rewards, in particular with Ransomware based attacks.
+Enterprises and Organizations need to protect themselves for a vast number of reasons, mainly:
+
+* Reduce their Risks. And in particular as part of any Cyber Resilience strategy.
+* Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).
+* Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. This set of artifacts is increasing by countries and regions in the world, by the nature of the object of the artifact
+
+## Examples of implications from the Threat Landscape and new risks
+
+In addition, the general threat landscape which was already very large (see {{I-D.draft-mcfadden-smart-threat-changes}}), has significantly increased in three ways:
+* COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantages, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.
+* The Supply Chain is under stress as per the {{SOLARWIND}} attack
+* Nation State attacks are getting more visibility, among other things, through the Ukraine crisis.
 
 Attacks are now damaging Enterprises and Organizations (with ransomware being the number 1 issue by large) in increasing severity which materialises and started to be measured at macroscopic level in some countries:
 
-* €1B loss of revenue for French organizations from January to August 2022 {{LOSSINREVENUE}}
-* Loss in capitalisation between 1-5% {{LOSSINCAP}}
+* €1B loss of revenue for French organizations from January to August 2022 {{LOSSINREVENUE}}* Loss in capitalisation between 1-5% {{LOSSINCAP}}
 * Degradation by credit notation agencies {{LOSSINCREDITSCORE}}
 
 Since the damage is so high, some cyber insurances companies in some countries prefer to pay the ransom to mitigate the damage which has the side effect of funding and encouraging cybercriminals to increase their attacks or pay a ransom to an embargoed country which is illegal!
@@ -470,6 +476,7 @@ networks on a temporary basis.  In such circumstances, requiring
 software or custom configurations to be installed on those devices
 may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}, especially for contractors that work across
 multiple organisations.  Among all mitigation considerations, costs and complexity prevail.
+
 
 ## Examples of regulatory implications
 
@@ -494,8 +501,6 @@ privacy protections could lead to negative impacts on security and
 privacy for the enterprise, its employees, suppliers and customers.
 
 ## Impact of ECH deployment on Network Security Operations
-
-
 
 ### Reminders on Network Security
 

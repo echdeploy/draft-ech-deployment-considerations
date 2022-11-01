@@ -455,19 +455,22 @@ Enterprises and Organizations need to protect themselves for a vast number of re
 ## Examples of implications from the Threat Landscape and new risks
 
 In addition, the general threat landscape which was already very large (see {{I-D.draft-mcfadden-smart-threat-changes}}), has significantly increased in three ways:
+
 * COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantages, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.
 * The Supply Chain is under stress as per the {{SOLARWIND}} attack
 * Nation State attacks are getting more visibility, among other things, through the Ukraine crisis.
 
 Attacks are now damaging Enterprises and Organizations (with ransomware being the number 1 issue by large) in increasing severity which materialises and started to be measured at macroscopic level in some countries:
 
-* €1B loss of revenue for French organizations from January to August 2022 {{LOSSINREVENUE}}* Loss in capitalisation between 1-5% {{LOSSINCAP}}
+* €1B loss of revenue for French organizations from January to August 2022 {{LOSSINREVENUE}}
+* Loss in capitalisation between 1-5% {{LOSSINCAP}}
 * Degradation by credit notation agencies {{LOSSINCREDITSCORE}}
 
 Since the damage is so high, some cyber insurances companies in some countries prefer to pay the ransom to mitigate the damage which has the side effect of funding and encouraging cybercriminals to increase their attacks or pay a ransom to an embargoed country which is illegal!
 
 Another implication from the COVID crisis is the acceleration of BYOD
 with the current reliance on remote working which created two types of side effects:
+
 * remote employees need to use a VPN an backhaul back to corporate networks, which brings all the risks that VPN may open
 * remote employees need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.
 
@@ -485,6 +488,7 @@ in the finance sector amongst others for compliance purposes.  If it
 becomes possible for communications to take place without an audit
 trail or any visibility to the enterprise, then there is increased
 scope for abuse to take place, including insider trading or fraud.
+
 The lack of a comprehensive audit trail can also have serious enforcement
 consequences, at least in some sectors.  For example, although not
 ECH-related, there are indications that US regulators are in the
@@ -511,6 +515,7 @@ In the same way that {{I-D.draft-ietf-opsec-ns-impact}} showed the impact of TLS
 ### Implications from loss of Meta Data
 
 The loss of visibility of the SNI, at TLS level, will prevent transparent proxies to apply corporate policies to manage risk and compliancy. Typical examples:
+
 * categories of compromised sites cannot be applied anymore, leading employees to potential cybersecurity risk for them and for their organization and alternatives to block theses sites need to be found
 * corporate lists of excluded sites for compliancy reasons need alternatives to be blocked.
 
@@ -585,7 +590,7 @@ distinguishing attacker traffic from legitimate user traffic; this
 become more difficult if traffic sources are obscured.
 
 The various indicators of compromise (IoCs) are documented in {{I-D.draft-ietf-opsec-indicators-of-compromise}}, which also describes how they
-are used effectively in cyber defence.  For example, section 4.1.1 of
+are used effectively in cyber defence. For example, section 4.1.1 of
 the document describes the importance of IoCs as part of a defence-
 in-depth strategy; in this context, SNI is just one of the range of
 indicators that can be used to build up a resilient defence (see

@@ -1053,11 +1053,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ECH Deployment Considerations</td>
-<td class="right">October 2022</td>
+<td class="right">November 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Campling, et al.</td>
-<td class="center">Expires 4 May 2023</td>
+<td class="center">Expires 5 May 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1070,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-campling-ech-deployment-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-10-31" class="published">31 October 2022</time>
+<time datetime="2022-11-01" class="published">1 November 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-05-04">4 May 2023</time></dd>
+<dd class="expires"><time datetime="2023-05-05">5 May 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1142,7 +1142,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1491,27 +1491,38 @@ as is the case with ECH, will disrupt the use of transparent proxies, requiring 
         <h3 id="name-examples-of-implications-fr">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-examples-of-implications-fr" class="section-name selfRef">Examples of implications from the Threat Landscape and new risks</a>
         </h3>
-<p id="section-5.2-1">In addition, the general threat landscape which was already very large (see <span>[<a href="#I-D.draft-mcfadden-smart-threat-changes" class="cite xref">I-D.draft-mcfadden-smart-threat-changes</a>]</span>), has significantly increased in three ways:
-* COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantages, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.
-* The Supply Chain is under stress as per the <span>[<a href="#SOLARWIND" class="cite xref">SOLARWIND</a>]</span> attack
-* Nation State attacks are getting more visibility, among other things, through the Ukraine crisis.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2-2">Attacks are now damaging Enterprises and Organizations (with ransomware being the number 1 issue by large) in increasing severity which materialises and started to be measured at macroscopic level in some countries:<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">In addition, the general threat landscape which was already very large (see <span>[<a href="#I-D.draft-mcfadden-smart-threat-changes" class="cite xref">I-D.draft-mcfadden-smart-threat-changes</a>]</span>), has significantly increased in three ways:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2-3.1">EUR1B loss of revenue for French organizations from January to August 2022 <span>[<a href="#LOSSINREVENUE" class="cite xref">LOSSINREVENUE</a>]</span>* Loss in capitalisation between 1-5% <span>[<a href="#LOSSINCAP" class="cite xref">LOSSINCAP</a>]</span><a href="#section-5.2-3.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2-2.1">COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantages, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.<a href="#section-5.2-2.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-5.2-3.2">Degradation by credit notation agencies <span>[<a href="#LOSSINCREDITSCORE" class="cite xref">LOSSINCREDITSCORE</a>]</span><a href="#section-5.2-3.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-5.2-2.2">The Supply Chain is under stress as per the <span>[<a href="#SOLARWIND" class="cite xref">SOLARWIND</a>]</span> attack<a href="#section-5.2-2.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.2-2.3">Nation State attacks are getting more visibility, among other things, through the Ukraine crisis.<a href="#section-5.2-2.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-5.2-4">Since the damage is so high, some cyber insurances companies in some countries prefer to pay the ransom to mitigate the damage which has the side effect of funding and encouraging cybercriminals to increase their attacks or pay a ransom to an embargoed country which is illegal!<a href="#section-5.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2-5">Another implication from the COVID crisis is the acceleration of BYOD
-with the current reliance on remote working which created two types of side effects:
-* remote employees need to use a VPN an backhaul back to corporate networks, which brings all the risks that VPN may open
-* remote employees need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.2-6">This amplified some complications such as any restrictions on the use of BYOD will also affect contractors and other third parties that need to connect to one or more enterprise
+<p id="section-5.2-3">Attacks are now damaging Enterprises and Organizations (with ransomware being the number 1 issue by large) in increasing severity which materialises and started to be measured at macroscopic level in some countries:<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-4.1">EUR1B loss of revenue for French organizations from January to August 2022 <span>[<a href="#LOSSINREVENUE" class="cite xref">LOSSINREVENUE</a>]</span><a href="#section-5.2-4.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.2-4.2">Loss in capitalisation between 1-5% <span>[<a href="#LOSSINCAP" class="cite xref">LOSSINCAP</a>]</span><a href="#section-5.2-4.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.2-4.3">Degradation by credit notation agencies <span>[<a href="#LOSSINCREDITSCORE" class="cite xref">LOSSINCREDITSCORE</a>]</span><a href="#section-5.2-4.3" class="pilcrow">¶</a>
+</li>
+        </ul>
+<p id="section-5.2-5">Since the damage is so high, some cyber insurances companies in some countries prefer to pay the ransom to mitigate the damage which has the side effect of funding and encouraging cybercriminals to increase their attacks or pay a ransom to an embargoed country which is illegal!<a href="#section-5.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.2-6">Another implication from the COVID crisis is the acceleration of BYOD
+with the current reliance on remote working which created two types of side effects:<a href="#section-5.2-6" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-7.1">remote employees need to use a VPN an backhaul back to corporate networks, which brings all the risks that VPN may open<a href="#section-5.2-7.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.2-7.2">remote employees need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.<a href="#section-5.2-7.2" class="pilcrow">¶</a>
+</li>
+        </ul>
+<p id="section-5.2-8">This amplified some complications such as any restrictions on the use of BYOD will also affect contractors and other third parties that need to connect to one or more enterprise
 networks on a temporary basis.  In such circumstances, requiring
 software or custom configurations to be installed on those devices
 may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introduction" class="cite xref">I-D.draft-taddei-smart-cless-introduction</a>]</span>, especially for contractors that work across
-multiple organisations.  Among all mitigation considerations, costs and complexity prevail.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
+multiple organisations.  Among all mitigation considerations, costs and complexity prevail.<a href="#section-5.2-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="examples-of-regulatory-implications">
@@ -1523,20 +1534,20 @@ multiple organisations.  Among all mitigation considerations, costs and complexi
 in the finance sector amongst others for compliance purposes.  If it
 becomes possible for communications to take place without an audit
 trail or any visibility to the enterprise, then there is increased
-scope for abuse to take place, including insider trading or fraud.
-The lack of a comprehensive audit trail can also have serious enforcement
+scope for abuse to take place, including insider trading or fraud.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3-2">The lack of a comprehensive audit trail can also have serious enforcement
 consequences, at least in some sectors.  For example, although not
 ECH-related, there are indications that US regulators are in the
 process of levying fines of $200m each on number of institutions
 because they were unable to track all communications by their
 employees because some were encrypted through the use of WhatsApp
-or Signal <span>[<a href="#Bloomberg" class="cite xref">Bloomberg</a>]</span>.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.3-2">In addition to concerns about the loss of visibility of deliberate
+or Signal <span>[<a href="#Bloomberg" class="cite xref">Bloomberg</a>]</span>.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3-3">In addition to concerns about the loss of visibility of deliberate
 activity by users, the loss of visibility of potential command and
 control and other activity by malicious software is of concern to
 enterprises.  In such cases, the lack of visibility from these
 privacy protections could lead to negative impacts on security and
-privacy for the enterprise, its employees, suppliers and customers.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+privacy for the enterprise, its employees, suppliers and customers.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="impact-of-ech-deployment-on-network-security-operations">
@@ -1558,9 +1569,13 @@ privacy for the enterprise, its employees, suppliers and customers.<a href="#sec
           <h4 id="name-implications-from-loss-of-m">
 <a href="#section-5.4.2" class="section-number selfRef">5.4.2. </a><a href="#name-implications-from-loss-of-m" class="section-name selfRef">Implications from loss of Meta Data</a>
           </h4>
-<p id="section-5.4.2-1">The loss of visibility of the SNI, at TLS level, will prevent transparent proxies to apply corporate policies to manage risk and compliancy. Typical examples:
-* categories of compromised sites cannot be applied anymore, leading employees to potential cybersecurity risk for them and for their organization and alternatives to block theses sites need to be found
-* corporate lists of excluded sites for compliancy reasons need alternatives to be blocked.<a href="#section-5.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.4.2-1">The loss of visibility of the SNI, at TLS level, will prevent transparent proxies to apply corporate policies to manage risk and compliancy. Typical examples:<a href="#section-5.4.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.4.2-2.1">categories of compromised sites cannot be applied anymore, leading employees to potential cybersecurity risk for them and for their organization and alternatives to block theses sites need to be found<a href="#section-5.4.2-2.1" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-5.4.2-2.2">corporate lists of excluded sites for compliancy reasons need alternatives to be blocked.<a href="#section-5.4.2-2.2" class="pilcrow">¶</a>
+</li>
+          </ul>
 </section>
 </div>
 <div id="implications-from-loss-of-selective-decrypt">
@@ -1636,7 +1651,7 @@ notes that an early trigger for DDoS mitigation involves
 distinguishing attacker traffic from legitimate user traffic; this
 become more difficult if traffic sources are obscured.<a href="#section-8-1" class="pilcrow">¶</a></p>
 <p id="section-8-2">The various indicators of compromise (IoCs) are documented in <span>[<a href="#I-D.draft-ietf-opsec-indicators-of-compromise" class="cite xref">I-D.draft-ietf-opsec-indicators-of-compromise</a>]</span>, which also describes how they
-are used effectively in cyber defence.  For example, section 4.1.1 of
+are used effectively in cyber defence. For example, section 4.1.1 of
 the document describes the importance of IoCs as part of a defence-
 in-depth strategy; in this context, SNI is just one of the range of
 indicators that can be used to build up a resilient defence (see

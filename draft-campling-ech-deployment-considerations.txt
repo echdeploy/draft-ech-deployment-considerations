@@ -5,13 +5,13 @@
 secdispatch                                          A. J. Campling, Ed.
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                             P. Vixie, Ed.
-Expires: 4 May 2023                                             Red Barn
+Expires: 5 May 2023                                             Red Barn
                                                           D. Wright, Ed.
                                                 UK Safer Internet Centre
                                                           A. Taddei, Ed.
                                                          S. Edwards, Ed.
                                                                 Broadcom
-                                                         31 October 2022
+                                                         1 November 2022
 
 
             Encrypted Client Hello Deployment Considerations
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 May 2023.
+   This Internet-Draft will expire on 5 May 2023.
 
 Copyright Notice
 
@@ -314,16 +314,20 @@ Table of Contents
 
    In addition, the general threat landscape which was already very
    large (see [I-D.draft-mcfadden-smart-threat-changes]), has
-   significantly increased in three ways: * COVID crisis generally
-   accelerated the overall attack landscape.  Indeed as the crisis
-   forced many enterprises and organizations to accelerate their digital
-   transformation, it increased the opportunity for cyber criminals and
-   nation states to launch more attacks, leverage innovations to their
-   advantages, better select their targets, increase their efficiency
-   and increase their rewards, in particular with Ransomware based
-   attacks. * The Supply Chain is under stress as per the [SOLARWIND]
-   attack * Nation State attacks are getting more visibility, among
-   other things, through the Ukraine crisis.
+   significantly increased in three ways:
+
+   *  COVID crisis generally accelerated the overall attack landscape.
+      Indeed as the crisis forced many enterprises and organizations to
+      accelerate their digital transformation, it increased the
+      opportunity for cyber criminals and nation states to launch more
+      attacks, leverage innovations to their advantages, better select
+      their targets, increase their efficiency and increase their
+      rewards, in particular with Ransomware based attacks.
+
+   *  The Supply Chain is under stress as per the [SOLARWIND] attack
+
+   *  Nation State attacks are getting more visibility, among other
+      things, through the Ukraine crisis.
 
    Attacks are now damaging Enterprises and Organizations (with
    ransomware being the number 1 issue by large) in increasing severity
@@ -331,8 +335,9 @@ Table of Contents
    some countries:
 
    *  EUR1B loss of revenue for French organizations from January to
-      August 2022 [LOSSINREVENUE]* Loss in capitalisation between 1-5%
-      [LOSSINCAP]
+      August 2022 [LOSSINREVENUE]
+
+   *  Loss in capitalisation between 1-5% [LOSSINCAP]
 
    *  Degradation by credit notation agencies [LOSSINCREDITSCORE]
 
@@ -344,11 +349,14 @@ Table of Contents
 
    Another implication from the COVID crisis is the acceleration of BYOD
    with the current reliance on remote working which created two types
-   of side effects: * remote employees need to use a VPN an backhaul
-   back to corporate networks, which brings all the risks that VPN may
-   open * remote employees need to access a cloud proxy which requires
-   an agent to be installed on the device to steer the traffic to the
-   right place.
+   of side effects:
+
+   *  remote employees need to use a VPN an backhaul back to corporate
+      networks, which brings all the risks that VPN may open
+
+   *  remote employees need to access a cloud proxy which requires an
+      agent to be installed on the device to steer the traffic to the
+      right place.
 
    This amplified some complications such as any restrictions on the use
    of BYOD will also affect contractors and other third parties that
@@ -366,6 +374,7 @@ Table of Contents
    becomes possible for communications to take place without an audit
    trail or any visibility to the enterprise, then there is increased
    scope for abuse to take place, including insider trading or fraud.
+
    The lack of a comprehensive audit trail can also have serious
    enforcement consequences, at least in some sectors.  For example,
    although not ECH-related, there are indications that US regulators
@@ -403,12 +412,15 @@ Table of Contents
 
    The loss of visibility of the SNI, at TLS level, will prevent
    transparent proxies to apply corporate policies to manage risk and
-   compliancy.  Typical examples: * categories of compromised sites
-   cannot be applied anymore, leading employees to potential
-   cybersecurity risk for them and for their organization and
-   alternatives to block theses sites need to be found * corporate lists
-   of excluded sites for compliancy reasons need alternatives to be
-   blocked.
+   compliancy.  Typical examples:
+
+   *  categories of compromised sites cannot be applied anymore, leading
+      employees to potential cybersecurity risk for them and for their
+      organization and alternatives to block theses sites need to be
+      found
+
+   *  corporate lists of excluded sites for compliancy reasons need
+      alternatives to be blocked.
 
 5.4.3.  Implications from loss of Selective Decrypt
 

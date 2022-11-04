@@ -1057,7 +1057,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Campling, et al.</td>
-<td class="center">Expires 5 May 2023</td>
+<td class="center">Expires 8 May 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1070,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-campling-ech-deployment-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-11-01" class="published">1 November 2022</time>
+<time datetime="2022-11-04" class="published">4 November 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-05-05">5 May 2023</time></dd>
+<dd class="expires"><time datetime="2023-05-08">8 May 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1142,7 +1142,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1201,7 +1201,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-the-main-requirements" class="internal xref">The main requirements</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-examples-of-implications-fr" class="internal xref">Examples of implications from the Threat Landscape and new risks</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-a-degrading-threat-landscap" class="internal xref">A degrading threat landscape</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-examples-of-regulatory-impl" class="internal xref">Examples of regulatory implications</a></p>
@@ -1276,8 +1276,8 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
 cases for SNI data in a variety of contexts.  It highlights how the
 use of that data is important to the operators of both public and private networks
 and shows how the loss of access to SNI data will cause difficulties
-in the provision of a range of services to end-
-users.  Some mitigations are identified that may be useful for inclusion by those considering the adoption of support for ECH in their software.<a href="#section-1-1" class="pilcrow">¶</a></p>
+in the provision of a range of services to end-users.
+Some mitigations are identified that may be useful for inclusion by those considering the adoption of support for ECH in their software.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">The Internet was envisaged as a network of networks, each able to
 determine what data to transmit and receive from their peers.
 Developments like ECH mark a fundamental change in the architecture
@@ -1309,10 +1309,13 @@ be accessing content in a way that violates privacy considerations".<a href="#se
 <p id="section-1-6">This document considers the implications of ECH for private network
 operators including enterprises and education establishments. The
 data encapsulated by ECH is of legitimate interest to on-path
-security actors including those providing inline malware detection, firewalls, parental controls, content filtering to prevent access to malware and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.  This document will focus specifically on
+security actors including those providing inline malware detection,
+firewalls, parental controls, content filtering to prevent access to malware
+and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<p id="section-1-7">This document will focus specifically on
 the impact of encrypting the SNI data by ECH on public and private networks,
 but it should be noted that other elements in the client hello may be relevant for some
-on-path security methods.<a href="#section-1-6" class="pilcrow">¶</a></p>
+on-path security methods.<a href="#section-1-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="encrypted-server-name-indication">
@@ -1486,10 +1489,10 @@ as is the case with ECH, will disrupt the use of transparent proxies, requiring 
         </ul>
 </section>
 </div>
-<div id="examples-of-implications-from-the-threat-landscape-and-new-risks">
+<div id="a-degrading-threat-landscape">
 <section id="section-5.2">
-        <h3 id="name-examples-of-implications-fr">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-examples-of-implications-fr" class="section-name selfRef">Examples of implications from the Threat Landscape and new risks</a>
+        <h3 id="name-a-degrading-threat-landscap">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-a-degrading-threat-landscap" class="section-name selfRef">A degrading threat landscape</a>
         </h3>
 <p id="section-5.2-1">In addition, the general threat landscape which was already very large (see <span>[<a href="#I-D.draft-mcfadden-smart-threat-changes" class="cite xref">I-D.draft-mcfadden-smart-threat-changes</a>]</span>), has significantly increased in three ways:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1509,20 +1512,27 @@ as is the case with ECH, will disrupt the use of transparent proxies, requiring 
           <li class="normal" id="section-5.2-4.3">Degradation by credit notation agencies <span>[<a href="#LOSSINCREDITSCORE" class="cite xref">LOSSINCREDITSCORE</a>]</span><a href="#section-5.2-4.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-5.2-5">Since the damage is so high, some cyber insurances companies in some countries prefer to pay the ransom to mitigate the damage which has the side effect of funding and encouraging cybercriminals to increase their attacks or pay a ransom to an embargoed country which is illegal!<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.2-6">Another implication from the COVID crisis is the acceleration of BYOD
-with the current reliance on remote working which created two types of side effects:<a href="#section-5.2-6" class="pilcrow">¶</a></p>
+<p id="section-5.2-5">Another implication from the COVID crisis is the acceleration of BYOD
+with the current reliance on remote working which created two types of side effects for remote employees, contractors and third parties that need to connect to one or more enterprise
+networks on a temporary basis:<a href="#section-5.2-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2-7.1">remote employees need to use a VPN an backhaul back to corporate networks, which brings all the risks that VPN may open<a href="#section-5.2-7.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2-6.1">need to use a VPN access to the corporate network, which brings all the risks that VPN may open<a href="#section-5.2-6.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-5.2-7.2">remote employees need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.<a href="#section-5.2-7.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-5.2-6.2">need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.<a href="#section-5.2-6.2" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-5.2-8">This amplified some complications such as any restrictions on the use of BYOD will also affect contractors and other third parties that need to connect to one or more enterprise
-networks on a temporary basis.  In such circumstances, requiring
+<p id="section-5.2-7">In such circumstances, requiring
 software or custom configurations to be installed on those devices
-may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introduction" class="cite xref">I-D.draft-taddei-smart-cless-introduction</a>]</span>, especially for contractors that work across
-multiple organisations.  Among all mitigation considerations, costs and complexity prevail.<a href="#section-5.2-8" class="pilcrow">¶</a></p>
+may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introduction" class="cite xref">I-D.draft-taddei-smart-cless-introduction</a>]</span>.<a href="#section-5.2-7" class="pilcrow">¶</a></p>
+<p id="section-5.2-8">This is why network security solutions are required and this is why ECH preventing the access to the SNI makes it impossible for blue teams to defend (see the next sections for details).<a href="#section-5.2-8" class="pilcrow">¶</a></p>
+<p id="section-5.2-9">Finally there is a major lack of manpower in cybersecurity with a lack of professionalization which is not compensated anymore by the vocational aspect of cybersecurity so far.<a href="#section-5.2-9" class="pilcrow">¶</a></p>
+<p id="section-5.2-10">All the above conditions are weighing on capabilities to defend, both:<a href="#section-5.2-10" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-11.1">Directly: a lack of visibility on a key meta data like the SNI will cause significant issues to enterprises and organizations<a href="#section-5.2-11.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.2-11.2">Indirectly: should ECH happen and should alternative be provided, managing migrations to any alternative not requiring access to the SNI, in these conditions, is undesirable from a timing, resources, capacities and risks perspectives.<a href="#section-5.2-11.2" class="pilcrow">¶</a>
+</li>
+        </ul>
 </section>
 </div>
 <div id="examples-of-regulatory-implications">
@@ -1560,7 +1570,7 @@ privacy for the enterprise, its employees, suppliers and customers.<a href="#sec
           <h4 id="name-reminders-on-network-securi">
 <a href="#section-5.4.1" class="section-number selfRef">5.4.1. </a><a href="#name-reminders-on-network-securi" class="section-name selfRef">Reminders on Network Security</a>
           </h4>
-<p id="section-5.4.1-1">Network Security is a set of security capabilities which is articulated as part of a defense strategy, e.g. Defense In Depth <span>[<a href="#NIST-DID" class="cite xref">NIST-DID</a>]</span>, Zero Trust, SASE/SSE, etc. and can trigger and enable other security capabilities such as sandboxing, Data Loss Prevention, Cloud Access Service Broker (CASB), etc. One essential element is a Web Proxy, combining both a TLS proxy and an application level (HTTP) proxy.<a href="#section-5.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.4.1-1">Network Security is a set of security capabilities which is articulated as part of a defense strategy, e.g. Defense In Depth <span>[<a href="#NIST-DID" class="cite xref">NIST-DID</a>]</span>, Zero Trust, SASE/SSE, etc. and can trigger and enable other security capabilities such as sandboxing, Data Loss Prevention, Cloud Access Service Broker (CASB), etc. One constituency is a Web Proxy, combining both a TLS proxy and an application level (HTTP) proxy.<a href="#section-5.4.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.4.1-2">In the same way that <span>[<a href="#I-D.draft-ietf-opsec-ns-impact" class="cite xref">I-D.draft-ietf-opsec-ns-impact</a>]</span> showed the impact of TLS1.3 on operational security, a loss of visibility of the SNI as indicator of compromise (see <span>[<a href="#I-D.draft-ietf-opsec-indicators-of-compromise" class="cite xref">I-D.draft-ietf-opsec-indicators-of-compromise</a>]</span>) will have mostly two types of implications<a href="#section-5.4.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1569,11 +1579,11 @@ privacy for the enterprise, its employees, suppliers and customers.<a href="#sec
           <h4 id="name-implications-from-loss-of-m">
 <a href="#section-5.4.2" class="section-number selfRef">5.4.2. </a><a href="#name-implications-from-loss-of-m" class="section-name selfRef">Implications from loss of Meta Data</a>
           </h4>
-<p id="section-5.4.2-1">The loss of visibility of the SNI, at TLS level, will prevent transparent proxies to apply corporate policies to manage risk and compliancy. Typical examples:<a href="#section-5.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.4.2-1">The loss of visibility of the SNI, at TLS level, will prevent transparent proxies from applying corporate policies to manage risk and compliancy. Typical examples:<a href="#section-5.4.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.4.2-2.1">categories of compromised sites cannot be applied anymore, leading employees to potential cybersecurity risk for them and for their organization and alternatives to block theses sites need to be found<a href="#section-5.4.2-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.4.2-2.1">categories of compromised sites cannot be applied anymore, leading employees to potential cybersecurity risk for them and for their organization and alternative approaches to block access to theses sites need to be found<a href="#section-5.4.2-2.1" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-5.4.2-2.2">corporate lists of excluded sites for compliancy reasons need alternatives to be blocked.<a href="#section-5.4.2-2.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-5.4.2-2.2">corporate lists of excluded sites for compliancy reasons need alternatives ways to be blocked.<a href="#section-5.4.2-2.2" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>
@@ -1586,7 +1596,7 @@ privacy for the enterprise, its employees, suppliers and customers.<a href="#sec
 <p id="section-5.4.3-1">TLS proxies also have the ability to selectively intercept, avoiding any visibility into or modification of the original application protocol payload - but such selective intercept relies heavily on knowledge of the origin content server hostname, which can be extracted in plaintext from the TLS ClientHello SNI (server name) field.<a href="#section-5.4.3-1" class="pilcrow">¶</a></p>
 <p id="section-5.4.3-2">This capabilities allows the application proxy, in particular an HTTPS proxy to engage efficiently specific security controls, e.g. Data Loss Prevention, Sandboxing, etc.<a href="#section-5.4.3-2" class="pilcrow">¶</a></p>
 <p id="section-5.4.3-3">The loss of SNI visibility will make it more difficult for corporate user flows to be intercepted and impossible when this is BYOD use cases.<a href="#section-5.4.3-3" class="pilcrow">¶</a></p>
-<p id="section-5.4.3-4">This will create inefficiencies, require more resources, will increase security risks themselves, will as well be counter productive for privacy itself as it requires to decrypt the whole traffic at TLS level.<a href="#section-5.4.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.4.3-4">This will create inefficiencies, require more resources, and increase security risks themselves. It will also be counter productive for privacy itself as it may require the proxy to decrypt the whole TLS connection.<a href="#section-5.4.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1598,8 +1608,9 @@ privacy for the enterprise, its employees, suppliers and customers.<a href="#sec
       <h2 id="name-specific-implications-for-s">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-specific-implications-for-s" class="section-name selfRef">Specific implications for SMBs</a>
       </h2>
-<p id="section-6-1">Small and Medium Business (SMBs) form a particular vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employees company is considered the upper range of SMB business in developing countries when it is up to 25'000 in some developed countries). Yet it leaves a strong range of organizations with very limited capabilities to defend themselves, a security which is often outsourced to Managed Security Service Providers (Among which many Operators, mid range and small service providers).<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">For them, the above 'education' use case would apply in similar ways, opening, by ripple effect, the same issues found by major service providers and in particular by smaller ones (see next section).<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-1">Small and Medium Business (SMBs) form a particular vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25'000 in some developed countries).<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">Yet it leaves a large range of organizations with very limited capabilities to defend themselves, a security which is often outsourced to Managed Security Service Providers (Among which many Operators, mid range and small service providers).<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">For them, the above 'education' use case would apply in similar ways, opening, by ripple effect, the same issues found by major service providers and in particular by smaller ones (see next section).<a href="#section-6-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="public-network-service-providers">
@@ -1615,7 +1626,7 @@ privacy for the enterprise, its employees, suppliers and customers.<a href="#sec
         <li class="normal" id="section-7-3.2">The other approach has been to set up a legal framework specifically aimed at the regulation of the internet and other digital media, including the blocking, filtering and removal of internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.<a href="#section-7-3.2" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-7-4">in relation to specific areas where the public interest has to be protected more strongly, such as Child abuse crimes, terrorism, criminality and national security many states have a framework for the urgent removal of internet content regarding the above materials without the need of a court order: Administrative authorities, police authorities or public prosecutors are given specific powers to order internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.<a href="#section-7-4" class="pilcrow">¶</a></p>
+<p id="section-7-4">In relation to specific areas where the public interest has to be protected more strongly, such as Child abuse crimes, terrorism, criminality and national security many states have a framework for the urgent removal of internet content regarding the above materials without the need of a court order: Administrative authorities, police authorities or public prosecutors are given specific powers to order internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <p id="section-7-5">Particularly in relation to material concerning child abuse and other serious crimes, many countries adopt a "list" system, whereby a central list of blocked URLs or domain names are maintained and updated by the relevant administrative authority. This is notified to the relevant internet access providers, who are required to ensure that blocking is enforced.
 Additionally in some states the authorities can request the removal of content that infringes intellectual property, privacy or defamation rights. In this case the removal need to be requested by a court order.<a href="#section-7-5" class="pilcrow">¶</a></p>
 <p id="section-7-6">Generally speaking, the grounds relied on broadly correspond to the interests protected under Article 10(2) of the European Convention of Human Rights (ECHR), namely: the protection of national security, territorial integrity or public safety, the prevention of disorder or crime, the protection of health or morals, the protection of the reputation or rights of others, and the prevention of the disclosure of information received in confidence.
@@ -1628,15 +1639,15 @@ From the methodology we have to distinguish between blocking or takedown of cont
       </ul>
 <p id="section-7-8">In these considerations we will refer to blocking only.<a href="#section-7-8" class="pilcrow">¶</a></p>
 <p id="section-7-9">This can be achieved through a number of techniques, including the blocking of the Domain Name System (DNS), the analysis of the SNI field or the Uniform Resource Locator (URL).
-Given the increasing adoption of encryption techniques often a mixture of the above techniques is requested.<a href="#section-7-9" class="pilcrow">¶</a></p>
+Given the increasing adoption of encryption techniques often a mixture of the above techniques is needed.<a href="#section-7-9" class="pilcrow">¶</a></p>
 <p id="section-7-10">In particular for the most serious crimes such as Child abuse or National Security many countries adopt a "list" methodology, where a central list of blocked Domains or URLs is maintained by the authorities and updated on a regular basis (daily or even hourly) and shared with Public Network Operators that have to enforce the blocking.<a href="#section-7-10" class="pilcrow">¶</a></p>
 <p id="section-7-11">In many jurisdictions there are legal consequences for the Operator not complying with the blocking order.<a href="#section-7-11" class="pilcrow">¶</a></p>
 <p id="section-7-12">Technically the blocking can be implemented using some techniques that have been adapted during time based on the new technologies introduced.<a href="#section-7-12" class="pilcrow">¶</a></p>
 <p id="section-7-13">Historically  depending on the content of the list the technique have been based on DNS or Proxy blocking.<a href="#section-7-13" class="pilcrow">¶</a></p>
 <p id="section-7-14">DNS is effective on Domains (the whole domain is blocked), while proxy is effective either on Domain (for encrypted traffic) or URL (for unencrypted traffic).<a href="#section-7-14" class="pilcrow">¶</a></p>
-<p id="section-7-15">Given that nowadays  the vast majority of traffic is encrypted, the capability of blocking based on URL is limited to a small portion of traffic and proxy is as effective as DNS.<a href="#section-7-15" class="pilcrow">¶</a></p>
-<p id="section-7-16">Theoretically for an operator DNS would be the element of choice given the more limited investments necessary to implement blocking of the Domains, but given the increased usage of external encrypted DNS services DNS is becoming less effective and Operators need to use also SNI analysis to fulfill legal obligations.<a href="#section-7-16" class="pilcrow">¶</a></p>
-<p id="section-7-17">In this case the adoption of ECH will put additional problems and limit the possibility to implement the legal blockings, exposing the population to illegal content related to crimes such as Child Sex Abuse Material (CSAM), CyberCrimes or National Security.<a href="#section-7-17" class="pilcrow">¶</a></p>
+<p id="section-7-15">Given that nowadays the vast majority of traffic is encrypted, the capability of blocking based on URL is limited to a small portion of traffic and proxy is as effective as DNS.<a href="#section-7-15" class="pilcrow">¶</a></p>
+<p id="section-7-16">Theoretically for an operator DNS would be the element of choice given the more limited investments necessary to implement blocking of the Domains, but given the increased usage of external encrypted DNS services DNS is becoming less effective and Operators need to use also SNI analysis to fulfil legal obligations.<a href="#section-7-16" class="pilcrow">¶</a></p>
+<p id="section-7-17">In this case the adoption of ECH will cause additional problems and limit the possibility of implementing the legal blocking requirements, exposing the population to illegal content related to crimes such as Child Sex Abuse Material (CSAM), Cyber Crimes or National Security.<a href="#section-7-17" class="pilcrow">¶</a></p>
 <p id="section-7-18">Given the current international situation where Network Operators implements blocks requested by the jurisdiction that protect the populations against several Cyber Attacks today this is even more important.<a href="#section-7-18" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1682,13 +1693,13 @@ DNS, defences are weakened and the attack surface increased.<a href="#section-8-
 </li>
         <li class="normal" id="section-9-2.4">Will there be any impact to the DNS by adding so many new RRs?<a href="#section-9-2.4" class="pilcrow">¶</a>
 </li>
-      </ul>
-<p id="section-9-3">"* Are these Client Facing servers meant to be only deployed by CDN providers in which case is it creating a concentration issue and a market point of control. What makes them more trustable than other actors?"<a href="#section-9-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-9-4.1">What happens if Client Facing servers are controled by malicious actors?<a href="#section-9-4.1" class="pilcrow">¶</a>
+        <li class="normal" id="section-9-2.5">What happens if Client Facing servers are controlled by malicious actors?<a href="#section-9-2.5" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="section-9-2.6">The Client Facing servers are acting as a new category of middleboxes. In this shift left movement, until the attack surface is minimal and complexities are removed, you have to rely on third parties for inspection. In these conditions, on which basis can they be more trusted than any other middleboxes? Is this creating a concentration problem?<a href="#section-9-2.6" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="section-9-2.7">What prevents a Client Facing server providing security solutions to protect the data path?<a href="#section-9-2.7" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-9-5">"* The Client Facing servers are acting as a new category of middleboxes so are they falling in the category of potential attackers too? On the contrary, can't they be used to help creating a proper security and allowing auxiliary security solutions to protect the data path?"<a href="#section-9-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conclusion">
@@ -1731,7 +1742,7 @@ detection which this document outlines.  These do not appear to have
 been considered within either <span>[<a href="#RFC8744" class="cite xref">RFC8744</a>]</span> or the current ECH Internet-
 Draft <span>[<a href="#I-D.draft-ietf-tls-esni" class="cite xref">I-D.draft-ietf-tls-esni</a>]</span> and should be addressed fully within
 the latter's security considerations section.<a href="#section-11-1" class="pilcrow">¶</a></p>
-<p id="section-11-2">This I-D should help improve Security Considerations for ECH.<a href="#section-11-2" class="pilcrow">¶</a></p>
+<p id="section-11-2">This I-D should help improve improve security in deployments of ECH.<a href="#section-11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1976,19 +1987,6 @@ informal group of experts including the following people:<a href="#section-13-1"
 </address>
 <p id="appendix-A-8">Diego contributed in several aspects including MCPs.<a href="#appendix-A-8" class="pilcrow">¶</a></p>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Chris Box</span></div>
-<div dir="auto" class="left"><span class="org">BT</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:chris.box@bt.com" class="email">chris.box@bt.com</a>
-</div>
-<div class="url">
-<span>URI:</span>
-<a href="https://www.linkedin.com/in/chris-box-uk/" class="url">https://www.linkedin.com/in/chris-box-uk/</a>
-</div>
-</address>
-<p id="appendix-A-9">Chris contributed many comments and as well research on IAB documents.<a href="#appendix-A-9" class="pilcrow">¶</a></p>
-<address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Gary Tomic</span></div>
 <div dir="auto" class="left"><span class="org">Broadcom</span></div>
 <div class="email">
@@ -2000,7 +1998,7 @@ informal group of experts including the following people:<a href="#section-13-1"
 <a href="https://www.linkedin.com/in/garytomic/" class="url">https://www.linkedin.com/in/garytomic/</a>
 </div>
 </address>
-<p id="appendix-A-10">Gary contributed many things including research, keep us on scope, critique for when issues where not impacted by ECH as we initially thought.<a href="#appendix-A-10" class="pilcrow">¶</a></p>
+<p id="appendix-A-9">Gary contributed many things including research, keep us on scope, critique for when issues where not impacted by ECH as we initially thought.<a href="#appendix-A-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">

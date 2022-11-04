@@ -109,12 +109,6 @@ contributor: # Same structure as author list, but goes into contributors
   uri: https://www.linkedin.com/in/dr2lopez/
   contribution: |
     Diego contributed in several aspects including MCPs.
-- name: Chris Box
-  org: BT
-  email: chris.box@bt.com
-  uri: https://www.linkedin.com/in/chris-box-uk/
-  contribution: |
-    Chris contributed many comments and as well research on IAB documents.
 - name: Gary Tomic
   org: Broadcom
   email: gary.tomic@broadcom.com
@@ -259,8 +253,8 @@ As noted above, this document includes observations on current use
 cases for SNI data in a variety of contexts.  It highlights how the
 use of that data is important to the operators of both public and private networks
 and shows how the loss of access to SNI data will cause difficulties
-in the provision of a range of services to end-
-users.  Some mitigations are identified that may be useful for inclusion by those considering the adoption of support for ECH in their software.
+in the provision of a range of services to end-users.
+Some mitigations are identified that may be useful for inclusion by those considering the adoption of support for ECH in their software.
 
 
 The Internet was envisaged as a network of networks, each able to
@@ -298,7 +292,11 @@ be accessing content in a way that violates privacy considerations".
 This document considers the implications of ECH for private network
 operators including enterprises and education establishments. The
 data encapsulated by ECH is of legitimate interest to on-path
-security actors including those providing inline malware detection, firewalls, parental controls, content filtering to prevent access to malware and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.  This document will focus specifically on
+security actors including those providing inline malware detection,
+firewalls, parental controls, content filtering to prevent access to malware
+and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.
+
+This document will focus specifically on
 the impact of encrypting the SNI data by ECH on public and private networks,
 but it should be noted that other elements in the client hello may be relevant for some
 on-path security methods.
@@ -452,7 +450,7 @@ Enterprises and Organizations need to protect themselves for a vast number of re
 * Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).
 * Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. This set of artifacts is increasing by countries and regions in the world, by the nature of the object of the artifact
 
-## Examples of implications from the Threat Landscape and new risks
+## A degrading threat landscape
 
 In addition, the general threat landscape which was already very large (see {{I-D.draft-mcfadden-smart-threat-changes}}), has significantly increased in three ways:
 
@@ -466,19 +464,25 @@ Attacks are now damaging Enterprises and Organizations (with ransomware being th
 * Loss in capitalisation between 1-5% {{LOSSINCAP}}
 * Degradation by credit notation agencies {{LOSSINCREDITSCORE}}
 
-Since the damage is so high, some cyber insurances companies in some countries prefer to pay the ransom to mitigate the damage which has the side effect of funding and encouraging cybercriminals to increase their attacks or pay a ransom to an embargoed country which is illegal!
-
 Another implication from the COVID crisis is the acceleration of BYOD
-with the current reliance on remote working which created two types of side effects:
+with the current reliance on remote working which created two types of side effects for remote employees, contractors and third parties that need to connect to one or more enterprise
+networks on a temporary basis:
 
-* remote employees need to use a VPN an backhaul back to corporate networks, which brings all the risks that VPN may open
-* remote employees need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.
+* need to use a VPN access to the corporate network, which brings all the risks that VPN may open
+* need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.
 
-This amplified some complications such as any restrictions on the use of BYOD will also affect contractors and other third parties that need to connect to one or more enterprise
-networks on a temporary basis.  In such circumstances, requiring
+In such circumstances, requiring
 software or custom configurations to be installed on those devices
-may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}, especially for contractors that work across
-multiple organisations.  Among all mitigation considerations, costs and complexity prevail.
+may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}.
+
+This is why network security solutions are required and this is why ECH preventing the access to the SNI makes it impossible for blue teams to defend (see the next sections for details).
+
+Finally there is a major lack of manpower in cybersecurity with a lack of professionalization which is not compensated anymore by the vocational aspect of cybersecurity so far.
+
+All the above conditions are weighing on capabilities to defend, both:
+
+* Directly: a lack of visibility on a key meta data like the SNI will cause significant issues to enterprises and organizations
+* Indirectly: should ECH happen and should alternative be provided, managing migrations to any alternative not requiring access to the SNI, in these conditions, is undesirable from a timing, resources, capacities and risks perspectives.
 
 
 ## Examples of regulatory implications
@@ -508,16 +512,16 @@ privacy for the enterprise, its employees, suppliers and customers.
 
 ### Reminders on Network Security
 
-Network Security is a set of security capabilities which is articulated as part of a defense strategy, e.g. Defense In Depth {{NIST-DID}}, Zero Trust, SASE/SSE, etc. and can trigger and enable other security capabilities such as sandboxing, Data Loss Prevention, Cloud Access Service Broker (CASB), etc. One essential element is a Web Proxy, combining both a TLS proxy and an application level (HTTP) proxy.
+Network Security is a set of security capabilities which is articulated as part of a defense strategy, e.g. Defense In Depth {{NIST-DID}}, Zero Trust, SASE/SSE, etc. and can trigger and enable other security capabilities such as sandboxing, Data Loss Prevention, Cloud Access Service Broker (CASB), etc. One constituency is a Web Proxy, combining both a TLS proxy and an application level (HTTP) proxy.
 
 In the same way that {{I-D.draft-ietf-opsec-ns-impact}} showed the impact of TLS1.3 on operational security, a loss of visibility of the SNI as indicator of compromise (see {{I-D.draft-ietf-opsec-indicators-of-compromise}}) will have mostly two types of implications
 
 ### Implications from loss of Meta Data
 
-The loss of visibility of the SNI, at TLS level, will prevent transparent proxies to apply corporate policies to manage risk and compliancy. Typical examples:
+The loss of visibility of the SNI, at TLS level, will prevent transparent proxies from applying corporate policies to manage risk and compliancy. Typical examples:
 
-* categories of compromised sites cannot be applied anymore, leading employees to potential cybersecurity risk for them and for their organization and alternatives to block theses sites need to be found
-* corporate lists of excluded sites for compliancy reasons need alternatives to be blocked.
+* categories of compromised sites cannot be applied anymore, leading employees to potential cybersecurity risk for them and for their organization and alternative approaches to block access to theses sites need to be found
+* corporate lists of excluded sites for compliancy reasons need alternatives ways to be blocked.
 
 ### Implications from loss of Selective Decrypt
 
@@ -527,11 +531,13 @@ This capabilities allows the application proxy, in particular an HTTPS proxy to 
 
 The loss of SNI visibility will make it more difficult for corporate user flows to be intercepted and impossible when this is BYOD use cases.
 
-This will create inefficiencies, require more resources, will increase security risks themselves, will as well be counter productive for privacy itself as it requires to decrypt the whole traffic at TLS level.
+This will create inefficiencies, require more resources, and increase security risks themselves. It will also be counter productive for privacy itself as it may require the proxy to decrypt the whole TLS connection.
 
 # Specific implications for SMBs
 
-Small and Medium Business (SMBs) form a particular vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employees company is considered the upper range of SMB business in developing countries when it is up to 25’000 in some developed countries). Yet it leaves a strong range of organizations with very limited capabilities to defend themselves, a security which is often outsourced to Managed Security Service Providers (Among which many Operators, mid range and small service providers).
+Small and Medium Business (SMBs) form a particular vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25’000 in some developed countries).
+
+Yet it leaves a large range of organizations with very limited capabilities to defend themselves, a security which is often outsourced to Managed Security Service Providers (Among which many Operators, mid range and small service providers).
 
 For them, the above ‘education’ use case would apply in similar ways, opening, by ripple effect, the same issues found by major service providers and in particular by smaller ones (see next section).
 
@@ -545,7 +551,7 @@ There are mainly 2 different approaches:
 
 * The other approach has been to set up a legal framework specifically aimed at the regulation of the internet and other digital media, including the blocking, filtering and removal of internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.
 
-in relation to specific areas where the public interest has to be protected more strongly, such as Child abuse crimes, terrorism, criminality and national security many states have a framework for the urgent removal of internet content regarding the above materials without the need of a court order: Administrative authorities, police authorities or public prosecutors are given specific powers to order internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.
+In relation to specific areas where the public interest has to be protected more strongly, such as Child abuse crimes, terrorism, criminality and national security many states have a framework for the urgent removal of internet content regarding the above materials without the need of a court order: Administrative authorities, police authorities or public prosecutors are given specific powers to order internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.
 
 Particularly in relation to material concerning child abuse and other serious crimes, many countries adopt a “list” system, whereby a central list of blocked URLs or domain names are maintained and updated by the relevant administrative authority. This is notified to the relevant internet access providers, who are required to ensure that blocking is enforced.
 Additionally in some states the authorities can request the removal of content that infringes intellectual property, privacy or defamation rights. In this case the removal need to be requested by a court order.
@@ -560,7 +566,7 @@ From the methodology we have to distinguish between blocking or takedown of cont
 In these considerations we will refer to blocking only.
 
 This can be achieved through a number of techniques, including the blocking of the Domain Name System (DNS), the analysis of the SNI field or the Uniform Resource Locator (URL).
-Given the increasing adoption of encryption techniques often a mixture of the above techniques is requested.
+Given the increasing adoption of encryption techniques often a mixture of the above techniques is needed.
 
 In particular for the most serious crimes such as Child abuse or National Security many countries adopt a “list” methodology, where a central list of blocked Domains or URLs is maintained by the authorities and updated on a regular basis (daily or even hourly) and shared with Public Network Operators that have to enforce the blocking.
 
@@ -572,11 +578,11 @@ Historically  depending on the content of the list the technique have been based
 
 DNS is effective on Domains (the whole domain is blocked), while proxy is effective either on Domain (for encrypted traffic) or URL (for unencrypted traffic).
 
-Given that nowadays  the vast majority of traffic is encrypted, the capability of blocking based on URL is limited to a small portion of traffic and proxy is as effective as DNS.
+Given that nowadays the vast majority of traffic is encrypted, the capability of blocking based on URL is limited to a small portion of traffic and proxy is as effective as DNS.
 
-Theoretically for an operator DNS would be the element of choice given the more limited investments necessary to implement blocking of the Domains, but given the increased usage of external encrypted DNS services DNS is becoming less effective and Operators need to use also SNI analysis to fulfill legal obligations.
+Theoretically for an operator DNS would be the element of choice given the more limited investments necessary to implement blocking of the Domains, but given the increased usage of external encrypted DNS services DNS is becoming less effective and Operators need to use also SNI analysis to fulfil legal obligations.
 
-In this case the adoption of ECH will put additional problems and limit the possibility to implement the legal blockings, exposing the population to illegal content related to crimes such as Child Sex Abuse Material (CSAM), CyberCrimes or National Security.
+In this case the adoption of ECH will cause additional problems and limit the possibility of implementing the legal blocking requirements, exposing the population to illegal content related to crimes such as Child Sex Abuse Material (CSAM), Cyber Crimes or National Security.
 
 Given the current international situation where Network Operators implements blocks requested by the jurisdiction that protect the populations against several Cyber Attacks today this is even more important.
 
@@ -619,11 +625,11 @@ This work could consider several potential developments:
 
 * Will there be any impact to the DNS by adding so many new RRs?
 
-"* Are these Client Facing servers meant to be only deployed by CDN providers in which case is it creating a concentration issue and a market point of control. What makes them more trustable than other actors?"
+* What happens if Client Facing servers are controlled by malicious actors?
 
-* What happens if Client Facing servers are controled by malicious actors?
+* The Client Facing servers are acting as a new category of middleboxes. In this shift left movement, until the attack surface is minimal and complexities are removed, you have to rely on third parties for inspection. In these conditions, on which basis can they be more trusted than any other middleboxes? Is this creating a concentration problem?
 
-"* The Client Facing servers are acting as a new category of middleboxes so are they falling in the category of potential attackers too? On the contrary, can’t they be used to help creating a proper security and allowing auxiliary security solutions to protect the data path?"
+* What prevents a Client Facing server providing security solutions to protect the data path?
 
 
 # Conclusion
@@ -662,7 +668,7 @@ been considered within either {{RFC8744}} or the current ECH Internet-
 Draft {{I-D.draft-ietf-tls-esni}} and should be addressed fully within
 the latter's security considerations section.
 
-This I-D should help improve Security Considerations for ECH.
+This I-D should help improve improve security in deployments of ECH.
 
 # IANA Considerations
 

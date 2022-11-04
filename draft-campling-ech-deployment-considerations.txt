@@ -5,13 +5,13 @@
 secdispatch                                          A. J. Campling, Ed.
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                             P. Vixie, Ed.
-Expires: 5 May 2023                                             Red Barn
+Expires: 8 May 2023                                             Red Barn
                                                           D. Wright, Ed.
                                                 UK Safer Internet Centre
                                                           A. Taddei, Ed.
                                                          S. Edwards, Ed.
                                                                 Broadcom
-                                                         1 November 2022
+                                                         4 November 2022
 
 
             Encrypted Client Hello Deployment Considerations
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 May 2023.
+   This Internet-Draft will expire on 8 May 2023.
 
 Copyright Notice
 
@@ -78,8 +78,7 @@ Table of Contents
    4.  Transparent Proxies
    5.  Impact of ECH on Enterprises and Organizations
      5.1.  The main requirements
-     5.2.  Examples of implications from the Threat Landscape and new
-           risks
+     5.2.  A degrading threat landscape
      5.3.  Examples of regulatory implications
      5.4.  Impact of ECH deployment on Network Security Operations
        5.4.1.  Reminders on Network Security
@@ -148,10 +147,12 @@ Table of Contents
    security actors including those providing inline malware detection,
    firewalls, parental controls, content filtering to prevent access to
    malware and other risky traffic, mandatory security controls (e.g.
-   Data Loss Prevention) etc.  This document will focus specifically on
-   the impact of encrypting the SNI data by ECH on public and private
-   networks, but it should be noted that other elements in the client
-   hello may be relevant for some on-path security methods.
+   Data Loss Prevention) etc.
+
+   This document will focus specifically on the impact of encrypting the
+   SNI data by ECH on public and private networks, but it should be
+   noted that other elements in the client hello may be relevant for
+   some on-path security methods.
 
 2.  Encrypted Server Name Indication
 
@@ -310,7 +311,7 @@ Table of Contents
       increasing by countries and regions in the world, by the nature of
       the object of the artifact
 
-5.2.  Examples of implications from the Threat Landscape and new risks
+5.2.  A degrading threat landscape
 
    In addition, the general threat landscape which was already very
    large (see [I-D.draft-mcfadden-smart-threat-changes]), has
@@ -341,31 +342,40 @@ Table of Contents
 
    *  Degradation by credit notation agencies [LOSSINCREDITSCORE]
 
-   Since the damage is so high, some cyber insurances companies in some
-   countries prefer to pay the ransom to mitigate the damage which has
-   the side effect of funding and encouraging cybercriminals to increase
-   their attacks or pay a ransom to an embargoed country which is
-   illegal!
-
    Another implication from the COVID crisis is the acceleration of BYOD
    with the current reliance on remote working which created two types
-   of side effects:
+   of side effects for remote employees, contractors and third parties
+   that need to connect to one or more enterprise networks on a
+   temporary basis:
 
-   *  remote employees need to use a VPN an backhaul back to corporate
-      networks, which brings all the risks that VPN may open
+   *  need to use a VPN access to the corporate network, which brings
+      all the risks that VPN may open
 
-   *  remote employees need to access a cloud proxy which requires an
-      agent to be installed on the device to steer the traffic to the
-      right place.
+   *  need to access a cloud proxy which requires an agent to be
+      installed on the device to steer the traffic to the right place.
 
-   This amplified some complications such as any restrictions on the use
-   of BYOD will also affect contractors and other third parties that
-   need to connect to one or more enterprise networks on a temporary
-   basis.  In such circumstances, requiring software or custom
-   configurations to be installed on those devices may be problematic
-   (see [I-D.draft-taddei-smart-cless-introduction], especially for
-   contractors that work across multiple organisations.  Among all
-   mitigation considerations, costs and complexity prevail.
+   In such circumstances, requiring software or custom configurations to
+   be installed on those devices may be problematic (see
+   [I-D.draft-taddei-smart-cless-introduction].
+
+   This is why network security solutions are required and this is why
+   ECH preventing the access to the SNI makes it impossible for blue
+   teams to defend (see the next sections for details).
+
+   Finally there is a major lack of manpower in cybersecurity with a
+   lack of professionalization which is not compensated anymore by the
+   vocational aspect of cybersecurity so far.
+
+   All the above conditions are weighing on capabilities to defend,
+   both:
+
+   *  Directly: a lack of visibility on a key meta data like the SNI
+      will cause significant issues to enterprises and organizations
+
+   *  Indirectly: should ECH happen and should alternative be provided,
+      managing migrations to any alternative not requiring access to the
+      SNI, in these conditions, is undesirable from a timing, resources,
+      capacities and risks perspectives.
 
 5.3.  Examples of regulatory implications
 
@@ -398,8 +408,8 @@ Table of Contents
    articulated as part of a defense strategy, e.g.  Defense In Depth
    [NIST-DID], Zero Trust, SASE/SSE, etc. and can trigger and enable
    other security capabilities such as sandboxing, Data Loss Prevention,
-   Cloud Access Service Broker (CASB), etc.  One essential element is a
-   Web Proxy, combining both a TLS proxy and an application level (HTTP)
+   Cloud Access Service Broker (CASB), etc.  One constituency is a Web
+   Proxy, combining both a TLS proxy and an application level (HTTP)
    proxy.
 
    In the same way that [I-D.draft-ietf-opsec-ns-impact] showed the
@@ -411,16 +421,16 @@ Table of Contents
 5.4.2.  Implications from loss of Meta Data
 
    The loss of visibility of the SNI, at TLS level, will prevent
-   transparent proxies to apply corporate policies to manage risk and
-   compliancy.  Typical examples:
+   transparent proxies from applying corporate policies to manage risk
+   and compliancy.  Typical examples:
 
    *  categories of compromised sites cannot be applied anymore, leading
       employees to potential cybersecurity risk for them and for their
-      organization and alternatives to block theses sites need to be
-      found
+      organization and alternative approaches to block access to theses
+      sites need to be found
 
    *  corporate lists of excluded sites for compliancy reasons need
-      alternatives to be blocked.
+      alternatives ways to be blocked.
 
 5.4.3.  Implications from loss of Selective Decrypt
 
@@ -439,20 +449,21 @@ Table of Contents
    user flows to be intercepted and impossible when this is BYOD use
    cases.
 
-   This will create inefficiencies, require more resources, will
-   increase security risks themselves, will as well be counter
-   productive for privacy itself as it requires to decrypt the whole
-   traffic at TLS level.
+   This will create inefficiencies, require more resources, and increase
+   security risks themselves.  It will also be counter productive for
+   privacy itself as it may require the proxy to decrypt the whole TLS
+   connection.
 
 6.  Specific implications for SMBs
 
    Small and Medium Business (SMBs) form a particular vulnerable subset
    of enterprises and organizations and span from Small Office Home
    Office (SOHO, sometimes a one person business) to Medium Business
-   with strong variations depending on the country (a 50 employees
+   with strong variations depending on the country (a 50 employee
    company is considered the upper range of SMB business in developing
-   countries when it is up to 25'000 in some developed countries).  Yet
-   it leaves a strong range of organizations with very limited
+   countries while it is up to 25'000 in some developed countries).
+
+   Yet it leaves a large range of organizations with very limited
    capabilities to defend themselves, a security which is often
    outsourced to Managed Security Service Providers (Among which many
    Operators, mid range and small service providers).
@@ -491,7 +502,7 @@ Table of Contents
       administrative or judicial authority which has competence to take
       appropriate action and the procedures to be followed.
 
-   in relation to specific areas where the public interest has to be
+   In relation to specific areas where the public interest has to be
    protected more strongly, such as Child abuse crimes, terrorism,
    criminality and national security many states have a framework for
    the urgent removal of internet content regarding the above materials
@@ -540,7 +551,7 @@ Table of Contents
    blocking of the Domain Name System (DNS), the analysis of the SNI
    field or the Uniform Resource Locator (URL).  Given the increasing
    adoption of encryption techniques often a mixture of the above
-   techniques is requested.
+   techniques is needed.
 
    In particular for the most serious crimes such as Child abuse or
    National Security many countries adopt a "list" methodology, where a
@@ -571,12 +582,13 @@ Table of Contents
    given the more limited investments necessary to implement blocking of
    the Domains, but given the increased usage of external encrypted DNS
    services DNS is becoming less effective and Operators need to use
-   also SNI analysis to fulfill legal obligations.
+   also SNI analysis to fulfil legal obligations.
 
-   In this case the adoption of ECH will put additional problems and
-   limit the possibility to implement the legal blockings, exposing the
-   population to illegal content related to crimes such as Child Sex
-   Abuse Material (CSAM), CyberCrimes or National Security.
+   In this case the adoption of ECH will cause additional problems and
+   limit the possibility of implementing the legal blocking
+   requirements, exposing the population to illegal content related to
+   crimes such as Child Sex Abuse Material (CSAM), Cyber Crimes or
+   National Security.
 
    Given the current international situation where Network Operators
    implements blocks requested by the jurisdiction that protect the
@@ -631,19 +643,18 @@ Table of Contents
 
    *  Will there be any impact to the DNS by adding so many new RRs?
 
-   "* Are these Client Facing servers meant to be only deployed by CDN
-   providers in which case is it creating a concentration issue and a
-   market point of control.  What makes them more trustable than other
-   actors?"
-
-   *  What happens if Client Facing servers are controled by malicious
+   *  What happens if Client Facing servers are controlled by malicious
       actors?
 
-   "* The Client Facing servers are acting as a new category of
-   middleboxes so are they falling in the category of potential
-   attackers too?  On the contrary, can't they be used to help creating
-   a proper security and allowing auxiliary security solutions to
-   protect the data path?"
+   *  The Client Facing servers are acting as a new category of
+      middleboxes.  In this shift left movement, until the attack
+      surface is minimal and complexities are removed, you have to rely
+      on third parties for inspection.  In these conditions, on which
+      basis can they be more trusted than any other middleboxes?  Is
+      this creating a concentration problem?
+
+   *  What prevents a Client Facing server providing security solutions
+      to protect the data path?
 
 10.  Conclusion
 
@@ -681,7 +692,7 @@ Table of Contents
    Draft [I-D.draft-ietf-tls-esni] and should be addressed fully within
    the latter's security considerations section.
 
-   This I-D should help improve Security Considerations for ECH.
+   This I-D should help improve improve security in deployments of ECH.
 
 12.  IANA Considerations
 
@@ -896,15 +907,6 @@ Contributors
 
 
    Diego contributed in several aspects including MCPs.
-
-   Chris Box
-   BT
-   Email: chris.box@bt.com
-   URI:   https://www.linkedin.com/in/chris-box-uk/
-
-
-   Chris contributed many comments and as well research on IAB
-   documents.
 
    Gary Tomic
    Broadcom

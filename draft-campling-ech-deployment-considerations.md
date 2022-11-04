@@ -253,8 +253,8 @@ As noted above, this document includes observations on current use
 cases for SNI data in a variety of contexts.  It highlights how the
 use of that data is important to the operators of both public and private networks
 and shows how the loss of access to SNI data will cause difficulties
-in the provision of a range of services to end-
-users.  Some mitigations are identified that may be useful for inclusion by those considering the adoption of support for ECH in their software.
+in the provision of a range of services to end-users.
+Some mitigations are identified that may be useful for inclusion by those considering the adoption of support for ECH in their software.
 
 
 The Internet was envisaged as a network of networks, each able to
@@ -292,7 +292,7 @@ be accessing content in a way that violates privacy considerations".
 This document considers the implications of ECH for private network
 operators including enterprises and education establishments. The
 data encapsulated by ECH is of legitimate interest to on-path
-security actors including those providing inline malware detection, 
+security actors including those providing inline malware detection,
 firewalls, parental controls, content filtering to prevent access to malware
 and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.
 

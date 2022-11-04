@@ -448,7 +448,7 @@ Enterprises and Organizations need to protect themselves for a vast number of re
 
 * Reduce their Risks. And in particular as part of any Cyber Resilience strategy.
 * Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).
-* Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. T These requirements are growing in both scope and complexity as they are added to by various bodies in countries and regional authorities around the world.
+* Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. These requirements are growing in both scope and complexity as they are added to by various bodies in countries and regional authorities around the world.
 
 ## A degrading threat landscape
 

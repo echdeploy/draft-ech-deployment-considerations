@@ -292,7 +292,11 @@ be accessing content in a way that violates privacy considerations".
 This document considers the implications of ECH for private network
 operators including enterprises and education establishments. The
 data encapsulated by ECH is of legitimate interest to on-path
-security actors including those providing inline malware detection, firewalls, parental controls, content filtering to prevent access to malware and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.  This document will focus specifically on
+security actors including those providing inline malware detection, 
+firewalls, parental controls, content filtering to prevent access to malware
+and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.
+
+This document will focus specifically on
 the impact of encrypting the SNI data by ECH on public and private networks,
 but it should be noted that other elements in the client hello may be relevant for some
 on-path security methods.

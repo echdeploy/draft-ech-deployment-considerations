@@ -2,16 +2,16 @@
 
 
 
-secdispatch                                          A. J. Campling, Ed.
+secdispatch                                               A. J. Campling
 Internet-Draft                                    419 Consulting Limited
-Intended status: Informational                             P. Vixie, Ed.
-Expires: 8 May 2023                                             Red Barn
-                                                          D. Wright, Ed.
+Intended status: Informational                                  P. Vixie
+Expires: 11 May 2023                                            Red Barn
+                                                               D. Wright
                                                 UK Safer Internet Centre
-                                                          A. Taddei, Ed.
-                                                         S. Edwards, Ed.
+                                                               A. Taddei
+                                                              S. Edwards
                                                                 Broadcom
-                                                         4 November 2022
+                                                         7 November 2022
 
 
             Encrypted Client Hello Deployment Considerations
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 May 2023.
+   This Internet-Draft will expire on 11 May 2023.
 
 Copyright Notice
 
@@ -331,7 +331,7 @@ Table of Contents
    *  The Supply Chain is under stress as per the [SOLARWIND] attack
 
    *  Nation State attacks are continuing to evolve, for example as
-      noted bo those linked to the current Ukraine crisis.
+      noted to those linked to the current Ukraine crisis.
 
    Attacks are now damaging enterprises and other organizations with
    ransomware being the number 1 issue by a considerable margin.  The
@@ -352,7 +352,9 @@ Table of Contents
    basis:
 
    *  need to use a VPN access to the corporate network, which brings
-      all the benefits and risks that VPNs may open
+      all the benefits (e.g. protected access to corporate network) and
+      risks that VPNs may open (e.g. lateral movement when the end point
+      is compromised),
 
    *  need to access a cloud proxy which requires an agent to be
       installed on the device to steer the traffic to the right place.
@@ -367,7 +369,9 @@ Table of Contents
 
    Finally there is a major lack of manpower in cybersecurity with a
    lack of professionalization which is not compensated anymore by the
-   vocational aspect of cybersecurity so far.
+   vocational aspect of cybersecurity so far, so any expansion of
+   technical requirements that ECH would cause will exacerbate the
+   problem.
 
    All the above conditions are weighing on capabilities to defend,
    both:
@@ -382,26 +386,16 @@ Table of Contents
 
 5.3.  Examples of regulatory implications
 
-   Clear audit trails of any communications between parties are required
-   in the finance sector amongst others for compliance purposes.  If it
-   becomes possible for communications to take place without an audit
-   trail or any visibility to the enterprise, then there is increased
-   scope for abuse to take place, including insider trading or fraud.
-
-   The lack of a comprehensive audit trail can also have serious
-   enforcement consequences, at least in some sectors.  For example,
-   although not ECH-related, there are indications that US regulators
-   are in the process of levying fines of $200m each on number of
+   Regulators are accelerating their lawfare capabilities at accelerated
+   pace and new legislations are showing an increased precision on what
+   enterprises can and cannot do.  The EU GDPR had ripple effects to
+   Financial Institutions to implement Data Loss Prevention which
+   requires selective decrypt.  The recent indication that US regulators
+   are in the process of levying fines of $200m each on a number of
    institutions because they were unable to track all communications by
-   their employees because some were encrypted through the use of
-   WhatsApp or Signal [Bloomberg].
-
-   In addition to concerns about the loss of visibility of deliberate
-   activity by users, the loss of visibility of potential command and
-   control and other activity by malicious software is of concern to
-   enterprises.  In such cases, the lack of visibility from these
-   privacy protections could lead to negative impacts on security and
-   privacy for the enterprise, its employees, suppliers and customers.
+   their employees using WhatsApp or Signal , [Bloomberg], creates new
+   auditability constraints.  It is with growing concern that an ECH
+   enabled ecosystem may clash with future regulatory requirements.
 
 5.4.  Impact of ECH deployment on Network Security Operations
 
@@ -454,7 +448,7 @@ Table of Contents
 
    This will create inefficiencies, will require more resources and will
    increase security risks.  It will also be counter productive for
-   privacy itself as it may require the proxy to decrypt the whole TLS
+   privacy as it may require the proxy to decrypt the whole TLS
    connection.
 
 6.  Specific implications for SMBs
@@ -467,21 +461,18 @@ Table of Contents
    developing countries while it is up to 25'000 in some developed
    countries).
 
-   Irrespective of definitions, many SMBs have very limited in-house
-   capabilities to defend themselves, with security often outsourced to
-   Managed Security Service Providers (typically operators, mid range
-   and small service providers).
-
-   For them, the issues outlined in the 'education' use case detailed
-   above would apply in similar ways, opening, by ripple effect, the
-   same issues found by major service providers and in particular by
-   smaller ones (see next section).
+   Similarly to the above education use case and irrespective of
+   definitions, many SMBs have very limited in-house capabilities to
+   defend themselves, with security often outsourced to Managed Security
+   Service Providers (typically network operators, mid range and small
+   service providers).
 
 7.  Public Network Service Providers
 
-   In Public Networks the legislator has to balance between freedom of
-   access to the information on the one hand, and safety of the internet
-   and the protection of other fundamental rights on the other hand.
+   In Public Networks the national, regional and international
+   legislator has to balance between freedom of access to the
+   information on the one hand, and safety of the internet and the
+   protection of other fundamental rights on the other hand.
 
    There are mainly 2 different approaches:
 
@@ -496,7 +487,7 @@ Table of Contents
       framework that is not specific to the internet to conduct - what
       is, generally speaking - limited blocking or takedown of unlawful
       online material. here the approach has been differentiated in
-      relying on self regulation from the private sector or limit the
+      relying on self regulation from the private sector or limited
       political or legislative intervention to specific areas.
 
    *  The other approach has been to set up a legal framework
@@ -574,7 +565,7 @@ Table of Contents
    introduced.
 
    Historically depending on the content of the list the technique have
-   been based on DNS or Proxy blocking.
+   been based on DNS or proxy blocking.
 
    DNS is effective on Domains (the whole domain is blocked), while
    proxy is effective either on Domain (for encrypted traffic) or URL
@@ -662,7 +653,15 @@ Table of Contents
 
    *  Consolidation considerations - the use of ECH may accelerate the
       move of content away from standalone servers and on to CDNs,
-      reducing infrastructure resilience
+      reducing infrastructure resilience.
+
+   *  Find missing sources to illustrate a number of points, e.g. show
+      how adversaries use digital transformation to accelerate their
+      attacks, how ECH will increase security risks.
+
+   *  Keep streamlining, clarifying the text e.g. the 2 approaches in
+      the public network service providers section, "Technically the
+      blocking ...".
 
 10.  Conclusion
 
@@ -700,7 +699,7 @@ Table of Contents
    Draft [I-D.draft-ietf-tls-esni] and should be addressed fully within
    the latter's security considerations section.
 
-   This I-D should help improve improve security in deployments of ECH.
+   This I-D should help improve security in deployments of ECH.
 
 12.  IANA Considerations
 
@@ -928,25 +927,25 @@ Contributors
 
 Authors' Addresses
 
-   Andrew Campling (editor)
+   Andrew Campling
    419 Consulting Limited
    Email: Andrew.Campling@419.Consulting
    URI:   https://www.419.Consulting/
 
 
-   Paul Vixie (editor)
+   Paul Vixie
    Red Barn
    Email: paul@redbarn.org
    URI:   http://www.redbarn.org/
 
 
-   David Wright (editor)
+   David Wright
    UK Safer Internet Centre
    Email: david.wright@swgfl.org.uk
    URI:   https://saferinternet.org.uk/
 
 
-   Arnaud Taddei (editor)
+   Arnaud Taddei
    Broadcom
    1320 Ridder Park Dr
    San Jose, CA 95131
@@ -956,7 +955,7 @@ Authors' Addresses
    URI:   https://www.linkedin.com/in/arnaudtaddei/
 
 
-   Simon Edwards (editor)
+   Simon Edwards
    Broadcom
    1320 Ridder Park Dr
    San Jose, CA 95131

@@ -19,26 +19,22 @@ kw:
   - Enterprises
   - Operational Security
 author:
-- role: editor
-  ins: A.J. Campling
+- ins: A.J. Campling
   name: Andrew Campling
   org: 419 Consulting Limited
   email: Andrew.Campling@419.Consulting
   uri: https://www.419.Consulting/
-- role: editor
-  ins: P. Vixie
+- ins: P. Vixie
   name: Paul Vixie
   org: Red Barn
   email: paul@redbarn.org
   uri: http://www.redbarn.org/
-- role: editor
-  ins: D. Wright
+- ins: D. Wright
   name: David Wright
   org: UK Safer Internet Centre
   email: david.wright@swgfl.org.uk
   uri: https://saferinternet.org.uk/
-- role: editor # remove if not true
-  ins: A. Taddei
+- ins: A. Taddei
   name: Arnaud Taddei
   org: Broadcom
   street: 1320 Ridder Park Dr
@@ -49,8 +45,7 @@ author:
   phone: +41795061129
   email: Arnaud.Taddei@broadcom.com
   uri: https://www.linkedin.com/in/arnaudtaddei/
-- role: editor # remove if not true
-  ins: S. Edwards
+- ins: S. Edwards
   name: Simon Edwards
   org: Broadcom
   street: 1320 Ridder Park Dr
@@ -456,7 +451,7 @@ In addition, the general threat landscape which was already very large (see {{I-
 
 * COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantages, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.
 * The Supply Chain is under stress as per the {{SOLARWIND}} attack
-* Nation State attacks are continuing to evolve, for example as noted bo those linked to the current Ukraine crisis.
+* Nation State attacks are continuing to evolve, for example as noted to those linked to the current Ukraine crisis.
 
 Attacks are now damaging enterprises and other organizations with ransomware being the number 1 issue by a considerable margin. The attacks are increasing in severity, to the extent that this is now being measured at macroscopic level in some countries:
 
@@ -468,7 +463,7 @@ Another implication from the COVID crisis is the acceleration of BYOD
 with the current reliance on remote working. This has created two side effects for remote employees, contractors and third parties that need to connect to one or more enterprise
 networks on a temporary basis:
 
-* need to use a VPN access to the corporate network, which brings all the benefits and risks that VPNs may open
+* need to use a VPN access to the corporate network, which brings all the benefits (e.g. protected access to corporate network) and risks that VPNs may open (e.g. lateral movement when the end point is compromised),
 * need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.
 
 In such circumstances, requiring
@@ -477,7 +472,7 @@ may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}.
 
 This is why network security solutions are required and this is why ECH preventing the access to the SNI makes it impossible for blue teams to defend (see the next sections for details).
 
-Finally there is a major lack of manpower in cybersecurity with a lack of professionalization which is not compensated anymore by the vocational aspect of cybersecurity so far.
+Finally there is a major lack of manpower in cybersecurity with a lack of professionalization which is not compensated anymore by the vocational aspect of cybersecurity so far, so any expansion of technical requirements that ECH would cause will exacerbate the problem.
 
 All the above conditions are weighing on capabilities to defend, both:
 
@@ -487,26 +482,7 @@ All the above conditions are weighing on capabilities to defend, both:
 
 ## Examples of regulatory implications
 
-Clear audit trails of any communications between parties are required
-in the finance sector amongst others for compliance purposes.  If it
-becomes possible for communications to take place without an audit
-trail or any visibility to the enterprise, then there is increased
-scope for abuse to take place, including insider trading or fraud.
-
-The lack of a comprehensive audit trail can also have serious enforcement
-consequences, at least in some sectors.  For example, although not
-ECH-related, there are indications that US regulators are in the
-process of levying fines of $200m each on number of institutions
-because they were unable to track all communications by their
-employees because some were encrypted through the use of WhatsApp
-or Signal {{Bloomberg}}.
-
-In addition to concerns about the loss of visibility of deliberate
-activity by users, the loss of visibility of potential command and
-control and other activity by malicious software is of concern to
-enterprises.  In such cases, the lack of visibility from these
-privacy protections could lead to negative impacts on security and
-privacy for the enterprise, its employees, suppliers and customers.
+Regulators are accelerating their lawfare capabilities at accelerated pace and new legislations are showing an increased precision on what enterprises can and cannot do. The EU GDPR had ripple effects to Financial Institutions to implement Data Loss Prevention which requires selective decrypt. The recent indication that US regulators are in the process of levying fines of $200m each on a number of institutions because they were unable to track all communications by their employees using WhatsApp or Signal , {{Bloomberg}}, creates new auditability constraints. It is with growing concern that an ECH enabled ecosystem may clash with future regulatory requirements.
 
 ## Impact of ECH deployment on Network Security Operations
 
@@ -531,23 +507,21 @@ This capability allows the application proxy, in particular an HTTPS proxy to en
 
 The loss of SNI visibility will make it more difficult for corporate user flows to be intercepted, with it becoming impossible for BYOD use cases.
 
-This will create inefficiencies, will require more resources and will increase security risks. It will also be counter productive for privacy itself as it may require the proxy to decrypt the whole TLS connection.
+This will create inefficiencies, will require more resources and will increase security risks. It will also be counter productive for privacy as it may require the proxy to decrypt the whole TLS connection.
 
 # Specific implications for SMBs
 
-Small and Medium Business (SMBs) form a particularly vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25’000 in some developed countries).
+Small and Medium Business (SMBs) form a particularly vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25'000 in some developed countries).
 
-Irrespective of definitions, many SMBs have very limited in-house capabilities to defend themselves, with security often outsourced to Managed Security Service Providers (typically operators, mid range and small service providers).
-
-For them, the issues outlined in the ‘education’ use case detailed above would apply in similar ways, opening, by ripple effect, the same issues found by major service providers and in particular by smaller ones (see next section).
+Similarly to the above education use case and irrespective of definitions, many SMBs have very limited in-house capabilities to defend themselves, with security often outsourced to Managed Security Service Providers (typically network operators, mid range and small service providers).
 
 # Public Network Service Providers
 
-In Public Networks the legislator has to balance between freedom of access to the information on the one hand, and safety of the internet and the protection of other fundamental rights on the other hand.
+In Public Networks the national, regional and international legislator has to balance between freedom of access to the information on the one hand, and safety of the internet and the protection of other fundamental rights on the other hand.
 
 There are mainly 2 different approaches:
 
-* First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing “general” legal framework that is not specific to the internet to conduct – what is, generally speaking - limited blocking or takedown of unlawful online material. here the approach has been differentiated in relying on self regulation from the private sector or limit the political or legislative intervention to specific areas.
+* First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing “general” legal framework that is not specific to the internet to conduct – what is, generally speaking - limited blocking or takedown of unlawful online material. here the approach has been differentiated in relying on self regulation from the private sector or limited political or legislative intervention to specific areas.
 
 * The other approach has been to set up a legal framework specifically aimed at the regulation of the internet and other digital media, including the blocking, filtering and removal of internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.
 
@@ -574,7 +548,7 @@ In many jurisdictions there are legal consequences for the Operator not complyin
 
 Technically the blocking can be implemented using some techniques that have been adapted during time based on the new technologies introduced.
 
-Historically  depending on the content of the list the technique have been based on DNS or Proxy blocking.
+Historically  depending on the content of the list the technique have been based on DNS or proxy blocking.
 
 DNS is effective on Domains (the whole domain is blocked), while proxy is effective either on Domain (for encrypted traffic) or URL (for unencrypted traffic).
 
@@ -629,7 +603,13 @@ This work could consider several potential developments:
 
 * What prevents a Client Facing server providing security solutions to protect the data path?
 
-* Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience
+* Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience.
+
+* Find missing sources to illustrate a number of points, e.g. show how adversaries use digital transformation to accelerate their attacks, how ECH will increase security risks.
+
+* Keep streamlining, clarifying the text e.g. the 2 approaches in the public network service providers section, "Technically the blocking ...".
+
+
 
 # Conclusion
 
@@ -667,7 +647,7 @@ been considered within either {{RFC8744}} or the current ECH Internet-
 Draft {{I-D.draft-ietf-tls-esni}} and should be addressed fully within
 the latter's security considerations section.
 
-This I-D should help improve improve security in deployments of ECH.
+This I-D should help improve security in deployments of ECH.
 
 # IANA Considerations
 

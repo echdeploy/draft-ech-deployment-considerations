@@ -67,7 +67,7 @@ contributor: # Same structure as author list, but goes into contributors
   email: gianpaolo-angelo.scalone@vodafone.com
   uri: https://www.linkedin.com/in/gianpaoloscalone/
   contribution: |
-    Gianpaolo contributed the research on the Digital Markets Act (DMA) EU law conflict with ECH.
+    contributed the research on the conflicts of ECH with local legislations to block.
 - name: Daniel Engberg
   org: Skandinaviska Enskilda Banken AB (SEB)
   email: daniel.engberg@seb.se

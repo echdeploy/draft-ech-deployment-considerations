@@ -25,13 +25,13 @@ range of services to end-users, including the potential weakening of cybersecuri
 Some mitigations are identified that may be useful for inclusion by those considering the adoption
 of support for ECH in their software. 
     " name="description">
-<meta content="xml2rfc 3.15.2" name="generator">
+<meta content="xml2rfc 3.16.0" name="generator">
 <meta content="ECH" name="keyword">
 <meta content="Enterprises" name="keyword">
 <meta content="Operational Security" name="keyword">
 <meta content="draft-campling-ech-deployment-considerations-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.15.2
+  xml2rfc 3.16.0
     Python 3.9.6
     appdirs 1.4.4
     ConfigArgParse 1.5.3
@@ -39,14 +39,14 @@ of support for ECH in their software.
     html5lib 1.1
     intervaltree 3.1.0
     Jinja2 3.1.2
-    lxml 4.9.1
-    MarkupSafe 2.1.1
+    lxml 4.9.2
+    MarkupSafe 2.1.2
     pycountry 22.3.5
     PyYAML 6.0
-    requests 2.28.1
-    setuptools 65.5.0
+    requests 2.28.2
+    setuptools 67.6.0
     six 1.16.0
-    wcwidth 0.2.5
+    wcwidth 0.2.6
 -->
 <link href="draft-campling-ech-deployment-considerations.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -377,7 +377,7 @@ ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
 }
 :is(ul, ol).compact, .ulCompact, .olCompact {
-  line-height: 100%;
+  line-height: 1;
   margin: 0 0 0 2em;
 }
 
@@ -387,10 +387,13 @@ dl {
   --indent: 3ch;
   /* --indent: attr(indent ch); not supported in any browser, but we can dream */
 }
+dl.olPercent {
+  --indent: 5ch;
+}
 dl > dt {
   float: left;
-  margin-right: 1em;
-  min-width: 12ch;
+  margin-right: 2ch;
+  min-width: 8ch;
 }
 dl.dlNewline > dt {
   float: none;
@@ -399,6 +402,9 @@ dl > dd {
   margin-bottom: .8em;
   margin-left: var(--indent) !important; /* stupid element overrides */
   min-height: 2ex;
+}
+dl.olPercent > dt {
+  min-width: calc(var(--indent) - 2ch);
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -413,7 +419,7 @@ dl > dd > dl {
   margin-top: 0.5em;
   margin-bottom: 0;
 }
-dl .break {
+:is(dd, span).break {
   display: none;
 }
 
@@ -421,11 +427,11 @@ dl .break {
 a, a[href].selfRef:hover {
   text-decoration: none;
 }
-a[href].selfRef {
-  color: var(--text-color);
-}
 a[href] {
   color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
 }
 a[href]:hover {
   text-decoration: underline;
@@ -433,7 +439,7 @@ a[href]:hover {
 a[href].selfRef:hover {
   background-color: var(--highlight-color);
 }
-a.xref {
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
 }
 
@@ -445,7 +451,9 @@ tt, code, pre {
 tt, code {
   /* changing the font for inline elements leads to different ascender
      and descender heights; as we want to retain baseline alignment,
-     remove leading to avoid altering the final height of lines */
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
   line-height: 0;
 }
 :is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
@@ -597,10 +605,14 @@ hr {
 .bcp14 {
   font-variant: small-caps;
   font-weight: 600;
-  font-size: 14.5px;
+  font-size: var(--small-font-size);
 }
 .role {
   font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
 }
 
 /* info block */
@@ -1042,7 +1054,7 @@ svg :is([stroke="white"], [stroke^="#fff"]) {
 svg :is([fill="black"], [fill^="#000"], :not([fill])) {
   fill: var(--text-color);
 }
-svg :is([stroke="fill"], [fill^="#fff"]) {
+svg :is([fill="white"], [fill^="#fff"]) {
   fill: var(--background-color);
 }
 </style>
@@ -1053,11 +1065,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ECH Deployment Considerations</td>
-<td class="right">November 2022</td>
+<td class="right">March 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Campling, et al.</td>
-<td class="center">Expires 25 May 2023</td>
+<td class="center">Expires 14 September 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1082,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-campling-ech-deployment-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-11-21" class="published">21 November 2022</time>
+<time datetime="2023-03-13" class="published">13 March 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-05-25">25 May 2023</time></dd>
+<dd class="expires"><time datetime="2023-09-14">14 September 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1137,7 +1149,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1146,7 +1158,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2022 IETF Trust and the persons identified as the
+            Copyright (c) 2023 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1455,7 +1467,7 @@ requiring the configuration of user devices or software.  They are
 commonly used by organisations to provide content filtering for
 devices that they don't own that are connected to their networks.
 For example, some education environments use transparent proxies to
-implement support for "bring your own device" (BYOD) without needing to load software on third-
+implement support for “bring your own device” (BYOD) without needing to load software on third-
 party devices.<a href="#section-4-3" class="pilcrow">¶</a></p>
 <p id="section-4-4">Transparent proxies use SNI data to understand whether a user is
 accessing inappropriate content without the need to inspect data
@@ -1604,7 +1616,7 @@ may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introducti
 </li>
       </ul>
 <p id="section-7-4">In relation to specific areas where the public interest has to be protected more strongly, such as child abuse crimes, terrorism, criminality and national security, many states have a framework for the urgent removal of internet content regarding the above materials without the need of a court order. In such circumstances, administrative authorities, police authorities or public prosecutors are given specific powers to order internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.<a href="#section-7-4" class="pilcrow">¶</a></p>
-<p id="section-7-5">Particularly in relation to material concerning child abuse and other serious crimes, many countries adopt a "list" system, whereby a central list of blocked URLs or domain names are maintained and updated by the relevant administrative authority. This is notified to the relevant internet access providers, who are required to ensure that blocking is enforced.
+<p id="section-7-5">Particularly in relation to material concerning child abuse and other serious crimes, many countries adopt a “list” system, whereby a central list of blocked URLs or domain names are maintained and updated by the relevant administrative authority. This is notified to the relevant internet access providers, who are required to ensure that blocking is enforced.
 Additionally in some states the authorities can request the removal of content that infringes intellectual property, privacy or defamation rights. In this case the removal need to be requested by a court order.<a href="#section-7-5" class="pilcrow">¶</a></p>
 <p id="section-7-6">Generally speaking, the grounds relied on broadly correspond to the interests protected under Article 10(2) of the European Convention of Human Rights (ECHR), namely: the protection of national security, territorial integrity or public safety, the prevention of disorder or crime, the protection of health or morals, the protection of the reputation or rights of others, and the prevention of the disclosure of information received in confidence.
 From the methodology we have to distinguish between blocking or takedown of content.<a href="#section-7-6" class="pilcrow">¶</a></p>
@@ -1617,7 +1629,7 @@ From the methodology we have to distinguish between blocking or takedown of cont
 <p id="section-7-8">In these considerations we will refer to blocking only.<a href="#section-7-8" class="pilcrow">¶</a></p>
 <p id="section-7-9">This can be achieved through a number of techniques, including the blocking of the Domain Name System (DNS), the analysis of the SNI field or the Uniform Resource Locator (URL).
 Given the increasing adoption of encryption techniques often a mixture of the above techniques is needed.<a href="#section-7-9" class="pilcrow">¶</a></p>
-<p id="section-7-10">In particular for the most serious crimes such as child abuse or national security many countries adopt a "list" methodology, where a central list of blocked Domains or URLs is maintained by the authorities and updated on a regular basis (daily or even hourly) and shared with Public Network Operators that have to enforce the blocking.<a href="#section-7-10" class="pilcrow">¶</a></p>
+<p id="section-7-10">In particular for the most serious crimes such as child abuse or national security many countries adopt a “list” methodology, where a central list of blocked Domains or URLs is maintained by the authorities and updated on a regular basis (daily or even hourly) and shared with Public Network Operators that have to enforce the blocking.<a href="#section-7-10" class="pilcrow">¶</a></p>
 <p id="section-7-11">In many jurisdictions there are legal consequences for the Operator not complying with the blocking order.<a href="#section-7-11" class="pilcrow">¶</a></p>
 <p id="section-7-12">Technically the blocking can be implemented using some techniques that have been adapted during time based on the new technologies introduced.<a href="#section-7-12" class="pilcrow">¶</a></p>
 <p id="section-7-13">Historically  depending on the content of the list the technique have been based on DNS or proxy blocking.<a href="#section-7-13" class="pilcrow">¶</a></p>
@@ -1782,7 +1794,7 @@ informal group of experts including the following people:<a href="#section-13-1"
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-opsec-indicators-of-compromise">[I-D.draft-ietf-opsec-indicators-of-compromise]</dt>
         <dd>
-<span class="refAuthor">Paine, K.</span>, <span class="refAuthor">Whitehouse, O.</span>, <span class="refAuthor">Sellwood, J.</span>, and <span class="refAuthor">A. S</span>, <span class="refTitle">"Indicators of Compromise (IoCs) and Their Role in Attack Defence"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsec-indicators-of-compromise-02</span>, <time datetime="2022-09-12" class="refDate">12 September 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsec-indicators-of-compromise-02">https://datatracker.ietf.org/doc/html/draft-ietf-opsec-indicators-of-compromise-02</a>&gt;</span>. </dd>
+<span class="refAuthor">Paine, K.</span>, <span class="refAuthor">Whitehouse, O.</span>, <span class="refAuthor">Sellwood, J.</span>, and <span class="refAuthor">A. S</span>, <span class="refTitle">"Indicators of Compromise (IoCs) and Their Role in Attack Defence"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsec-indicators-of-compromise-04</span>, <time datetime="2023-02-03" class="refDate">3 February 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsec-indicators-of-compromise-04">https://datatracker.ietf.org/doc/html/draft-ietf-opsec-indicators-of-compromise-04</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-opsec-ns-impact">[I-D.draft-ietf-opsec-ns-impact]</dt>
         <dd>
@@ -1915,7 +1927,7 @@ informal group of experts including the following people:<a href="#section-13-1"
 <a href="https://www.linkedin.com/in/celine-leroy-1a534252/" class="url">https://www.linkedin.com/in/celine-leroy-1a534252/</a>
 </div>
 </address>
-<p id="appendix-A-4">Thank you to Celine for her work on cybersecurity financial impacts on enterprises.<a href="#appendix-A-4" class="pilcrow">¶</a></p>
+<p id="appendix-A-4">Thank you to Céline for her work on cybersecurity financial impacts on enterprises.<a href="#appendix-A-4" class="pilcrow">¶</a></p>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Daniel Engberg</span></div>
 <div dir="auto" class="left"><span class="org">Skandinaviska Enskilda Banken AB (SEB)</span></div>

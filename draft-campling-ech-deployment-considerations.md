@@ -67,7 +67,7 @@ contributor: # Same structure as author list, but goes into contributors
   email: gianpaolo-angelo.scalone@vodafone.com
   uri: https://www.linkedin.com/in/gianpaoloscalone/
   contribution: |
-    contributed the research on the conflicts of ECH with local legislations to block.
+    Contributed the research on the conflicts of ECH with local legislations to block.
 - name: Daniel Engberg
   org: Skandinaviska Enskilda Banken AB (SEB)
   email: daniel.engberg@seb.se
@@ -243,14 +243,7 @@ of support for ECH in their software.
 
 # Introduction
 
-
-As noted above, this document includes observations on current use
-cases for SNI data in a variety of contexts.  It highlights how the
-use of that data is important to the operators of both public and private networks
-and shows how the loss of access to SNI data will cause difficulties
-in the provision of a range of services to end-users.
-Some mitigations are identified that may be useful for inclusion by those considering the adoption of support for ECH in their software.
-
+In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve pervasive encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) {{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining metadata in the clear.
 
 The Internet was envisaged as a network of networks, each able to
 determine what data to transmit and receive from their peers.
@@ -263,6 +256,10 @@ Internet and potentially adverse security implications for end users.
 Given these implications, it certainly should not be undertaken
 without either the knowledge of or consultation with end users, as
 outlined in {{RFC8890}}.
+
+There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring and offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises in need for network security controls for compliance reasons).
+
+The objective of this document is to list and describe the various operational impacts of ECH and not to consider solutions to this problem nor to question the development of the ECH proposal.
 
 Whilst it is reasonable to counter that VPNs also establish opaque
 paths, a primary difference is that the use of a VPN is a deliberate
@@ -295,6 +292,11 @@ This document will focus specifically on
 the impact of encrypting the SNI data by ECH on public and private networks,
 but it should be noted that other elements in the client hello may also be relevant for some
 on-path security methods.
+
+# Why is the SNI used by middleboxes?
+
+(Editor note: this section is experimental). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete pervasive encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use these information. Regardless of the easiness to access the data, the DNS could be misleading in some situations (would it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented precisely to extend on what the DNS name could not achieve by design.
+
 
 # Encrypted Server Name Indication
 
@@ -655,5 +657,7 @@ This document has no IANA actions.
 
 # Acknowledgment
 
+In memory of Simon Edwards who passed away in the night of 8th-9th of January 2023.
+
 In addition to the authors, this document is the product of an
-informal group of experts including the following people:
+informal group of experts including the following people. :

@@ -5,13 +5,13 @@
 secdispatch                                               A. J. Campling
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                                  P. Vixie
-Expires: 25 May 2023                                            Red Barn
+Expires: 14 September 2023                                      Red Barn
                                                                D. Wright
                                                 UK Safer Internet Centre
                                                                A. Taddei
                                                               S. Edwards
                                                                 Broadcom
-                                                        21 November 2022
+                                                           13 March 2023
 
 
             Encrypted Client Hello Deployment Considerations
@@ -52,11 +52,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 May 2023.
+   This Internet-Draft will expire on 14 September 2023.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2023 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -284,7 +284,7 @@ Table of Contents
    commonly used by organisations to provide content filtering for
    devices that they don't own that are connected to their networks.
    For example, some education environments use transparent proxies to
-   implement support for "bring your own device" (BYOD) without needing
+   implement support for “bring your own device” (BYOD) without needing
    to load software on third- party devices.
 
    Transparent proxies use SNI data to understand whether a user is
@@ -511,7 +511,7 @@ Table of Contents
    provider or host themselves.
 
    Particularly in relation to material concerning child abuse and other
-   serious crimes, many countries adopt a "list" system, whereby a
+   serious crimes, many countries adopt a “list” system, whereby a
    central list of blocked URLs or domain names are maintained and
    updated by the relevant administrative authority.  This is notified
    to the relevant internet access providers, who are required to ensure
@@ -551,7 +551,7 @@ Table of Contents
    techniques is needed.
 
    In particular for the most serious crimes such as child abuse or
-   national security many countries adopt a "list" methodology, where a
+   national security many countries adopt a “list” methodology, where a
    central list of blocked Domains or URLs is maintained by the
    authorities and updated on a regular basis (daily or even hourly) and
    shared with Public Network Operators that have to enforce the
@@ -744,9 +744,9 @@ Table of Contents
               Paine, K., Whitehouse, O., Sellwood, J., and A. S,
               "Indicators of Compromise (IoCs) and Their Role in Attack
               Defence", Work in Progress, Internet-Draft, draft-ietf-
-              opsec-indicators-of-compromise-02, 12 September 2022,
+              opsec-indicators-of-compromise-04, 3 February 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsec-
-              indicators-of-compromise-02>.
+              indicators-of-compromise-04>.
 
    [I-D.draft-ietf-opsec-ns-impact]
               Cam-Winget, N., Wang, E., Danyliw, R., and R. DuToit,
@@ -878,7 +878,7 @@ Contributors
    URI:   https://www.linkedin.com/in/celine-leroy-1a534252/
 
 
-   Thank you to Celine for her work on cybersecurity financial impacts
+   Thank you to Céline for her work on cybersecurity financial impacts
    on enterprises.
 
    Daniel Engberg

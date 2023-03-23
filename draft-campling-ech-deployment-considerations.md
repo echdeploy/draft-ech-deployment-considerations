@@ -7,7 +7,7 @@ ipr: trust200902
 cat: info
 submissiontype: IETF
 area: SEC
-wg: secdispatch
+wg: opsec
 
 stand_alone: yes
 smart_quotes: no
@@ -16,6 +16,8 @@ pi: [toc, sortrefs, symrefs]
 lang: en
 kw:
   - ECH
+  - Operators
+  - Schools
   - Enterprises
   - Operational Security
 author:
@@ -243,9 +245,13 @@ of support for ECH in their software.
 
 # Introduction
 
+## Background
+
 In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve pervasive encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) {{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining metadata in the clear.
 
-The Internet was envisaged as a network of networks, each able to
+There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring and offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises in need for network security controls for compliance reasons).
+
+More fundamentaly, the Internet was envisaged as a network of networks, each able to
 determine what data to transmit and receive from their peers.
 Developments like ECH mark a fundamental change in the architecture
 of the Internet, allowing opaque paths to be established from
@@ -256,10 +262,6 @@ Internet and potentially adverse security implications for end users.
 Given these implications, it certainly should not be undertaken
 without either the knowledge of or consultation with end users, as
 outlined in {{RFC8890}}.
-
-There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring and offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises in need for network security controls for compliance reasons).
-
-The objective of this document is to list and describe the various operational impacts of ECH and not to consider solutions to this problem nor to question the development of the ECH proposal.
 
 Whilst it is reasonable to counter that VPNs also establish opaque
 paths, a primary difference is that the use of a VPN is a deliberate
@@ -281,6 +283,12 @@ that have explicit agreements that permit the monitoring of user
 traffic are very different from those for service providers who may
 be accessing content in a way that violates privacy considerations".
 
+## Scope, objectives and limits of this document
+
+The objective of this document is to list and describe the various operational impacts of ECH and not to consider solutions to this problem nor to question the development of the ECH proposal.
+
+The operational impacts maybe of different nature: network security, network management, content filtering, etc.
+
 This document considers the implications of ECH for private network
 operators including enterprises and education establishments. The
 data encapsulated by ECH is of legitimate interest to on-path
@@ -288,18 +296,24 @@ security actors including those providing inline malware detection,
 firewalls, parental controls, content filtering to prevent access to malware
 and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.
 
+(editorial note we have 2 clauses that are similar that needs streamlining, second one taken from the paragraph about encrypting the SNI. Need a better articulation between Introduction and the SNI section below)
+
 This document will focus specifically on
 the impact of encrypting the SNI data by ECH on public and private networks,
 but it should be noted that other elements in the client hello may also be relevant for some
 on-path security methods.
 
-# Why is the SNI used by middleboxes?
+This document is intended to address the above limitations of {{RFC8744}}
+by providing more information about the issues posed by the
+introduction of ECH due to the loss of visibility of SNI data on
+private networks.  To do so it considers the situation within schools,
+enterprises and public service providers, building on information previously documented in a
+report from a roundtable discussion {{ECH_Roundtable}} in places.
 
-(Editor note: this section is experimental). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete pervasive encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use these information. Regardless of the easiness to access the data, the DNS could be misleading in some situations (would it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented precisely to extend on what the DNS name could not achieve by design.
 
+# General considerations about the encryption of the Client Hello
 
-# Encrypted Server Name Indication
-
+## About encrypting the Server Name Indication (SNI)
 
 {{RFC8744}} describes the general problem of encrypting the
 Server Name Identification (SNI) TLS extension.  The document
@@ -328,12 +342,51 @@ the Internet has many examples of permissionless innovation and so
 this "unanticipated usage" of SNI data should not be dismissed as lacking in
 either importance or validity.
 
-This document is intended to address the above limitations of {{RFC8744}}
-by providing more information about the issues posed by the
-introduction of ECH due to the loss of visibility of SNI data on
-private networks.  To do so it considers the situation within schools,
-enterprises and public service providers, building on information previously documented in a
-report from a roundtable discussion {{ECH_Roundtable}} in places.
+## Why are middleboxes using the SNI?
+
+(Editor note: this section is experimental). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete pervasive encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use these information. Regardless of the easiness to access the data, the DNS could be misleading in some situations (would it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented precisely to extend on what the DNS name could not achieve by design.
+
+## Network assets using the SNI
+
+### Different network types
+
+(Editorial note: develop issue #46 here)
+
+### Characterisation of network assets using the SNI
+
+(Editorial note: This work identified the potential to list middleboxes using the SNI. This is a non trivial task but would be worthwile to identify the magnitude of problems and to further develop the migration issues section later)
+
+### The case of Transparent Proxies
+
+A proxy server is a server application that acts as an intermediary
+between a client requesting a resource and the server providing that
+resource.  Instead of connecting directly, the client directs the
+request to the proxy server which evaluates the request before
+performing the required network activity.  Proxies are used for
+various purposes including load balancing, privacy and security.
+
+Traditionally, proxies are accessed by configuring a user's
+application or network settings, with traffic diverted to the proxy
+rather than the target destination.  With "transparent" proxying, the
+proxy intercepts packets directed to the destination, making it seem
+as though the request is handled by the target destination itself.
+
+A key advantage of transparent proxies is that they work without
+requiring the configuration of user devices or software.  They are
+commonly used by organisations to provide content filtering for
+devices that they don't own that are connected to their networks.
+For example, some education environments use transparent proxies to
+implement support for “bring your own device” (BYOD) without needing to load software on third-
+party devices.
+
+Transparent proxies use SNI data to understand whether a user is
+accessing inappropriate content without the need to inspect data
+beyond the SNI field.  Because of this, encryption of the SNI field,
+as is the case with ECH, will disrupt the use of transparent proxies, requiring far more intrusive data inspection to be undertaken instead.
+
+### The case of non-transparent proxies
+
+(Editorial note: Potential contribution)
 
 # The Education Sector
 
@@ -372,7 +425,6 @@ posed if the filtering is bypassed by client software using ECH.
 
 ## Mitigations
 
-
 Whilst it may be possible for schools to overcome some of the issues
 ECH raises by adopting similar controls to those used by enterprises,
 it should be noted that most schools have a very different budget for
@@ -401,6 +453,8 @@ filtering will typically use SNI data to understand whether a user is
 accessing inappropriate data, so encrypting the SNI field will
 disrupt the use of these transparent proxies.
 
+## Implications
+
 In the event that transparent proxies are no longer effective,
 institutions will either have to require more invasive software to be
 installed on third party devices before they can be used along with
@@ -408,38 +462,12 @@ ensuring they have the capability to comprehend and adequately manage
 these technologies or will have to prevent those devices from
 operating.  Neither option is desirable.
 
-# Transparent Proxies
-
-
-A proxy server is a server application that acts as an intermediary
-between a client requesting a resource and the server providing that
-resource.  Instead of connecting directly, the client directs the
-request to the proxy server which evaluates the request before
-performing the required network activity.  Proxies are used for
-various purposes including load balancing, privacy and security.
-
-Traditionally, proxies are accessed by configuring a user's
-application or network settings, with traffic diverted to the proxy
-rather than the target destination.  With "transparent" proxying, the
-proxy intercepts packets directed to the destination, making it seem
-as though the request is handled by the target destination itself.
-
-A key advantage of transparent proxies is that they work without
-requiring the configuration of user devices or software.  They are
-commonly used by organisations to provide content filtering for
-devices that they don't own that are connected to their networks.
-For example, some education environments use transparent proxies to
-implement support for “bring your own device” (BYOD) without needing to load software on third-
-party devices.
-
-Transparent proxies use SNI data to understand whether a user is
-accessing inappropriate content without the need to inspect data
-beyond the SNI field.  Because of this, encryption of the SNI field,
-as is the case with ECH, will disrupt the use of transparent proxies, requiring far more intrusive data inspection to be undertaken instead.
 
 # Impact of ECH on Enterprises and Organizations
 
-## The main requirements
+## Context
+
+### The main requirements
 
 Enterprises and Organizations need to protect themselves for a vast number of reasons, mainly:
 
@@ -447,7 +475,7 @@ Enterprises and Organizations need to protect themselves for a vast number of re
 * Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).
 * Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. These requirements are growing in both scope and complexity as they are added to by various bodies in countries and regional authorities around the world.
 
-## A degrading threat landscape
+### A degrading threat landscape
 
 In addition, the general threat landscape which was already very large (see {{I-D.draft-mcfadden-smart-threat-changes}}), has significantly increased in three ways:
 
@@ -468,6 +496,8 @@ networks on a temporary basis:
 * need to use a VPN access to the corporate network, which brings all the benefits (e.g. protected access to corporate network) and risks that VPNs may open (e.g. lateral movement when the end point is compromised),
 * need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.
 
+## Mitigations
+
 In such circumstances, requiring
 software or custom configurations to be installed on those devices
 may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}.
@@ -481,27 +511,28 @@ All the above conditions are weighing on capabilities to defend, both:
 * Directly: a lack of visibility on a key meta data like the SNI will cause significant issues to enterprises and organizations
 * Indirectly: should ECH happen and should alternative be provided, managing migrations to any alternative not requiring access to the SNI, in these conditions, is undesirable from a timing, resources, capacities and risks perspectives.
 
+## Implications
 
-## Examples of regulatory implications
+### Examples of regulatory implications
 
 Regulators are accelerating their lawfare capabilities at accelerated pace and new legislations are showing an increased precision on what enterprises can and cannot do. The EU GDPR had ripple effects to Financial Institutions to implement Data Loss Prevention which requires selective decrypt. The recent indication that US regulators are in the process of levying fines of $200m each on a number of institutions because they were unable to track all communications by their employees using WhatsApp or Signal , {{Bloomberg}}, creates new auditability constraints. It is with growing concern that an ECH enabled ecosystem may clash with future regulatory requirements.
 
-## Impact of ECH deployment on Network Security Operations
+### Impact of ECH deployment on Network Security Operations
 
-### Reminders on Network Security
+#### Reminders on Network Security
 
 Network Security is a set of security capabilities which is articulated as part of a defense strategy, e.g. Defense In Depth {{NIST-DID}}, Zero Trust, SASE/SSE, etc. and can trigger and enable other security capabilities such as sandboxing, Data Loss Prevention, Cloud Access Service Broker (CASB), etc. One constituency is a Web Proxy, combining both a TLS proxy and an application level (HTTP) proxy.
 
 In the same way that {{I-D.draft-ietf-opsec-ns-impact}} showed the impact of TLS1.3 on operational security, a loss of visibility of the SNI as indicator of compromise (see {{I-D.draft-ietf-opsec-indicators-of-compromise}}) has two main implications
 
-### Implications from loss of Meta Data
+#### Implications from loss of Meta Data
 
 The loss of visibility of the SNI, at TLS level, will prevent transparent proxies from applying corporate policies to manage risk and compliancy. Typical examples:
 
 * categories of compromised sites cannot be applied anymore, exposing employees and their organisations to potential cybersecurity risks; alternative approaches to block access to theses sites need to be found
 * corporate lists of excluded sites for compliance or policy reasons need alternatives ways to be blocked.
 
-### Implications from loss of Selective Decrypt
+#### Implications from loss of Selective Decrypt
 
 TLS proxies also have the ability to selectively intercept, avoiding any visibility into or modification of the original application protocol payload - but such selective intercept relies heavily on knowledge of the origin content server hostname, which can be extracted in plaintext from the TLS ClientHello SNI (server name) field.
 
@@ -511,13 +542,15 @@ The loss of SNI visibility will make it more difficult for corporate user flows 
 
 This will create inefficiencies, will require more resources and will increase security risks. It will also be counter productive for privacy as it may require the proxy to decrypt the whole TLS connection.
 
-# Specific implications for SMBs
+### Specific implications for SMBs
 
 Small and Medium Business (SMBs) form a particularly vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25'000 in some developed countries).
 
 Similarly to the above education use case and irrespective of definitions, many SMBs have very limited in-house capabilities to defend themselves, with security often outsourced to Managed Security Service Providers (typically network operators, mid range and small service providers).
 
 # Public Network Service Providers
+
+## Context
 
 In Public Networks the national, regional and international legislator has to balance between freedom of access to the information on the one hand, and safety of the internet and the protection of other fundamental rights on the other hand.
 
@@ -526,6 +559,10 @@ There are mainly 2 different approaches:
 * First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing “general” legal framework that is not specific to the internet to conduct – what is, generally speaking - limited blocking or takedown of unlawful online material. here the approach has been differentiated in relying on self regulation from the private sector or limited political or legislative intervention to specific areas.
 
 * The other approach has been to set up a legal framework specifically aimed at the regulation of the internet and other digital media, including the blocking, filtering and removal of internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.
+
+## Mitigations
+
+### Current approaches and procedures
 
 In relation to specific areas where the public interest has to be protected more strongly, such as child abuse crimes, terrorism, criminality and national security, many states have a framework for the urgent removal of internet content regarding the above materials without the need of a court order. In such circumstances, administrative authorities, police authorities or public prosecutors are given specific powers to order internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.
 
@@ -540,6 +577,8 @@ From the methodology we have to distinguish between blocking or takedown of cont
 * Takedown or removal of internet content, on the other hand, will instead broadly refer to demands or measures aimed at the website operator (or “host”) to remove or delete the offending website content or sub content.
 
 In these considerations we will refer to blocking only.
+
+### The blocking use case
 
 This can be achieved through a number of techniques, including the blocking of the Domain Name System (DNS), the analysis of the SNI field or the Uniform Resource Locator (URL).
 Given the increasing adoption of encryption techniques often a mixture of the above techniques is needed.
@@ -558,10 +597,14 @@ Given that nowadays the vast majority of traffic is encrypted, the capability of
 
 Theoretically DNS blocking would be the preferred option for operators given the more limited investments necessary to implement blocking of the Domains, but given the increased usage of external encrypted DNS services DNS blocking is becoming less effective and operators need to use SNI analysis as well in order to fulfil legal obligations.
 
+## Implications
+
 The adoption of ECH will cause additional problems and limit the possibility of implementing operators fulfilling their legal blocking obligations, exposing the population to illegal content related to crimes such as Child Sex Abuse Material (CSAM), malware and other malicious content, and possibly even content deemed to be detrimental to National Security.
 
 
-# Threat Detection
+# General issues
+
+## Threat Detection
 
 {{RFC8404}} identifies a number of issues arising from increased
 encryption of data, some of which apply to ECH.  For example, it
@@ -586,31 +629,55 @@ data plays a role here, in particular where DNS data is unavailable
 because it has been encrypted; if SNI data is lost too, alongside
 DNS, defences are weakened and the attack surface increased.
 
+## Endpoint security limits
 
-# Potential further development of this work
+(Editorial note: Elaborate on endpoint security complications as {{I-D.draft-taddei-smart-cless-introduction}} as well as {{MAGECART}} {{MITB}} {{MITB-MITRE}} {{MALVERTISING}} showed that in some cases, the only way to detect an attack is through the use of network-based security. The loss of visibility of the SNI data will make it much harder to detect attacks. The endpoints components (operating system, applications, browsers, etc.) cannot be judge and party.)
 
-This work could consider several potential developments:
+## Network management
+
+(Editorial note: this is a placeholder for future issues)
+
+## Future operational deployment issues due to the introduction of the Client Facing servers themselves
+
+(Editorial note:
+
+  * Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience.
+
+  * What happens if Client Facing servers are controlled by malicious actors?
+
+  * The Client Facing servers are acting as a new category of middleboxes. In this shift left movement, until the attack surface is minimal and complexities are removed, you have to rely on third parties for inspection. In these conditions, on which basis can they be more trusted than any other middleboxes? Is this creating a concentration problem?
+
+)
+
+## Migration issues
+
+(Editorial note: this is a placeholder for future issues;
 
 * If ECH is enforced what are the solutions to all the above problems and what are the migration paths?
 
-* Elaborate on endpoint security complications as {{I-D.draft-taddei-smart-cless-introduction}} as well as {{MAGECART}} {{MITB}} {{MITB-MITRE}} {{MALVERTISING}} showed that in some cases, the only way to detect an attack is through the use of network-based security. The loss of visibility of the SNI data will make it much harder to detect attacks. The endpoints components (operating system, applications, browsers, etc.) cannot be judge and party.
+)
 
-*  There are need for further clarifications from the ECH draft, e.g. The link between the Client Facing and the backend servers are not clear enough and need further description. It can’t be just ‘left to the implementation’
+# Potential further development of this work
+
+## Potential development of this document
+
+*  There are need for further clarifications from the ECH draft, e.g. The link between the Client Facing and the backend servers are not clear enough and need further description. It can’t be just ‘left to the implementation’. The action is still underway and feedback to the TLS working group will be provided.
 
 * Will there be any impact to the DNS by adding so many new RRs?
-
-* What happens if Client Facing servers are controlled by malicious actors?
-
-* The Client Facing servers are acting as a new category of middleboxes. In this shift left movement, until the attack surface is minimal and complexities are removed, you have to rely on third parties for inspection. In these conditions, on which basis can they be more trusted than any other middleboxes? Is this creating a concentration problem?
-
-* What prevents a Client Facing server providing security solutions to protect the data path?
-
-* Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience.
 
 * Find missing sources to illustrate a number of points, e.g. show how adversaries use digital transformation to accelerate their attacks, how ECH will increase security risks.
 
 * Keep streamlining, clarifying the text e.g. the 2 approaches in the public network service providers section, "Technically the blocking ...".
 
+## Potential development outside of the scope of this document
+
+This document infers a number of ideas that could be relevant for other groups and in other deliverables. In particular regarding what type of solutions could be considered
+
+* There is the need to heal security and privacy
+
+* What prevents a Client Facing server providing security solutions to protect the data path?
+
+* Given some of the many challenges there is the opportunity to review the current ECH proposal from the perspective of a respectful inspection protocol.
 
 
 # Conclusion
@@ -621,6 +688,8 @@ their compliance obligations.  The introduction of ECH in client
 software poses operational challenges that could be overcome on
 devices owned by those institutions if policy settings are supported
 within the software that allows the ECH functionality to be disabled.
+
+(Editorial note: these two below paragraph need revision)
 
 Third-party devices pose an additional challenge, primarily because
 the use of ECH will render transparent proxies inoperable.  The most
@@ -660,4 +729,4 @@ This document has no IANA actions.
 In memory of Simon Edwards who passed away in the night of 8th-9th of January 2023.
 
 In addition to the authors, this document is the product of an
-informal group of experts including the following people. :
+informal group of experts including the people listed in the Contributors list in Appendix.

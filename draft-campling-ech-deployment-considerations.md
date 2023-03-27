@@ -650,7 +650,7 @@ DNS, defences are weakened and the attack surface increased.
 
 # Potential further development of this work
 
-## Potential development of this document. 
+## Potential development of this document.
 
 This section lists potential development of this work in particular for the General Issues section.
 
@@ -701,7 +701,7 @@ to be balanced.
 
 In addition to introducing new operational and financial issues, the
 introduction of SNI encryption poses new challenges for threat
-detection which this document outlines.  
+detection which this document outlines.
 
 This I-D should help improve security in deployments of ECH.
 

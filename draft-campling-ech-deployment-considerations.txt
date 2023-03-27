@@ -138,7 +138,7 @@ Table of Contents
    metadata in the clear.
 
    There are use cases where encryption of the SNI data may be a useful
-   precaution to reduce the risk of end-to-end monitoring that offers
+   precaution to reduce the risk of pervasing monitoring that offers
    some benefits (e.g Enterprises offering services for their own
    customers will appreciate that their customers' privacy be better
    protected).  However ECH presents challenges for other use cases
@@ -165,7 +165,7 @@ Table of Contents
 
    [RFC7258] discusses the critical need to protect users' privacy when
    developing IETF specifications and also recognises that making
-   networks unmanageable to mitigate end-to-end monitoring is not an
+   networks unmanageable to mitigate pervasive monitoring is not an
    acceptable outcome.
 
    [RFC8404] discusses current security and network operations as well

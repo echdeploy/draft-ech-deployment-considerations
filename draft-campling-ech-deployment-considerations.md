@@ -249,9 +249,9 @@ of support for ECH in their software.
 
 In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve pervasive encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) {{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining metadata in the clear.
 
-There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring and offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises in need for network security controls for compliance reasons).
+There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).
 
-More fundamentaly, the Internet was envisaged as a network of networks, each able to
+The Internet was envisaged as a network of networks, each able to
 determine what data to transmit and receive from their peers.
 Developments like ECH mark a fundamental change in the architecture
 of the Internet, allowing opaque paths to be established from
@@ -285,31 +285,22 @@ be accessing content in a way that violates privacy considerations".
 
 ## Scope, objectives and limits of this document
 
-The objective of this document is to list and describe the various operational impacts of ECH and not to consider solutions to this problem nor to question the development of the ECH proposal.
+This document considers the implications of ECH for private, edge and public networks using the examples of education establishments, enterprises and public operators. It addresses the limitations of {{RFC8744}}
+by providing more information about the issues posed by the
+introduction of ECH due to the loss of visibility of SNI data on
+private networks building on the report from a roundtable discussion {{ECH_Roundtable}}.
 
-The operational impacts maybe of different nature: network security, network management, content filtering, etc.
-
-This document considers the implications of ECH for private network
-operators including enterprises and education establishments. The
-data encapsulated by ECH is of legitimate interest to on-path
-security actors including those providing inline malware detection,
-firewalls, parental controls, content filtering to prevent access to malware
-and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc.
-
-(editorial note we have 2 clauses that are similar that needs streamlining, second one taken from the paragraph about encrypting the SNI. Need a better articulation between Introduction and the SNI section below)
-
-This document will focus specifically on
-the impact of encrypting the SNI data by ECH on public and private networks,
+The objective of this document is to detail the various operational impacts of ECH. It will focus specifically on
+the impact of encrypting the SNI data by ECH,
 but it should be noted that other elements in the client hello may also be relevant for some
 on-path security methods.
 
-This document is intended to address the above limitations of {{RFC8744}}
-by providing more information about the issues posed by the
-introduction of ECH due to the loss of visibility of SNI data on
-private networks.  To do so it considers the situation within schools,
-enterprises and public service providers, building on information previously documented in a
-report from a roundtable discussion {{ECH_Roundtable}} in places.
+The data encapsulated by ECH is of legitimate interest to on-path
+security actors including those providing inline malware detection,
+firewalls, parental controls, content filtering to prevent access to malware
+and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc. Beyond network security, there are various operational impacts of different types e.g. network management, content filtering, etc.
 
+Whilst this document identifies operational issues, it does not consider solutions nor question the development of the ECH proposal itself.
 
 # General considerations about the encryption of the Client Hello
 
@@ -344,7 +335,7 @@ either importance or validity.
 
 ## Why are middleboxes using the SNI?
 
-(Editor note: this section is experimental). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete pervasive encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use these information. Regardless of the easiness to access the data, the DNS could be misleading in some situations (would it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented precisely to extend on what the DNS name could not achieve by design.
+(Editor note: this section is experimental). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete pervasive encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use these information. Regardless of the easiness to access the data, the DNS could be misleading in some situations (would it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented precisely to extend on what the DNS name could not achieve by design. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it, until they calculate enough validity to ensure it is, at this stage a reliable IoC? (Editor note: this will be extended in a future revision)
 
 ## Network assets using the SNI
 
@@ -463,7 +454,7 @@ these technologies or will have to prevent those devices from
 operating.  Neither option is desirable.
 
 
-# Impact of ECH on Enterprises and Organizations
+# Impact of ECH in private network contexts (Enterprises or other organizations)
 
 ## Context
 
@@ -500,11 +491,11 @@ networks on a temporary basis:
 
 In such circumstances, requiring
 software or custom configurations to be installed on those devices
-may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}.
+may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}).
 
 This is why network security solutions are required and this is why ECH preventing the access to the SNI makes it impossible for blue teams to defend (see the next sections for details).
 
-Finally there is a major lack of manpower in cybersecurity with a lack of professionalization which is not compensated anymore by the vocational aspect of cybersecurity so far, so any expansion of technical requirements that ECH would cause will exacerbate the problem.
+Finally there is a major lack of manpower in cybersecurity with a lack of professionalization which is not compensated anymore by the vocational aspect of cybersecurity so far, so any expansion of technical requirements caused by ECH will exacerbate the problem.
 
 All the above conditions are weighing on capabilities to defend, both:
 
@@ -631,7 +622,7 @@ DNS, defences are weakened and the attack surface increased.
 
 ## Endpoint security limits
 
-(Editorial note: Elaborate on endpoint security complications as {{I-D.draft-taddei-smart-cless-introduction}} as well as {{MAGECART}} {{MITB}} {{MITB-MITRE}} {{MALVERTISING}} showed that in some cases, the only way to detect an attack is through the use of network-based security. The loss of visibility of the SNI data will make it much harder to detect attacks. The endpoints components (operating system, applications, browsers, etc.) cannot be judge and party.)
+(Editorial note: Elaborate on endpoint security complications as {{I-D.draft-taddei-smart-cless-introduction}} as well as {{MAGECART}} {{MITB}} {{MITB-MITRE}} {{MALVERTISING}} showed that in some cases, the only way to detect an attack is through the use of network-based security. The loss of visibility of the SNI data will make it much harder to detect attacks. The endpoints components (operating system, applications, browsers, etc.) cannot be judge and jury.)
 
 ## Network management
 
@@ -659,15 +650,13 @@ DNS, defences are weakened and the attack surface increased.
 
 # Potential further development of this work
 
-## Potential development of this document
+## Potential development of this document. 
+
+This section lists potential development of this work in particular for the General Issues section.
 
 *  There are need for further clarifications from the ECH draft, e.g. The link between the Client Facing and the backend servers are not clear enough and need further description. It can’t be just ‘left to the implementation’. The action is still underway and feedback to the TLS working group will be provided.
 
 * Will there be any impact to the DNS by adding so many new RRs?
-
-* Find missing sources to illustrate a number of points, e.g. show how adversaries use digital transformation to accelerate their attacks, how ECH will increase security risks.
-
-* Keep streamlining, clarifying the text e.g. the 2 approaches in the public network service providers section, "Technically the blocking ...".
 
 ## Potential development outside of the scope of this document
 
@@ -679,7 +668,6 @@ This document infers a number of ideas that could be relevant for other groups a
 
 * Given some of the many challenges there is the opportunity to review the current ECH proposal from the perspective of a respectful inspection protocol.
 
-
 # Conclusion
 
 Access to SNI data is sometimes necessary in order for institutions,
@@ -689,7 +677,7 @@ software poses operational challenges that could be overcome on
 devices owned by those institutions if policy settings are supported
 within the software that allows the ECH functionality to be disabled.
 
-(Editorial note: these two below paragraph need revision)
+(Editorial note: these two below paragraph need revision towards the end of the development of this draft)
 
 Third-party devices pose an additional challenge, primarily because
 the use of ECH will render transparent proxies inoperable.  The most
@@ -713,10 +701,7 @@ to be balanced.
 
 In addition to introducing new operational and financial issues, the
 introduction of SNI encryption poses new challenges for threat
-detection which this document outlines.  These do not appear to have
-been considered within either {{RFC8744}} or the current ECH Internet-
-Draft {{I-D.draft-ietf-tls-esni}} and should be addressed fully within
-the latter's security considerations section.
+detection which this document outlines.  
 
 This I-D should help improve security in deployments of ECH.
 

@@ -223,6 +223,7 @@ informative:
 
 --- abstract
 
+(Editorial note: to be updated as the text in the main body of the document is finalised)
 This document is intended to inform the community about the impact of the deployment of the proposed
 Encrypted Client Hello (ECH) standard that encrypts Server Name
 Indication (SNI) and other data.  Data encapsulated by ECH (ie data
@@ -247,9 +248,9 @@ of support for ECH in their software.
 
 ## Background
 
-In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve pervasive encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) {{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining metadata in the clear.
+In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve end-to-end encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) {{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining metadata in the clear.
 
-There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).
+There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of end-to-end monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).
 
 The Internet was envisaged as a network of networks, each able to
 determine what data to transmit and receive from their peers.
@@ -271,7 +272,7 @@ user or device owner.
 
 {{RFC7258}} discusses the critical need to protect users'
 privacy when developing IETF specifications and also recognises that
-making networks unmanageable to mitigate pervasive monitoring is not
+making networks unmanageable to mitigate end-to-end monitoring is not
 an acceptable outcome.
 
 {{RFC8404}} discusses current security and network operations
@@ -335,7 +336,7 @@ either importance or validity.
 
 ## Why are middleboxes using the SNI?
 
-(Editor note: this section is experimental). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete pervasive encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use these information. Regardless of the easiness to access the data, the DNS could be misleading in some situations (would it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented precisely to extend on what the DNS name could not achieve by design. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it, until they calculate enough validity to ensure it is, at this stage a reliable IoC? (Editor note: this will be extended in a future revision)
+(Editor note: draft, to be extended in a future revision). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete end-to-end encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use this information. Even if the DNS data can be accessed, it canbe misleading in some situations (does it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented to overcome some of the limitations of the DNS data by providing additional information. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it until they have validated the information that it provides.
 
 ## Network assets using the SNI
 
@@ -464,13 +465,13 @@ Enterprises and Organizations need to protect themselves for a vast number of re
 
 * Reduce their Risks. And in particular as part of any Cyber Resilience strategy.
 * Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).
-* Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. These requirements are growing in both scope and complexity as they are added to by various bodies in countries and regional authorities around the world.
+* Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. These requirements are growing in both scope and complexity as they are added to by various national and regional bodies around the world.
 
 ### A degrading threat landscape
 
 In addition, the general threat landscape which was already very large (see {{I-D.draft-mcfadden-smart-threat-changes}}), has significantly increased in three ways:
 
-* COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantages, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.
+* COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantage, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.
 * The Supply Chain is under stress as per the {{SOLARWIND}} attack
 * Nation State attacks are continuing to evolve, for example as noted to those linked to the current Ukraine crisis.
 
@@ -493,9 +494,9 @@ In such circumstances, requiring
 software or custom configurations to be installed on those devices
 may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}).
 
-This is why network security solutions are required and this is why ECH preventing the access to the SNI makes it impossible for blue teams to defend (see the next sections for details).
+This is why network security solutions are required and this is why the use of ECH to prevent access to the SNI data makes it impossible for blue teams to defend (see the next sections for details).
 
-Finally there is a major lack of manpower in cybersecurity with a lack of professionalization which is not compensated anymore by the vocational aspect of cybersecurity so far, so any expansion of technical requirements caused by ECH will exacerbate the problem.
+Finally there is a global shortage of cybersecurity personnel. Any expansion of technical requirements, for example to mitigate the operational challenges through the introduction of ECH, will exacerbate the problem.
 
 All the above conditions are weighing on capabilities to defend, both:
 
@@ -506,7 +507,7 @@ All the above conditions are weighing on capabilities to defend, both:
 
 ### Examples of regulatory implications
 
-Regulators are accelerating their lawfare capabilities at accelerated pace and new legislations are showing an increased precision on what enterprises can and cannot do. The EU GDPR had ripple effects to Financial Institutions to implement Data Loss Prevention which requires selective decrypt. The recent indication that US regulators are in the process of levying fines of $200m each on a number of institutions because they were unable to track all communications by their employees using WhatsApp or Signal , {{Bloomberg}}, creates new auditability constraints. It is with growing concern that an ECH enabled ecosystem may clash with future regulatory requirements.
+Regulators are accelerating their lawfare capabilities at accelerated pace and new legislations is impacting on the actions of enterprises with increased precision. The EU GDPR had ripple effects such as requiring Financial Institutions to use selective decrypt in order to implement Data Loss Prevention. The recent indication that US regulators are in the process of levying fines of $200m each on a number of institutions because they were unable to track all communications by their employees using WhatsApp or Signal , {{Bloomberg}}, creates new auditability constraints. It is with growing concern that an ECH enabled ecosystem may clash with future regulatory requirements.
 
 ### Impact of ECH deployment on Network Security Operations
 
@@ -535,7 +536,7 @@ This will create inefficiencies, will require more resources and will increase s
 
 ### Specific implications for SMBs
 
-Small and Medium Business (SMBs) form a particularly vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25'000 in some developed countries).
+Small and Medium Business (SMBs) form a particularly vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25,000 in some developed countries).
 
 Similarly to the above education use case and irrespective of definitions, many SMBs have very limited in-house capabilities to defend themselves, with security often outsourced to Managed Security Service Providers (typically network operators, mid range and small service providers).
 
@@ -543,29 +544,29 @@ Similarly to the above education use case and irrespective of definitions, many 
 
 ## Context
 
-In Public Networks the national, regional and international legislator has to balance between freedom of access to the information on the one hand, and safety of the internet and the protection of other fundamental rights on the other hand.
+In Public Networks the national, regional and international legislator has to balance between freedom of access to the information on the one hand, and safety of the Internet and the protection of other fundamental rights on the other hand.
 
-There are mainly 2 different approaches:
+There are 2 main approaches:
 
-* First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing “general” legal framework that is not specific to the internet to conduct – what is, generally speaking - limited blocking or takedown of unlawful online material. here the approach has been differentiated in relying on self regulation from the private sector or limited political or legislative intervention to specific areas.
+* First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal Internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing “general” legal framework that is not specific to the Internet to conduct what is, generally speaking, limited blocking or takedown of unlawful online material. Here the approach has been differentiated in relying on self regulation from the private sector or limited political or legislative intervention to specific areas.
 
-* The other approach has been to set up a legal framework specifically aimed at the regulation of the internet and other digital media, including the blocking, filtering and removal of internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.
+* The other approach has been to set up a legal framework specifically aimed at the regulation of the Internet and other digital media, including the blocking, filtering and removal of Internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.
 
 ## Mitigations
 
 ### Current approaches and procedures
 
-In relation to specific areas where the public interest has to be protected more strongly, such as child abuse crimes, terrorism, criminality and national security, many states have a framework for the urgent removal of internet content regarding the above materials without the need of a court order. In such circumstances, administrative authorities, police authorities or public prosecutors are given specific powers to order internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.
+In relation to specific areas where the public interest has to be protected more strongly, such as child abuse crimes, terrorism, criminality and national security, many states have a framework for the urgent removal of Internet content regarding the above materials without the need of a court order. In such circumstances, administrative authorities, police authorities or public prosecutors are given specific powers to order Internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the Internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.
 
-Particularly in relation to material concerning child abuse and other serious crimes, many countries adopt a “list” system, whereby a central list of blocked URLs or domain names are maintained and updated by the relevant administrative authority. This is notified to the relevant internet access providers, who are required to ensure that blocking is enforced.
+Particularly in relation to material concerning child abuse and other serious crimes, many countries adopt a “list” system, whereby a central list of blocked URLs or domain names are maintained and updated by the relevant administrative authority. This is notified to the relevant Internet access providers, who are required to ensure that blocking is enforced.
 Additionally in some states the authorities can request the removal of content that infringes intellectual property, privacy or defamation rights. In this case the removal need to be requested by a court order.
 
 Generally speaking, the grounds relied on broadly correspond to the interests protected under Article 10(2) of the European Convention of Human Rights (ECHR), namely: the protection of national security, territorial integrity or public safety, the prevention of disorder or crime, the protection of health or morals, the protection of the reputation or rights of others, and the prevention of the disclosure of information received in confidence.
 From the methodology we have to distinguish between blocking or takedown of content.
 
-* The blocking, filtering or prevention of access to internet content are generally technical measures intended to restrict access to information or resources typically hosted in another jurisdiction. Such action is normally taken by the internet access provider through hardware or software products that block specific targeted content from being received or displayed on the devices of customers of the internet access provider.
+* The blocking, filtering or prevention of access to Internet content are generally technical measures intended to restrict access to information or resources typically hosted in another jurisdiction. Such action is normally taken by the Internet access provider through hardware or software products that block specific targeted content from being received or displayed on the devices of customers of the Internet access provider.
 
-* Takedown or removal of internet content, on the other hand, will instead broadly refer to demands or measures aimed at the website operator (or “host”) to remove or delete the offending website content or sub content.
+* Takedown or removal of Internet content, on the other hand, will instead broadly refer to demands or measures aimed at the website operator (or “host”) to remove or delete the offending website content or sub content.
 
 In these considerations we will refer to blocking only.
 
@@ -578,7 +579,7 @@ In particular for the most serious crimes such as child abuse or national securi
 
 In many jurisdictions there are legal consequences for the Operator not complying with the blocking order.
 
-Technically the blocking can be implemented using some techniques that have been adapted during time based on the new technologies introduced.
+Technically the blocking can be implemented using techniques that have been adapted over time as new technologies have been introduced.
 
 Historically  depending on the content of the list the technique have been based on DNS or proxy blocking.
 
@@ -591,6 +592,8 @@ Theoretically DNS blocking would be the preferred option for operators given the
 ## Implications
 
 The adoption of ECH will cause additional problems and limit the possibility of implementing operators fulfilling their legal blocking obligations, exposing the population to illegal content related to crimes such as Child Sex Abuse Material (CSAM), malware and other malicious content, and possibly even content deemed to be detrimental to National Security.
+
+In addition, operators that do not fulfil their legal obligations may be exposed to legal or regulatory remedies.
 
 
 # General issues
@@ -630,7 +633,7 @@ DNS, defences are weakened and the attack surface increased.
 
 ## Future operational deployment issues due to the introduction of the Client Facing servers themselves
 
-(Editorial note:
+(Editorial note: this is a placeholder for future issues;
 
   * Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience.
 
@@ -662,7 +665,7 @@ This section lists potential development of this work in particular for the Gene
 
 This document infers a number of ideas that could be relevant for other groups and in other deliverables. In particular regarding what type of solutions could be considered
 
-* There is the need to heal security and privacy
+* There is a need to address the apparent disconnect between user privacy and security, it should be possible to provide both rather than one compromising the other.
 
 * What prevents a Client Facing server providing security solutions to protect the data path?
 

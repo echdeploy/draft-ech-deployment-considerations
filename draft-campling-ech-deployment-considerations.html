@@ -1368,7 +1368,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-background" class="section-name selfRef">Background</a>
         </h3>
 <p id="section-1.1-1">In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve end-to-end encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) <span>[<a href="#I-D.draft-ietf-tls-esni" class="cite xref">I-D.draft-ietf-tls-esni</a>]</span> is attempting to encrypt all the remaining metadata in the clear.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of end-to-end monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasing monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).<a href="#section-1.1-2" class="pilcrow">¶</a></p>
 <p id="section-1.1-3">The Internet was envisaged as a network of networks, each able to
 determine what data to transmit and receive from their peers.
 Developments like ECH mark a fundamental change in the architecture
@@ -1387,7 +1387,7 @@ potentially without either the knowledge and/or consent of the end-
 user or device owner.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
 <p id="section-1.1-5"><span>[<a href="#RFC7258" class="cite xref">RFC7258</a>]</span> discusses the critical need to protect users'
 privacy when developing IETF specifications and also recognises that
-making networks unmanageable to mitigate end-to-end monitoring is not
+making networks unmanageable to mitigate pervasive monitoring is not
 an acceptable outcome.<a href="#section-1.1-5" class="pilcrow">¶</a></p>
 <p id="section-1.1-6"><span>[<a href="#RFC8404" class="cite xref">RFC8404</a>]</span> discusses current security and network operations
 as well as management practices that may be impacted by the shift to

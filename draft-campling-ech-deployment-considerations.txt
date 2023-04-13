@@ -5,13 +5,13 @@
 opsec                                                     A. J. Campling
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                                  P. Vixie
-Expires: 28 September 2023                                      Red Barn
+Expires: 15 October 2023                                        Red Barn
                                                                D. Wright
                                                 UK Safer Internet Centre
                                                                A. Taddei
                                                               S. Edwards
                                                                 Broadcom
-                                                           27 March 2023
+                                                           13 April 2023
 
 
             Encrypted Client Hello Deployment Considerations
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 September 2023.
+   This Internet-Draft will expire on 15 October 2023.
 
 Copyright Notice
 
@@ -138,7 +138,7 @@ Table of Contents
    metadata in the clear.
 
    There are use cases where encryption of the SNI data may be a useful
-   precaution to reduce the risk of pervasing monitoring that offers
+   precaution to reduce the risk of pervasive monitoring that offers
    some benefits (e.g Enterprises offering services for their own
    customers will appreciate that their customers' privacy be better
    protected).  However ECH presents challenges for other use cases
@@ -894,9 +894,9 @@ Table of Contents
    [I-D.draft-ietf-tls-esni]
               Rescorla, E., Oku, K., Sullivan, N., and C. A. Wood, "TLS
               Encrypted Client Hello", Work in Progress, Internet-Draft,
-              draft-ietf-tls-esni-15, 3 October 2022,
+              draft-ietf-tls-esni-16, 6 April 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              esni-15>.
+              esni-16>.
 
    [I-D.draft-mcfadden-smart-threat-changes]
               McFadden, M., "BCP72 - A Problem Statement", Work in

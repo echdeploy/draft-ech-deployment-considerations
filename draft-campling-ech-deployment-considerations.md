@@ -250,7 +250,7 @@ of support for ECH in their software.
 
 In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve end-to-end encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) {{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining metadata in the clear.
 
-There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasing monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).
+There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).
 
 The Internet was envisaged as a network of networks, each able to
 determine what data to transmit and receive from their peers.

@@ -1068,11 +1068,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ECH Deployment Considerations</td>
-<td class="right">April 2023</td>
+<td class="right">June 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Campling, et al.</td>
-<td class="center">Expires 15 October 2023</td>
+<td class="center">Expires 31 December 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1085,12 +1085,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-campling-ech-deployment-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-04-13" class="published">13 April 2023</time>
+<time datetime="2023-06-29" class="published">29 June 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-10-15">15 October 2023</time></dd>
+<dd class="expires"><time datetime="2023-12-31">31 December 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1153,7 +1153,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 15 October 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 31 December 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1203,19 +1203,22 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
                 <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-why-are-middleboxes-using-t" class="internal xref">Why are middleboxes using the SNI?</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
-                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-network-assets-using-the-sn" class="internal xref">Network assets using the SNI</a></p>
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-the-case-of-proxies" class="internal xref">The case of Proxies</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4">
+                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="auto internal xref">2.4</a>.  <a href="#name-why-relying-on-the-sni-and-" class="internal xref">Why relying on the SNI and not the DNS</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5">
+                <p id="section-toc.1-1.2.2.5.1"><a href="#section-2.5" class="auto internal xref">2.5</a>.  <a href="#name-about-the-unreliability-of-" class="internal xref">About the unreliability of the SNI</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.1">
-                    <p id="section-toc.1-1.2.2.3.2.1.1"><a href="#section-2.3.1" class="auto internal xref">2.3.1</a>.  <a href="#name-different-network-types" class="internal xref">Different network types</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.1">
+                    <p id="section-toc.1-1.2.2.5.2.1.1"><a href="#section-2.5.1" class="auto internal xref">2.5.1</a>.  <a href="#name-with-tls-12" class="internal xref">With TLS 1.2</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.2">
-                    <p id="section-toc.1-1.2.2.3.2.2.1"><a href="#section-2.3.2" class="auto internal xref">2.3.2</a>.  <a href="#name-characterisation-of-network" class="internal xref">Characterisation of network assets using the SNI</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.2">
+                    <p id="section-toc.1-1.2.2.5.2.2.1"><a href="#section-2.5.2" class="auto internal xref">2.5.2</a>.  <a href="#name-with-tls-13" class="internal xref">With TLS 1.3</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.3">
-                    <p id="section-toc.1-1.2.2.3.2.3.1"><a href="#section-2.3.3" class="auto internal xref">2.3.3</a>.  <a href="#name-the-case-of-transparent-pro" class="internal xref">The case of Transparent Proxies</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.4">
-                    <p id="section-toc.1-1.2.2.3.2.4.1"><a href="#section-2.3.4" class="auto internal xref">2.3.4</a>.  <a href="#name-the-case-of-non-transparent" class="internal xref">The case of non-transparent proxies</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.3">
+                    <p id="section-toc.1-1.2.2.5.2.3.1"><a href="#section-2.5.3" class="auto internal xref">2.5.3</a>.  <a href="#name-with-tls-13-with-ech-extens" class="internal xref">With TLS 1.3 with ECH extension</a></p>
 </li>
                 </ul>
 </li>
@@ -1253,7 +1256,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-mitigations-2" class="internal xref">Mitigations</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-additional-considerations" class="internal xref">Additional considerations</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
                 <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-implications-2" class="internal xref">Implications</a></p>
@@ -1278,7 +1281,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-context-3" class="internal xref">Context</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-mitigations-3" class="internal xref">Mitigations</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-mitigations-2" class="internal xref">Mitigations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-current-approaches-and-proc" class="internal xref">Current approaches and procedures</a></p>
@@ -1337,21 +1340,38 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
             <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-acknowledgment" class="internal xref">Acknowledgment</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-appendix-a-initial-data-ill" class="internal xref">Appendix A - Initial data illustrating SNI unreliability</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
-                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-data-collections" class="internal xref">Data collections</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
-                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-consumer-network-traffic" class="internal xref">Consumer Network Traffic</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.3">
+                <p id="section-toc.1-1.12.2.3.1"><a href="#section-12.3" class="auto internal xref">12.3</a>.  <a href="#name-corporate-customer-traffic" class="internal xref">Corporate Customer Traffic</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.4">
+                <p id="section-toc.1-1.12.2.4.1"><a href="#section-12.4" class="auto internal xref">12.4</a>.  <a href="#name-take-away-observations" class="internal xref">Take away observations</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#section-13" class="auto internal xref">13</a>. <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1">
+                <p id="section-toc.1-1.13.2.1.1"><a href="#section-13.1" class="auto internal xref">13.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.2">
+                <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="auto internal xref">13.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.14.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
+            <p id="section-toc.1-1.15.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1408,7 +1428,7 @@ be accessing content in a way that violates privacy considerations".<a href="#se
 by providing more information about the issues posed by the
 introduction of ECH due to the loss of visibility of SNI data on
 private networks building on the report from a roundtable discussion <span>[<a href="#ECH_Roundtable" class="cite xref">ECH_Roundtable</a>]</span>.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
-<p id="section-1.2-2">The objective of this document is to detail the various operational impacts of ECH. It will focus specifically on
+<p id="section-1.2-2">The objective of this document is to detail some operational impacts of ECH. It will focus specifically on
 the impact of encrypting the SNI data by ECH,
 but it should be noted that other elements in the client hello may also be relevant for some
 on-path security methods.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
@@ -1416,7 +1436,15 @@ on-path security methods.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
 security actors including those providing inline malware detection,
 firewalls, parental controls, content filtering to prevent access to malware
 and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc. Beyond network security, there are various operational impacts of different types e.g. network management, content filtering, etc.<a href="#section-1.2-3" class="pilcrow">¶</a></p>
-<p id="section-1.2-4">Whilst this document identifies operational issues, it does not consider solutions nor question the development of the ECH proposal itself.<a href="#section-1.2-4" class="pilcrow">¶</a></p>
+<p id="section-1.2-4">Whilst this document identifies operational issues:<a href="#section-1.2-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.2-5.1">it does not consider solutions nor question the development of the ECH proposal itself<a href="#section-1.2-5.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-1.2-5.2">it doesn't attempt to be exhaustive,<a href="#section-1.2-5.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-1.2-5.3">it will start by focusing on one category of middleboxes: proxies.<a href="#section-1.2-5.3" class="pilcrow">¶</a>
+</li>
+        </ul>
 </section>
 </div>
 </section>
@@ -1462,65 +1490,90 @@ either importance or validity.<a href="#section-2.1-3" class="pilcrow">¶</a></p
         <h3 id="name-why-are-middleboxes-using-t">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-why-are-middleboxes-using-t" class="section-name selfRef">Why are middleboxes using the SNI?</a>
         </h3>
-<p id="section-2.2-1">(Editor note: draft, to be extended in a future revision). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete end-to-end encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use this information. Even if the DNS data can be accessed, it canbe misleading in some situations (does it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented to overcome some of the limitations of the DNS data by providing additional information. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it until they have validated the information that it provides.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete end-to-end encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use this information. Even if the DNS data can be accessed, it can be misleading in some situations (does it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented to overcome some of the limitations of the DNS data by providing additional information. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it until they have validated the information that it provides.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="network-assets-using-the-sni">
+<div id="the-case-of-proxies">
 <section id="section-2.3">
-        <h3 id="name-network-assets-using-the-sn">
-<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-network-assets-using-the-sn" class="section-name selfRef">Network assets using the SNI</a>
+        <h3 id="name-the-case-of-proxies">
+<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-the-case-of-proxies" class="section-name selfRef">The case of Proxies</a>
         </h3>
-<div id="different-network-types">
-<section id="section-2.3.1">
-          <h4 id="name-different-network-types">
-<a href="#section-2.3.1" class="section-number selfRef">2.3.1. </a><a href="#name-different-network-types" class="section-name selfRef">Different network types</a>
-          </h4>
-<p id="section-2.3.1-1">(Editorial note: develop issue #46 here)<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="characterisation-of-network-assets-using-the-sni">
-<section id="section-2.3.2">
-          <h4 id="name-characterisation-of-network">
-<a href="#section-2.3.2" class="section-number selfRef">2.3.2. </a><a href="#name-characterisation-of-network" class="section-name selfRef">Characterisation of network assets using the SNI</a>
-          </h4>
-<p id="section-2.3.2-1">(Editorial note: This work identified the potential to list middleboxes using the SNI. This is a non trivial task but would be worthwile to identify the magnitude of problems and to further develop the migration issues section later)<a href="#section-2.3.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="the-case-of-transparent-proxies">
-<section id="section-2.3.3">
-          <h4 id="name-the-case-of-transparent-pro">
-<a href="#section-2.3.3" class="section-number selfRef">2.3.3. </a><a href="#name-the-case-of-transparent-pro" class="section-name selfRef">The case of Transparent Proxies</a>
-          </h4>
-<p id="section-2.3.3-1">A proxy server is a server application that acts as an intermediary
+<p id="section-2.3-1">A proxy server is a server application that acts as an intermediary
 between a client requesting a resource and the server providing that
 resource.  Instead of connecting directly, the client directs the
 request to the proxy server which evaluates the request before
 performing the required network activity.  Proxies are used for
-various purposes including load balancing, privacy and security.<a href="#section-2.3.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.3.3-2">Traditionally, proxies are accessed by configuring a user's
+various purposes including load balancing, privacy and security.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3-2">Proxies can be used explicity or transparently.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.3-3">In explicit proxy model, proxies are accessed by configuring a user's
 application or network settings, with traffic diverted to the proxy
-rather than the target destination.  With "transparent" proxying, the
+rather than the target destination.<a href="#section-2.3-3" class="pilcrow">¶</a></p>
+<p id="section-2.3-4">With "transparent" proxying, the
 proxy intercepts packets directed to the destination, making it seem
-as though the request is handled by the target destination itself.<a href="#section-2.3.3-2" class="pilcrow">¶</a></p>
-<p id="section-2.3.3-3">A key advantage of transparent proxies is that they work without
+as though the request is handled by the target destination itself.<a href="#section-2.3-4" class="pilcrow">¶</a></p>
+<p id="section-2.3-5">A key advantage of transparent proxies is that they work without
 requiring the configuration of user devices or software.  They are
 commonly used by organisations to provide content filtering for
 devices that they don't own that are connected to their networks.
 For example, some education environments use transparent proxies to
 implement support for “bring your own device” (BYOD) without needing to load software on third-
-party devices.<a href="#section-2.3.3-3" class="pilcrow">¶</a></p>
-<p id="section-2.3.3-4">Transparent proxies use SNI data to understand whether a user is
+party devices.<a href="#section-2.3-5" class="pilcrow">¶</a></p>
+<p id="section-2.3-6">Transparent proxies use SNI data to understand whether a user is
 accessing inappropriate content without the need to inspect data
 beyond the SNI field.  Because of this, encryption of the SNI field,
-as is the case with ECH, will disrupt the use of transparent proxies, requiring far more intrusive data inspection to be undertaken instead.<a href="#section-2.3.3-4" class="pilcrow">¶</a></p>
+as is the case with ECH, will disrupt the use of transparent proxies, requiring far more intrusive data inspection to be undertaken instead.<a href="#section-2.3-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="the-case-of-non-transparent-proxies">
-<section id="section-2.3.4">
-          <h4 id="name-the-case-of-non-transparent">
-<a href="#section-2.3.4" class="section-number selfRef">2.3.4. </a><a href="#name-the-case-of-non-transparent" class="section-name selfRef">The case of non-transparent proxies</a>
+<div id="why-relying-on-the-sni-and-not-the-dns">
+<section id="section-2.4">
+        <h3 id="name-why-relying-on-the-sni-and-">
+<a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-why-relying-on-the-sni-and-" class="section-name selfRef">Why relying on the SNI and not the DNS</a>
+        </h3>
+<p id="section-2.4-1">As per the Introduction section of <span>[<a href="#RFC8744" class="cite xref">RFC8744</a>]</span> "More and more services are colocated on multiplexed servers," the SNI was introduced to allow "direct connections to the appropriate service implementation".<a href="#section-2.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.4-2">By design, a proxy cannot rely only on the DNS to ensure establishing the connection, the SNI is simply required by design.<a href="#section-2.4-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="about-the-unreliability-of-the-sni">
+<section id="section-2.5">
+        <h3 id="name-about-the-unreliability-of-">
+<a href="#section-2.5" class="section-number selfRef">2.5. </a><a href="#name-about-the-unreliability-of-" class="section-name selfRef">About the unreliability of the SNI</a>
+        </h3>
+<p id="section-2.5-1">SNI is by design not reliable therefore prompting the question for why and how middelboxes are using it in the first place. Before anything, in Security, in general, unreliability is a useful source of information in itself.<a href="#section-2.5-1" class="pilcrow">¶</a></p>
+<p id="section-2.5-2">Referring to <span>[<a href="#RFC6066" class="cite xref">RFC6066</a>]</span>, TLS extenisons, including SNI, are designed to be backward compatible. This means that if the server doesn't recognize the SNI value, the TLS handshake should continue anyway.<a href="#section-2.5-2" class="pilcrow">¶</a></p>
+<p id="section-2.5-3">In other terms, SNI value can 1) be empty or 2) have an alternative name which is different from the real name of the destination server without impacting the establishment of the TLS session.
+This can also be easily exploited by bad actors indeed to bypass security middle boxes. E.g A malware could just be coded to provide an SNI value that is mapped to finance or healthcare categories to bypass inspection (it is not that easy, but there is a way to do it).<a href="#section-2.5-3" class="pilcrow">¶</a></p>
+<div id="with-tls-12">
+<section id="section-2.5.1">
+          <h4 id="name-with-tls-12">
+<a href="#section-2.5.1" class="section-number selfRef">2.5.1. </a><a href="#name-with-tls-12" class="section-name selfRef">With TLS 1.2</a>
           </h4>
-<p id="section-2.3.4-1">(Editorial note: Potential contribution)<a href="#section-2.3.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.1-1">User client generates “ClientHello” with SNI in plain text to the destination server. If accepted, the server responds to the user client request with the “ServerHello” message containing the intended server certificate alongside other encryption-related information in the plain text mode as well.
+Middleboxes can then see/inspect 1/ the SNI in the “ClientHello” and 2/ the server certificate details in the “ServerHello” message.
+Middleboxes can perform selective inspection based on the destination service details (service requested by the user client) extracted from the server certificate.
+I would like to note that depending on the middlebox design, it is more about a correlation of different source of information to confirm the right destination service. But still only information within the server certificate is reliable to perform accurate web categorization and then do selective inspection of any kind of web/content filtering.<a href="#section-2.5.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="with-tls-13">
+<section id="section-2.5.2">
+          <h4 id="name-with-tls-13">
+<a href="#section-2.5.2" class="section-number selfRef">2.5.2. </a><a href="#name-with-tls-13" class="section-name selfRef">With TLS 1.3</a>
+          </h4>
+<p id="section-2.5.2-1">TLS 1.3 improves significantly over the TLS 1.2 in terms of security and privacy aspects.
+More specifically, in terms of privacy, it overcomes the plain text server certificate exchange issue by masking the server’s host identity through the encrypted server certificate. So as middleboxes inspection capabilities are designed based on the server certificate, all vendors worked on how to adapt their capabilities to support TLS 1.3 (e.g ServerHello encryption but not only).<a href="#section-2.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-2">So how do providers support TLS 1.3 inspection then?<a href="#section-2.5.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-3">The most common technique is first to get the SNI from the ClientHello (which is still shared in plain text format.) and then replays / establish a new full TLS session initiated from the proxy server itself to the destination server to retrieve the server certificate details before determining the web category; Once identified, selective inspection can be performed on the real TLS session initiated by the user client.<a href="#section-2.5.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-4">As the SNI is not reliable, proxies accept the SNI asis but do without trusting it, then they perform checks at various level to verify this SNI and they step by step enrich the evaluation, therefore bringing more possibilites to interpret which policy to apply. This could end up with the proxy deciding to block the connection, or the proxy to let the connection happened with a verified or corrected SNI.<a href="#section-2.5.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-5">See Appendix for some initial data gathering on the reliability of the SNI.<a href="#section-2.5.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="with-tls-13-with-ech-extension">
+<section id="section-2.5.3">
+          <h4 id="name-with-tls-13-with-ech-extens">
+<a href="#section-2.5.3" class="section-number selfRef">2.5.3. </a><a href="#name-with-tls-13-with-ech-extens" class="section-name selfRef">With TLS 1.3 with ECH extension</a>
+          </h4>
+<p id="section-2.5.3-1">The entire legacy ClientHello message (Inner ClientHello) is encrypted, encapsulated and sent as part of the new ClientHello wrapper message (Outer ClientHello); So middleboxes cannot identity the destination service anymore and cannot replay the TLS session to the destination server because it has no clue about it. (May be DNS knows but not all the time, see other issue here created by myself).<a href="#section-2.5.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.3-2">So TLS ECH has an impact on enterprise security and compliance (including selective inspection) not because of SNI (which is not reliable) encryption but because there is no other information about the destination server is available and that can be used to fetch and retrieve the server certificate (Which is indeed reliable) to perform web categorization.<a href="#section-2.5.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.5.3-3">We don’t care about SNI and its reliability, we need just to know the destination service to get the destination server certificate details.<a href="#section-2.5.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1680,10 +1733,10 @@ networks on a temporary basis:<a href="#section-4.1.2-5" class="pilcrow">¶</a><
 </div>
 </section>
 </div>
-<div id="mitigations-1">
+<div id="additional-considerations">
 <section id="section-4.2">
-        <h3 id="name-mitigations-2">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-mitigations-2" class="section-name selfRef">Mitigations</a>
+        <h3 id="name-additional-considerations">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-additional-considerations" class="section-name selfRef">Additional considerations</a>
         </h3>
 <p id="section-4.2-1">In such circumstances, requiring
 software or custom configurations to be installed on those devices
@@ -1717,6 +1770,25 @@ may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introducti
           <h4 id="name-impact-of-ech-deployment-on">
 <a href="#section-4.3.2" class="section-number selfRef">4.3.2. </a><a href="#name-impact-of-ech-deployment-on" class="section-name selfRef">Impact of ECH deployment on Network Security Operations</a>
           </h4>
+<p id="section-4.3.2-1">Enterprises approach to endpoint control varies significantly depending on size, use cases and a vast number of other factors.<a href="#section-4.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-2">For example, large enterprises generally exert control over their endpoints, yet to the limits of some use cases they may need to implement, e.g. BYOD. The latter was accelerated, as per above, due to COVID forcing more flexibility in the extended work force (employees, contractors, etc.).<a href="#section-4.3.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-3">On the contrary, small and some medium businesses may not be in the position to control their endpoints to the same extent (see specific implications for SMBs section below).<a href="#section-4.3.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-4">As some Browser makers made the use of ECH optional, this gives a first approach for enterprises to disable ECH for their employees.<a href="#section-4.3.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-5">However this doesn't provide an holistic solution. Indeed enterprises will need to consider a number of issues:<a href="#section-4.3.2-5" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.3.2-6.1">Browsers which do not offer an option to disable ECH<a href="#section-4.3.2-6.1" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-4.3.2-6.2">Browsers that will make ECH non optional in the future<a href="#section-4.3.2-6.2" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-4.3.2-6.3">Non-browsers applications which are designed to use libraries enforcing ECH, without any option to disable it<a href="#section-4.3.2-6.3" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-4.3.2-6.4">All the range of BYOD use cases where enterprises do not control the endpoint<a href="#section-4.3.2-6.4" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-4.3.2-6.5">Adversaries leveraging ECH e.g. to hide their command and control communications, e.g. in Ransomware cases.<a href="#section-4.3.2-6.5" class="pilcrow">¶</a>
+</li>
+          </ul>
+<p id="section-4.3.2-7">Whilst, disabling ECH wherever possible provides one approach to mitigate ECH deployment issues, as per above, other mitigations approaches need to be offered to enterprises.<a href="#section-4.3.2-7" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-8">(Editor's note: we need to describe how to strip the RRs to force a global disabling of ECH, yet mindful it might not be sufficient if an adversary finds a way to not use the enterprise DNS resolver)<a href="#section-4.3.2-8" class="pilcrow">¶</a></p>
 <div id="reminders-on-network-security">
 <section id="section-4.3.2.1">
             <h5 id="name-reminders-on-network-securi">
@@ -1786,10 +1858,10 @@ may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introducti
         </ul>
 </section>
 </div>
-<div id="mitigations-2">
+<div id="mitigations-1">
 <section id="section-5.2">
-        <h3 id="name-mitigations-3">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-mitigations-3" class="section-name selfRef">Mitigations</a>
+        <h3 id="name-mitigations-2">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-mitigations-2" class="section-name selfRef">Mitigations</a>
         </h3>
 <div id="current-approaches-and-procedures">
 <section id="section-5.2.1">
@@ -2015,24 +2087,88 @@ detection which this document outlines.<a href="#section-9-1" class="pilcrow">¶
 informal group of experts including the people listed in the Contributors list in Appendix.<a href="#section-11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="appendix-a-initial-data-illustrating-sni-unreliability">
 <section id="section-12">
-      <h2 id="name-references">
-<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-references" class="section-name selfRef">References</a>
+      <h2 id="name-appendix-a-initial-data-ill">
+<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-appendix-a-initial-data-ill" class="section-name selfRef">Appendix A - Initial data illustrating SNI unreliability</a>
       </h2>
+<div id="data-collections">
 <section id="section-12.1">
+        <h3 id="name-data-collections">
+<a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-data-collections" class="section-name selfRef">Data collections</a>
+        </h3>
+<p id="section-12.1-1">In this appendix a couple data sets were collected from SSL Session logs from a Symantec SSLV.  The goal was to see how prevalent are TLS sessions being established where the Server Name Indicator (SNI) was incorrect as compared to the Subject Alternative Name (SAN) contained within the Server Certificate. Applications and browsers that are establishing these mismatched connections have TLS Hygiene issues. In other words these sessions are being improperly established. None of the traffic was for nefarious means. However, an improperly defined SNI can be used to fool inspection devices to bypass security rules and measures.<a href="#section-12.1-1" class="pilcrow">¶</a></p>
+<p id="section-12.1-2">The first set was based on consumer traffic which includes Internet of Things, Social Media, and Corporate access traffic. The dataset of session log entries were over 63K event entries over a 24 hour period.<a href="#section-12.1-2" class="pilcrow">¶</a></p>
+<p id="section-12.1-3">The second dataset was from a telecommunications customer with Proxy Offloading. The log entries were for a period of 24 hours and contained over 5M log events entries. Since this customer is using a Symantec Edge Proxy aligned with SSLV. The session data is for explicit clients. Guest or Internet of things type traffic is a much lower percentage of total traffic. However the existence of Mismatched SNIs persisted.<a href="#section-12.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="consumer-network-traffic">
+<section id="section-12.2">
+        <h3 id="name-consumer-network-traffic">
+<a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-consumer-network-traffic" class="section-name selfRef">Consumer Network Traffic</a>
+        </h3>
+<p id="section-12.2-1">For consumer based network traffic Mismatched SNIs were very prevalent. Actually out of new sessions the majority of the sessions were with mismatched SNIs as compared to properly matched SNIs. These were the result of many many short lived TLS sessions that persistently 'phone home'. 22% of all traffic was mismatched as compared to only 4% was properly matched. The rest of the log activity was non session related.<a href="#section-12.2-1" class="pilcrow">¶</a></p>
+<p id="section-12.2-2">The services that were in the top 20 offenders for mismatched SNIs includes Google, Apple, Adware, IoT.
+Google DNS dominated the counts at 5.3% of all mismatched sessions. A close second at 4.8% was Samsung Smart things. But, if I add up common services like Google, Apple, Adware, and the remainder: 13%, 9.8%, 8%, and 10% respectively.<a href="#section-12.2-2" class="pilcrow">¶</a></p>
+<p id="section-12.2-3">For matched traffic Amazon Alexa stood tall at 25%, with a runner up for Broadcom Cloud Proxy at 7.9%. Both Google and Apple did have a minority of properly established sessions. In other words some of their stuff is clean.<a href="#section-12.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="corporate-customer-traffic">
+<section id="section-12.3">
+        <h3 id="name-corporate-customer-traffic">
+<a href="#section-12.3" class="section-number selfRef">12.3. </a><a href="#name-corporate-customer-traffic" class="section-name selfRef">Corporate Customer Traffic</a>
+        </h3>
+<p id="section-12.3-1">Since the traffic was proxy traffic the session hygiene was much better. The majority of new TLS sessions were properly established with matching SNIs/SANs. The vast majority of this traffic was VPN based. Likely masking out consumer like traffic invisible within the VPN tunnels. For instance there was 0.8% Google.com traffic reported. But, there was a small percentage ~1.3% Google API traffic that was mismatched. I would have expected more search engine activity.<a href="#section-12.3-1" class="pilcrow">¶</a></p>
+<p id="section-12.3-2">Looking across the distribution of domain names for mismatched sessions. 29.6% of the traffic was related to Corporate applications. These applications could be updated and corrected. The next runner up coming in at 7.4% was for Akamai which also could be updated. Office applications and the remainder each individually accounted for 2.4% of the traffic.<a href="#section-12.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="take-away-observations">
+<section id="section-12.4">
+        <h3 id="name-take-away-observations">
+<a href="#section-12.4" class="section-number selfRef">12.4. </a><a href="#name-take-away-observations" class="section-name selfRef">Take away observations</a>
+        </h3>
+<ul class="normal">
+<li class="normal" id="section-12.4-1.1">IoT and API based traffic is by far the largest offender as compared to Browser based initiated sessions.<a href="#section-12.4-1.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-12.4-1.2">Long-lived TLS session counts were dwarfed by the chatter of the API calls using short lived yet pervasively reporting. For instance there were new sessions at a rate of every 20 seconds per IoT device.<a href="#section-12.4-1.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-12.4-1.3">The consumer mismatched sessions were all using TLS v1.3. Which reaffirmed the need to decrypt TLS v1.3 traffic. These sessions, if established without TLS interception, may have gone unreported by NGFW, which makes policy decisions on SNI vs SAN. Conversely, the corporate traffic was a close split between TLS v1.3 and v1.2.<a href="#section-12.4-1.3" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-12.4-1.4">The presence of VPN tunnels masked a clearer picture of the corporate traffic usage.<a href="#section-12.4-1.4" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-12.4-1.5">SNI Mismatches are more prevalent in the wild than first thought.<a href="#section-12.4-1.5" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-12.4-1.6">SNI Mismatches has a side cause which policy rules have to be enumerated twice for category matching. And the second category matching is more intensive since it has to enumerate the entire SAN list which can be very large.<a href="#section-12.4-1.6" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-12.4-1.7">Fixing the session hygiene for corporate owned applications could potentially improve performance of the security stack.<a href="#section-12.4-1.7" class="pilcrow">¶</a>
+</li>
+        </ul>
+</section>
+</div>
+</section>
+</div>
+<section id="section-13">
+      <h2 id="name-references">
+<a href="#section-13" class="section-number selfRef">13. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<section id="section-13.1">
         <h3 id="name-normative-references">
-<a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-13.1" class="section-number selfRef">13.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="RFC6066">[RFC6066]</dt>
+        <dd>
+<span class="refAuthor">Eastlake 3rd, D.</span>, <span class="refTitle">"Transport Layer Security (TLS) Extensions: Extension Definitions"</span>, <span class="seriesInfo">RFC 6066</span>, <span class="seriesInfo">DOI 10.17487/RFC6066</span>, <time datetime="2011-01" class="refDate">January 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6066">https://www.rfc-editor.org/rfc/rfc6066</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8484">[RFC8484]</dt>
       <dd>
 <span class="refAuthor">Hoffman, P.</span> and <span class="refAuthor">P. McManus</span>, <span class="refTitle">"DNS Queries over HTTPS (DoH)"</span>, <span class="seriesInfo">RFC 8484</span>, <span class="seriesInfo">DOI 10.17487/RFC8484</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8484">https://www.rfc-editor.org/rfc/rfc8484</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
-<section id="section-12.2">
+<section id="section-13.2">
         <h3 id="name-informative-references">
-<a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-13.2" class="section-number selfRef">13.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="Bloomberg">[Bloomberg]</dt>
@@ -2252,6 +2388,19 @@ informal group of experts including the people listed in the Contributors list i
 </div>
 </address>
 <p id="appendix-A-9">Gary contributed many things including research, keep us on scope, critique for when issues where not impacted by ECH as we initially thought.<a href="#appendix-A-9" class="pilcrow">¶</a></p>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Bob Blair</span></div>
+<div dir="auto" class="left"><span class="org">Broadcom</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:bob.blair@broadcom.com" class="email">bob.blair@broadcom.com</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://www.linkedin.com/in/bob-blair-8b7273/" class="url">https://www.linkedin.com/in/bob-blair-8b7273/</a>
+</div>
+</address>
+<p id="appendix-A-10">Bob contributed to several reviews, many calls, and the whole appendix A.<a href="#appendix-A-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">

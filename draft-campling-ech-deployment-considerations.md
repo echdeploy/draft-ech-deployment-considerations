@@ -112,9 +112,16 @@ contributor: # Same structure as author list, but goes into contributors
   uri: https://www.linkedin.com/in/garytomic/
   contribution: |
     Gary contributed many things including research, keep us on scope, critique for when issues where not impacted by ECH as we initially thought.
+- name: Bob Blair
+  org: Broadcom
+  email: bob.blair@broadcom.com
+  uri: https://www.linkedin.com/in/bob-blair-8b7273/
+  contribution: |
+     Bob contributed to several reviews, many calls, and the whole appendix A.
 
 normative:
   RFC8484:
+  RFC6066:
 
 
 informative:
@@ -291,7 +298,7 @@ by providing more information about the issues posed by the
 introduction of ECH due to the loss of visibility of SNI data on
 private networks building on the report from a roundtable discussion {{ECH_Roundtable}}.
 
-The objective of this document is to detail the various operational impacts of ECH. It will focus specifically on
+The objective of this document is to detail some operational impacts of ECH. It will focus specifically on
 the impact of encrypting the SNI data by ECH,
 but it should be noted that other elements in the client hello may also be relevant for some
 on-path security methods.
@@ -301,7 +308,11 @@ security actors including those providing inline malware detection,
 firewalls, parental controls, content filtering to prevent access to malware
 and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc. Beyond network security, there are various operational impacts of different types e.g. network management, content filtering, etc.
 
-Whilst this document identifies operational issues, it does not consider solutions nor question the development of the ECH proposal itself.
+Whilst this document identifies operational issues:
+
+* it does not consider solutions nor question the development of the ECH proposal itself
+* it doesn't attempt to be exhaustive,
+* it will start by focusing on one category of middleboxes: proxies.
 
 # General considerations about the encryption of the Client Hello
 
@@ -336,19 +347,10 @@ either importance or validity.
 
 ## Why are middleboxes using the SNI?
 
-(Editor note: draft, to be extended in a future revision). For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete end-to-end encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use this information. Even if the DNS data can be accessed, it canbe misleading in some situations (does it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented to overcome some of the limitations of the DNS data by providing additional information. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it until they have validated the information that it provides.
+For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete end-to-end encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use this information. Even if the DNS data can be accessed, it can be misleading in some situations (does it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented to overcome some of the limitations of the DNS data by providing additional information. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it until they have validated the information that it provides.
 
-## Network assets using the SNI
 
-### Different network types
-
-(Editorial note: develop issue #46 here)
-
-### Characterisation of network assets using the SNI
-
-(Editorial note: This work identified the potential to list middleboxes using the SNI. This is a non trivial task but would be worthwile to identify the magnitude of problems and to further develop the migration issues section later)
-
-### The case of Transparent Proxies
+## The case of Proxies
 
 A proxy server is a server application that acts as an intermediary
 between a client requesting a resource and the server providing that
@@ -357,9 +359,13 @@ request to the proxy server which evaluates the request before
 performing the required network activity.  Proxies are used for
 various purposes including load balancing, privacy and security.
 
-Traditionally, proxies are accessed by configuring a user's
+Proxies can be used explicity or transparently.
+
+In explicit proxy model, proxies are accessed by configuring a user's
 application or network settings, with traffic diverted to the proxy
-rather than the target destination.  With "transparent" proxying, the
+rather than the target destination.
+
+With "transparent" proxying, the
 proxy intercepts packets directed to the destination, making it seem
 as though the request is handled by the target destination itself.
 
@@ -376,9 +382,49 @@ accessing inappropriate content without the need to inspect data
 beyond the SNI field.  Because of this, encryption of the SNI field,
 as is the case with ECH, will disrupt the use of transparent proxies, requiring far more intrusive data inspection to be undertaken instead.
 
-### The case of non-transparent proxies
+## Why relying on the SNI and not the DNS
 
-(Editorial note: Potential contribution)
+As per the Introduction section of {{RFC8744}} "More and more services are colocated on multiplexed servers," the SNI was introduced to allow "direct connections to the appropriate service implementation".
+
+By design, a proxy cannot rely only on the DNS to ensure establishing the connection, the SNI is simply required by design.
+
+## About the unreliability of the SNI
+
+SNI is by design not reliable therefore prompting the question for why and how middelboxes are using it in the first place. Before anything, in Security, in general, unreliability is a useful source of information in itself.
+
+Referring to {{RFC6066}}, TLS extenisons, including SNI, are designed to be backward compatible. This means that if the server doesn't recognize the SNI value, the TLS handshake should continue anyway.
+
+In other terms, SNI value can 1) be empty or 2) have an alternative name which is different from the real name of the destination server without impacting the establishment of the TLS session.
+This can also be easily exploited by bad actors indeed to bypass security middle boxes. E.g A malware could just be coded to provide an SNI value that is mapped to finance or healthcare categories to bypass inspection (it is not that easy, but there is a way to do it).
+
+### With TLS 1.2
+
+User client generates “ClientHello” with SNI in plain text to the destination server. If accepted, the server responds to the user client request with the “ServerHello” message containing the intended server certificate alongside other encryption-related information in the plain text mode as well.
+Middleboxes can then see/inspect 1/ the SNI in the “ClientHello” and 2/ the server certificate details in the “ServerHello” message.
+Middleboxes can perform selective inspection based on the destination service details (service requested by the user client) extracted from the server certificate.
+I would like to note that depending on the middlebox design, it is more about a correlation of different source of information to confirm the right destination service. But still only information within the server certificate is reliable to perform accurate web categorization and then do selective inspection of any kind of web/content filtering.
+
+### With TLS 1.3
+
+TLS 1.3 improves significantly over the TLS 1.2 in terms of security and privacy aspects.
+More specifically, in terms of privacy, it overcomes the plain text server certificate exchange issue by masking the server’s host identity through the encrypted server certificate. So as middleboxes inspection capabilities are designed based on the server certificate, all vendors worked on how to adapt their capabilities to support TLS 1.3 (e.g ServerHello encryption but not only).
+
+So how do providers support TLS 1.3 inspection then?
+
+The most common technique is first to get the SNI from the ClientHello (which is still shared in plain text format.) and then replays / establish a new full TLS session initiated from the proxy server itself to the destination server to retrieve the server certificate details before determining the web category; Once identified, selective inspection can be performed on the real TLS session initiated by the user client.
+
+As the SNI is not reliable, proxies accept the SNI asis but do without trusting it, then they perform checks at various level to verify this SNI and they step by step enrich the evaluation, therefore bringing more possibilites to interpret which policy to apply. This could end up with the proxy deciding to block the connection, or the proxy to let the connection happened with a verified or corrected SNI.
+
+See Appendix for some initial data gathering on the reliability of the SNI.
+
+### With TLS 1.3 with ECH extension
+
+The entire legacy ClientHello message (Inner ClientHello) is encrypted, encapsulated and sent as part of the new ClientHello wrapper message (Outer ClientHello); So middleboxes cannot identity the destination service anymore and cannot replay the TLS session to the destination server because it has no clue about it. (May be DNS knows but not all the time, see other issue here created by myself).
+
+So TLS ECH has an impact on enterprise security and compliance (including selective inspection) not because of SNI (which is not reliable) encryption but because there is no other information about the destination server is available and that can be used to fetch and retrieve the server certificate (Which is indeed reliable) to perform web categorization.
+
+We don’t care about SNI and its reliability, we need just to know the destination service to get the destination server certificate details.
+
 
 # The Education Sector
 
@@ -488,7 +534,7 @@ networks on a temporary basis:
 * need to use a VPN access to the corporate network, which brings all the benefits (e.g. protected access to corporate network) and risks that VPNs may open (e.g. lateral movement when the end point is compromised),
 * need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.
 
-## Mitigations
+## Additional considerations
 
 In such circumstances, requiring
 software or custom configurations to be installed on those devices
@@ -503,6 +549,8 @@ All the above conditions are weighing on capabilities to defend, both:
 * Directly: a lack of visibility on a key meta data like the SNI will cause significant issues to enterprises and organizations
 * Indirectly: should ECH happen and should alternative be provided, managing migrations to any alternative not requiring access to the SNI, in these conditions, is undesirable from a timing, resources, capacities and risks perspectives.
 
+
+
 ## Implications
 
 ### Examples of regulatory implications
@@ -510,6 +558,26 @@ All the above conditions are weighing on capabilities to defend, both:
 Regulators are accelerating their lawfare capabilities at accelerated pace and new legislations is impacting on the actions of enterprises with increased precision. The EU GDPR had ripple effects such as requiring Financial Institutions to use selective decrypt in order to implement Data Loss Prevention. The recent indication that US regulators are in the process of levying fines of $200m each on a number of institutions because they were unable to track all communications by their employees using WhatsApp or Signal , {{Bloomberg}}, creates new auditability constraints. It is with growing concern that an ECH enabled ecosystem may clash with future regulatory requirements.
 
 ### Impact of ECH deployment on Network Security Operations
+
+Enterprises approach to endpoint control varies significantly depending on size, use cases and a vast number of other factors.
+
+For example, large enterprises generally exert control over their endpoints, yet to the limits of some use cases they may need to implement, e.g. BYOD. The latter was accelerated, as per above, due to COVID forcing more flexibility in the extended work force (employees, contractors, etc.).
+
+On the contrary, small and some medium businesses may not be in the position to control their endpoints to the same extent (see specific implications for SMBs section below).
+
+As some Browser makers made the use of ECH optional, this gives a first approach for enterprises to disable ECH for their employees.
+
+However this doesn't provide an holistic solution. Indeed enterprises will need to consider a number of issues:
+
+* Browsers which do not offer an option to disable ECH
+* Browsers that will make ECH non optional in the future
+* Non-browsers applications which are designed to use libraries enforcing ECH, without any option to disable it
+* All the range of BYOD use cases where enterprises do not control the endpoint
+* Adversaries leveraging ECH e.g. to hide their command and control communications, e.g. in Ransomware cases.
+
+Whilst, disabling ECH wherever possible provides one approach to mitigate ECH deployment issues, as per above, other mitigations approaches need to be offered to enterprises.
+
+(Editor's note: we need to describe how to strip the RRs to force a global disabling of ECH, yet mindful it might not be sufficient if an adversary finds a way to not use the enterprise DNS resolver)
 
 #### Reminders on Network Security
 
@@ -718,3 +786,39 @@ In memory of Simon Edwards who passed away in the night of 8th-9th of January 20
 
 In addition to the authors, this document is the product of an
 informal group of experts including the people listed in the Contributors list in Appendix.
+
+# Appendix A - Initial data illustrating SNI unreliability
+
+## Data collections
+
+In this appendix a couple data sets were collected from SSL Session logs from a Symantec SSLV.  The goal was to see how prevalent are TLS sessions being established where the Server Name Indicator (SNI) was incorrect as compared to the Subject Alternative Name (SAN) contained within the Server Certificate. Applications and browsers that are establishing these mismatched connections have TLS Hygiene issues. In other words these sessions are being improperly established. None of the traffic was for nefarious means. However, an improperly defined SNI can be used to fool inspection devices to bypass security rules and measures.
+
+The first set was based on consumer traffic which includes Internet of Things, Social Media, and Corporate access traffic. The dataset of session log entries were over 63K event entries over a 24 hour period.
+
+The second dataset was from a telecommunications customer with Proxy Offloading. The log entries were for a period of 24 hours and contained over 5M log events entries. Since this customer is using a Symantec Edge Proxy aligned with SSLV. The session data is for explicit clients. Guest or Internet of things type traffic is a much lower percentage of total traffic. However the existence of Mismatched SNIs persisted.
+
+
+## Consumer Network Traffic
+
+For consumer based network traffic Mismatched SNIs were very prevalent. Actually out of new sessions the majority of the sessions were with mismatched SNIs as compared to properly matched SNIs. These were the result of many many short lived TLS sessions that persistently 'phone home'. 22% of all traffic was mismatched as compared to only 4% was properly matched. The rest of the log activity was non session related.
+
+The services that were in the top 20 offenders for mismatched SNIs includes Google, Apple, Adware, IoT.
+Google DNS dominated the counts at 5.3% of all mismatched sessions. A close second at 4.8% was Samsung Smart things. But, if I add up common services like Google, Apple, Adware, and the remainder: 13%, 9.8%, 8%, and 10% respectively.
+
+For matched traffic Amazon Alexa stood tall at 25%, with a runner up for Broadcom Cloud Proxy at 7.9%. Both Google and Apple did have a minority of properly established sessions. In other words some of their stuff is clean.
+
+## Corporate Customer Traffic
+
+Since the traffic was proxy traffic the session hygiene was much better. The majority of new TLS sessions were properly established with matching SNIs/SANs. The vast majority of this traffic was VPN based. Likely masking out consumer like traffic invisible within the VPN tunnels. For instance there was 0.8% Google.com traffic reported. But, there was a small percentage ~1.3% Google API traffic that was mismatched. I would have expected more search engine activity.
+
+Looking across the distribution of domain names for mismatched sessions. 29.6% of the traffic was related to Corporate applications. These applications could be updated and corrected. The next runner up coming in at 7.4% was for Akamai which also could be updated. Office applications and the remainder each individually accounted for 2.4% of the traffic.
+
+## Take away observations
+
+* IoT and API based traffic is by far the largest offender as compared to Browser based initiated sessions.
+* Long-lived TLS session counts were dwarfed by the chatter of the API calls using short lived yet pervasively reporting. For instance there were new sessions at a rate of every 20 seconds per IoT device.
+* The consumer mismatched sessions were all using TLS v1.3. Which reaffirmed the need to decrypt TLS v1.3 traffic. These sessions, if established without TLS interception, may have gone unreported by NGFW, which makes policy decisions on SNI vs SAN. Conversely, the corporate traffic was a close split between TLS v1.3 and v1.2.
+* The presence of VPN tunnels masked a clearer picture of the corporate traffic usage.
+* SNI Mismatches are more prevalent in the wild than first thought.
+* SNI Mismatches has a side cause which policy rules have to be enumerated twice for category matching. And the second category matching is more intensive since it has to enumerate the entire SAN list which can be very large.
+* Fixing the session hygiene for corporate owned applications could potentially improve performance of the security stack.

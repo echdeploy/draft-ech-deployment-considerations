@@ -118,6 +118,18 @@ contributor: # Same structure as author list, but goes into contributors
   uri: https://www.linkedin.com/in/bob-blair-8b7273/
   contribution: |
      Bob contributed to several reviews, many calls, and the whole appendix A.
+- name: Pascal Paisant
+  org: BNP Paribas
+  email: pascal.paisant@bnpparibas.com
+  uri: https://www.linkedin.com/in/pascal-paisant-727a531/
+  contribution: |
+     Pascal contributed to several parts in particular in the general SNI section, on enterprises section and on migration issues.
+- name: Zied Turki
+  org: ZT Consulting
+  email: zied.turki@ztconsulting.fr
+  uri: https://www.linkedin.com/in/zied-turki/
+  contribution: |
+    Zied contributed to several parts in particular the rationale on SNI unreliability.
 
 normative:
   RFC8484:

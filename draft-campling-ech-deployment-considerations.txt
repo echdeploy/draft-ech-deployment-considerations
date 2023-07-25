@@ -5,13 +5,13 @@
 opsec                                                     A. J. Campling
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                                  P. Vixie
-Expires: 12 January 2024                                        Red Barn
+Expires: 26 January 2024                                        Red Barn
                                                                D. Wright
                                                 UK Safer Internet Centre
                                                                A. Taddei
                                                               S. Edwards
                                                                 Broadcom
-                                                            11 July 2023
+                                                            25 July 2023
 
 
             Encrypted Client Hello Deployment Considerations
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 January 2024.
+   This Internet-Draft will expire on 26 January 2024.
 
 Copyright Notice
 
@@ -1310,7 +1310,7 @@ Contributors
    URI:   https://www.linkedin.com/in/pascal-paisant-727a531/
 
 
-   Pascal contributed to several parts in particular in the general SNI
+   Pascal contributed to several parts, in particular in the general SNI
    section, on enterprises section and on migration issues.
 
    Zied Turki
@@ -1319,7 +1319,7 @@ Contributors
    URI:   https://www.linkedin.com/in/zied-turki/
 
 
-   Zied contributed to several parts in particular the rationale on SNI
+   Zied contributed to several parts, in particular the rationale on SNI
    unreliability.
 
 Authors' Addresses

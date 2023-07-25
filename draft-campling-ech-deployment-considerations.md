@@ -123,13 +123,13 @@ contributor: # Same structure as author list, but goes into contributors
   email: pascal.paisant@bnpparibas.com
   uri: https://www.linkedin.com/in/pascal-paisant-727a531/
   contribution: |
-     Pascal contributed to several parts in particular in the general SNI section, on enterprises section and on migration issues.
+     Pascal contributed to several parts, in particular in the general SNI section, on enterprises section and on migration issues.
 - name: Zied Turki
   org: ZT Consulting
   email: zied.turki@ztconsulting.fr
   uri: https://www.linkedin.com/in/zied-turki/
   contribution: |
-    Zied contributed to several parts in particular the rationale on SNI unreliability.
+    Zied contributed to several parts, in particular the rationale on SNI unreliability.
 
 normative:
   RFC8484:

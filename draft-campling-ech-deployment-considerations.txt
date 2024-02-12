@@ -5,13 +5,13 @@
 opsec                                                     A. J. Campling
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                                  P. Vixie
-Expires: 26 January 2024                                        Red Barn
+Expires: 27 July 2024                                           Red Barn
                                                                D. Wright
                                                 UK Safer Internet Centre
                                                                A. Taddei
                                                               S. Edwards
                                                                 Broadcom
-                                                            25 July 2023
+                                                         24 January 2024
 
 
             Encrypted Client Hello Deployment Considerations
@@ -53,11 +53,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 January 2024.
+   This Internet-Draft will expire on 27 July 2024.
 
 Copyright Notice
 
-   Copyright (c) 2023 IETF Trust and the persons identified as the
+   Copyright (c) 2024 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -117,15 +117,15 @@ Table of Contents
    8.  Conclusion
    9.  Security Considerations
    10. IANA Considerations
-   11. Acknowledgment
-   12. Appendix A - Initial data illustrating SNI unreliability
-     12.1.  Data collections
-     12.2.  Consumer Network Traffic
-     12.3.  Corporate Customer Traffic
-     12.4.  Take away observations
-   13. References
-     13.1.  Normative References
-     13.2.  Informative References
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
+   Appendix A.  Acknowledgment
+   Appendix B.  Initial data illustrating SNI unreliability
+     B.1.  Data collections
+     B.2.  Consumer Network Traffic
+     B.3.  Corporate Customer Traffic
+     B.4.  Take away observations
    Contributors
    Authors' Addresses
 
@@ -969,115 +969,9 @@ Table of Contents
 
    This document has no IANA actions.
 
-11.  Acknowledgment
+11.  References
 
-   In memory of Simon Edwards who passed away in the night of 8th-9th of
-   January 2023.
-
-   In addition to the authors, this document is the product of an
-   informal group of experts including the people listed in the
-   Contributors list in Appendix.
-
-12.  Appendix A - Initial data illustrating SNI unreliability
-
-12.1.  Data collections
-
-   In this appendix a couple data sets were collected from SSL Session
-   logs from a Symantec SSLV.  The goal was to see how prevalent are TLS
-   sessions being established where the Server Name Indicator (SNI) was
-   incorrect as compared to the Subject Alternative Name (SAN) contained
-   within the Server Certificate.  Applications and browsers that are
-   establishing these mismatched connections have TLS Hygiene issues.
-   In other words these sessions are being improperly established.  None
-   of the traffic was for nefarious means.  However, an improperly
-   defined SNI can be used to fool inspection devices to bypass security
-   rules and measures.
-
-   The first set was based on consumer traffic which includes Internet
-   of Things, Social Media, and Corporate access traffic.  The dataset
-   of session log entries were over 63K event entries over a 24 hour
-   period.
-
-   The second dataset was from a telecommunications customer with Proxy
-   Offloading.  The log entries were for a period of 24 hours and
-   contained over 5M log events entries.  Since this customer is using a
-   Symantec Edge Proxy aligned with SSLV.  The session data is for
-   explicit clients.  Guest or Internet of things type traffic is a much
-   lower percentage of total traffic.  However the existence of
-   Mismatched SNIs persisted.
-
-12.2.  Consumer Network Traffic
-
-   For consumer based network traffic Mismatched SNIs were very
-   prevalent.  Actually out of new sessions the majority of the sessions
-   were with mismatched SNIs as compared to properly matched SNIs.
-   These were the result of many many short lived TLS sessions that
-   persistently 'phone home'. 22% of all traffic was mismatched as
-   compared to only 4% was properly matched.  The rest of the log
-   activity was non session related.
-
-   The services that were in the top 20 offenders for mismatched SNIs
-   includes Google, Apple, Adware, IoT.  Google DNS dominated the counts
-   at 5.3% of all mismatched sessions.  A close second at 4.8% was
-   Samsung Smart things.  But, if I add up common services like Google,
-   Apple, Adware, and the remainder: 13%, 9.8%, 8%, and 10%
-   respectively.
-
-   For matched traffic Amazon Alexa stood tall at 25%, with a runner up
-   for Broadcom Cloud Proxy at 7.9%. Both Google and Apple did have a
-   minority of properly established sessions.  In other words some of
-   their stuff is clean.
-
-12.3.  Corporate Customer Traffic
-
-   Since the traffic was proxy traffic the session hygiene was much
-   better.  The majority of new TLS sessions were properly established
-   with matching SNIs/SANs.  The vast majority of this traffic was VPN
-   based.  Likely masking out consumer like traffic invisible within the
-   VPN tunnels.  For instance there was 0.8% Google.com traffic
-   reported.  But, there was a small percentage ~1.3% Google API traffic
-   that was mismatched.  I would have expected more search engine
-   activity.
-
-   Looking across the distribution of domain names for mismatched
-   sessions. 29.6% of the traffic was related to Corporate applications.
-   These applications could be updated and corrected.  The next runner
-   up coming in at 7.4% was for Akamai which also could be updated.
-   Office applications and the remainder each individually accounted for
-   2.4% of the traffic.
-
-12.4.  Take away observations
-
-   *  IoT and API based traffic is by far the largest offender as
-      compared to Browser based initiated sessions.
-
-   *  Long-lived TLS session counts were dwarfed by the chatter of the
-      API calls using short lived yet pervasively reporting.  For
-      instance there were new sessions at a rate of every 20 seconds per
-      IoT device.
-
-   *  The consumer mismatched sessions were all using TLS v1.3.  Which
-      reaffirmed the need to decrypt TLS v1.3 traffic.  These sessions,
-      if established without TLS interception, may have gone unreported
-      by NGFW, which makes policy decisions on SNI vs SAN.  Conversely,
-      the corporate traffic was a close split between TLS v1.3 and v1.2.
-
-   *  The presence of VPN tunnels masked a clearer picture of the
-      corporate traffic usage.
-
-   *  SNI Mismatches are more prevalent in the wild than first thought.
-
-   *  SNI Mismatches has a side cause which policy rules have to be
-      enumerated twice for category matching.  And the second category
-      matching is more intensive since it has to enumerate the entire
-      SAN list which can be very large.
-
-   *  Fixing the session hygiene for corporate owned applications could
-      potentially improve performance of the security stack.
-
-13.  References
-
-13.1.  Normative References
+11.1.  Normative References
 
    [RFC6066]  Eastlake 3rd, D., "Transport Layer Security (TLS)
               Extensions: Extension Definitions", RFC 6066,
@@ -1088,7 +982,7 @@ Table of Contents
               (DoH)", RFC 8484, DOI 10.17487/RFC8484, October 2018,
               <https://www.rfc-editor.org/rfc/rfc8484>.
 
-13.2.  Informative References
+11.2.  Informative References
 
    [Bloomberg]
               Spezzati, S., Robinson, M., and L. Beyoud, "Wall Street's
@@ -1129,9 +1023,9 @@ Table of Contents
    [I-D.draft-ietf-tls-esni]
               Rescorla, E., Oku, K., Sullivan, N., and C. A. Wood, "TLS
               Encrypted Client Hello", Work in Progress, Internet-Draft,
-              draft-ietf-tls-esni-16, 6 April 2023,
+              draft-ietf-tls-esni-17, 9 October 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              esni-16>.
+              esni-17>.
 
    [I-D.draft-mcfadden-smart-threat-changes]
               McFadden, M., "BCP72 - A Problem Statement", Work in
@@ -1214,6 +1108,112 @@ Table of Contents
               "SolarWinds (Sunburst) Attack What You Need to Know",
               December 2020, <https://symantec.broadcom.com/en/
               solarwinds-sunburst-attacks>.
+
+Appendix A.  Acknowledgment
+
+   In memory of Simon Edwards who passed away in the night of 8th-9th of
+   January 2023.
+
+   In addition to the authors, this document is the product of an
+   informal group of experts including the people listed in the
+   Contributors list in Appendix.
+
+Appendix B.  Initial data illustrating SNI unreliability
+
+B.1.  Data collections
+
+   In this appendix a couple data sets were collected from SSL Session
+   logs from a Symantec SSLV.  The goal was to see how prevalent are TLS
+   sessions being established where the Server Name Indicator (SNI) was
+   incorrect as compared to the Subject Alternative Name (SAN) contained
+   within the Server Certificate.  Applications and browsers that are
+   establishing these mismatched connections have TLS Hygiene issues.
+   In other words these sessions are being improperly established.  None
+   of the traffic was for nefarious means.  However, an improperly
+   defined SNI can be used to fool inspection devices to bypass security
+   rules and measures.
+
+   The first set was based on consumer traffic which includes Internet
+   of Things, Social Media, and Corporate access traffic.  The dataset
+   of session log entries were over 63K event entries over a 24 hour
+   period.
+
+   The second dataset was from a telecommunications customer with Proxy
+   Offloading.  The log entries were for a period of 24 hours and
+   contained over 5M log events entries.  Since this customer is using a
+   Symantec Edge Proxy aligned with SSLV.  The session data is for
+   explicit clients.  Guest or Internet of things type traffic is a much
+   lower percentage of total traffic.  However the existence of
+   Mismatched SNIs persisted.
+
+B.2.  Consumer Network Traffic
+
+   For consumer based network traffic Mismatched SNIs were very
+   prevalent.  Actually out of new sessions the majority of the sessions
+   were with mismatched SNIs as compared to properly matched SNIs.
+   These were the result of many many short lived TLS sessions that
+   persistently 'phone home'. 22% of all traffic was mismatched as
+   compared to only 4% was properly matched.  The rest of the log
+   activity was non session related.
+
+   The services that were in the top 20 offenders for mismatched SNIs
+   includes Google, Apple, Adware, IoT.  Google DNS dominated the counts
+   at 5.3% of all mismatched sessions.  A close second at 4.8% was
+   Samsung Smart things.  But, if I add up common services like Google,
+   Apple, Adware, and the remainder: 13%, 9.8%, 8%, and 10%
+   respectively.
+
+   For matched traffic Amazon Alexa stood tall at 25%, with a runner up
+   for Broadcom Cloud Proxy at 7.9%. Both Google and Apple did have a
+   minority of properly established sessions.  In other words some of
+   their stuff is clean.
+
+B.3.  Corporate Customer Traffic
+
+   Since the traffic was proxy traffic the session hygiene was much
+   better.  The majority of new TLS sessions were properly established
+   with matching SNIs/SANs.  The vast majority of this traffic was VPN
+   based.  Likely masking out consumer like traffic invisible within the
+   VPN tunnels.  For instance there was 0.8% Google.com traffic
+   reported.  But, there was a small percentage ~1.3% Google API traffic
+   that was mismatched.  I would have expected more search engine
+   activity.
+
+   Looking across the distribution of domain names for mismatched
+   sessions. 29.6% of the traffic was related to Corporate applications.
+   These applications could be updated and corrected.  The next runner
+   up coming in at 7.4% was for Akamai which also could be updated.
+   Office applications and the remainder each individually accounted for
+   2.4% of the traffic.
+
+B.4.  Take away observations
+
+   *  IoT and API based traffic is by far the largest offender as
+      compared to Browser based initiated sessions.
+
+   *  Long-lived TLS session counts were dwarfed by the chatter of the
+      API calls using short lived yet pervasively reporting.  For
+      instance there were new sessions at a rate of every 20 seconds per
+      IoT device.
+
+   *  The consumer mismatched sessions were all using TLS v1.3.  Which
+      reaffirmed the need to decrypt TLS v1.3 traffic.  These sessions,
+      if established without TLS interception, may have gone unreported
+      by NGFW, which makes policy decisions on SNI vs SAN.  Conversely,
+      the corporate traffic was a close split between TLS v1.3 and v1.2.
+
+   *  The presence of VPN tunnels masked a clearer picture of the
+      corporate traffic usage.
+
+   *  SNI Mismatches are more prevalent in the wild than first thought.
+
+   *  SNI Mismatches has a side cause which policy rules have to be
+      enumerated twice for category matching.  And the second category
+      matching is more intensive since it has to enumerate the entire
+      SAN list which can be very large.
+
+   *  Fixing the session hygiene for corporate owned applications could
+      potentially improve performance of the security stack.
 
 Contributors
 

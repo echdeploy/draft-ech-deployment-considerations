@@ -792,6 +792,8 @@ This I-D should help improve security in deployments of ECH.
 
 This document has no IANA actions.
 
+--- back
+
 # Acknowledgment
 
 In memory of Simon Edwards who passed away in the night of 8th-9th of January 2023.
@@ -799,7 +801,7 @@ In memory of Simon Edwards who passed away in the night of 8th-9th of January 20
 In addition to the authors, this document is the product of an
 informal group of experts including the people listed in the Contributors list in Appendix.
 
-# Appendix A - Initial data illustrating SNI unreliability
+# Initial data illustrating SNI unreliability
 
 ## Data collections
 

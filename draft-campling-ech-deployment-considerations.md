@@ -231,7 +231,7 @@ informative:
     author:
     - org: EDR
     date: 2024-01-17
-    tite: The Pyramid of Pain
+    title: The Pyramid of Pain
     target: https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html
 
   RFC8890:
@@ -431,7 +431,7 @@ So how do providers support TLS 1.3 inspection then?
 
 The most common technique is first to get the SNI from the ClientHello (which is still shared in plain text format.) and then replays / establish a new full TLS session initiated from the proxy server itself to the destination server to retrieve the server certificate details before determining the web category; Once identified, selective inspection can be performed on the real TLS session initiated by the user client.
 
-As the SNI is not reliable, proxies accept the SNI asis but do without trusting it, then they perform checks at various level to verify this SNI and they step by step enrich the evaluation, therefore bringing more possibilites to interpret which policy to apply. 
+As the SNI is not reliable, proxies accept the SNI asis but do without trusting it, then they perform checks at various level to verify this SNI and they step by step enrich the evaluation, therefore bringing more possibilites to interpret which policy to apply.
 
 This could end up with the proxy deciding to block the connection, or the proxy to let the connection happened with a verified or corrected SNI.
 
@@ -443,10 +443,12 @@ Indeed network security middleboxes utilize various techniques to improve the re
 
 Let's consider the below pseudo code:
 
+~~~
 dstip_client = destination as observed on client side of middlebox
 dstip_sni = gethostbyname(SNI)
 Option 1: if (dstip_sni != dstip_client) then reset connection.
 Option 2: dstip = dstip_sni, i.e. redirect the connection to dstip_sni, where "redirect" is implementation specific.
+~~~
 
 In this pseudo code, this considers the level of control an enterprise has over DNS (including DoH requests) and gethostbyname is not referring to a simple lookup and is not just about comparing IP addresses.
 

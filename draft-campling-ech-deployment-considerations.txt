@@ -5,13 +5,13 @@
 opsec                                                     A. J. Campling
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                                  P. Vixie
-Expires: 27 July 2024                                           Red Barn
+Expires: 12 September 2024                                      Red Barn
                                                                D. Wright
                                                 UK Safer Internet Centre
                                                                A. Taddei
                                                               S. Edwards
                                                                 Broadcom
-                                                         24 January 2024
+                                                           11 March 2024
 
 
             Encrypted Client Hello Deployment Considerations
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 July 2024.
+   This Internet-Draft will expire on 12 September 2024.
 
 Copyright Notice
 
@@ -88,38 +88,42 @@ Table of Contents
      3.2.  Why Content Filtering Matters to Schools
      3.3.  Mitigations
      3.4.  Implications
-   4.  Impact of ECH in private network contexts (Enterprises or other
-           organizations)
+   4.  Child Online Protection
      4.1.  Context
-       4.1.1.  The main requirements
-       4.1.2.  A degrading threat landscape
-     4.2.  Additional considerations
-     4.3.  Implications
-       4.3.1.  Examples of regulatory implications
-       4.3.2.  Impact of ECH deployment on Network Security Operations
-       4.3.3.  Specific implications for SMBs
-   5.  Public Network Service Providers
+     4.2.  Implications
+     4.3.  Mitigations
+   5.  Impact of ECH in private network contexts (Enterprises or other
+           organizations)
      5.1.  Context
-     5.2.  Mitigations
-       5.2.1.  Current approaches and procedures
-       5.2.2.  The blocking use case
+       5.1.1.  The main requirements
+       5.1.2.  A degrading threat landscape
+     5.2.  Additional considerations
      5.3.  Implications
-   6.  General issues
-     6.1.  Threat Detection
-     6.2.  Endpoint security limits
-     6.3.  Network management
-     6.4.  Future operational deployment issues due to the
+       5.3.1.  Examples of regulatory implications
+       5.3.2.  Impact of ECH deployment on Network Security Operations
+       5.3.3.  Specific implications for SMBs
+   6.  Public Network Service Providers
+     6.1.  Context
+     6.2.  Mitigations
+       6.2.1.  Current approaches and procedures
+       6.2.2.  The blocking use case
+     6.3.  Implications
+   7.  General issues
+     7.1.  Threat Detection
+     7.2.  Endpoint security limits
+     7.3.  Network management
+     7.4.  Future operational deployment issues due to the
            introduction of the Client Facing servers themselves
-     6.5.  Migration issues
-   7.  Potential further development of this work
-     7.1.  Potential development of this document.
-     7.2.  Potential development outside of the scope of this document
-   8.  Conclusion
-   9.  Security Considerations
-   10. IANA Considerations
-   11. References
-     11.1.  Normative References
-     11.2.  Informative References
+     7.5.  Migration issues
+   8.  Potential further development of this work
+     8.1.  Potential development of this document.
+     8.2.  Potential development outside of the scope of this document
+   9.  Conclusion
+   10. Security Considerations
+   11. IANA Considerations
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Appendix A.  Acknowledgment
    Appendix B.  Initial data illustrating SNI unreliability
      B.1.  Data collections
@@ -470,12 +474,85 @@ Table of Contents
    these technologies or will have to prevent those devices from
    operating.  Neither option is desirable.
 
-4.  Impact of ECH in private network contexts (Enterprises or other
-    organizations)
+4.  Child Online Protection
 
 4.1.  Context
 
-4.1.1.  The main requirements
+   In the context of Child Online Protection (COP), the primary aim for
+   illegal content is removal of content at source.  Blocking and
+   filtering adds friction, but it is not the end result.  Block lists
+   allow to reduce access while giving time to entities dedicated to
+   Child Online Protection to work to have content removed.
+
+   In this context, when the SNI is key doing that for encrypted
+   websites and in particular when hosts are slow to remove content as
+   it is the case in popular hosting countries.
+
+   But for legal content that is harmful, or not appropriate for young
+   people or in the workplace, e.g. sexual content, gambling, self-harm,
+   animal cruelty, the content cannot be removed if it is not illegal.
+
+   The only option is to detect and block.  Implementing ECH is removing
+   a key tool e.g. for schools to meet their statutory requirements to
+   prevent their networks being used to access content that is harmful
+   or inappropriate for children, same with employees in enterprise
+   networks.
+
+   At the moment some countries either incentivise or make it mandatory
+   that operators may offer network based service such as parental
+   controls [DECRETO28] or have laws in the making [SREN].  These would
+   typically be implemented as DNS and/or SNI based controls.
+
+   However these controls can be circumvented by children who know how
+   to change their DNS parameters to point back to "adult" DNS services.
+
+   (TBD: add UK examples on suicide, IWF next report, the term CSAM,
+   etc.)
+
+4.2.  Implications
+
+   As there is a vast global unawareness of ECH, few people in charge
+   realize the problem posed by ECH and are caught by surprise to even
+   consider mitigations approaches or a migration plan.
+
+   In Child Online Protection use cases, most of the time, there is
+   little to no programmatic control, or control at all, over the
+   endpoints or the networks, not to mention BYOD.
+
+   And even on the network, the IAB is taking a direction [NOEPSCAN]
+   which doesn't seem to give a chance to prepare a migration to an
+   alternative solution on the endpoint.
+
+   (TBD: How encryption is hindering investigations when children want
+   to report issues, etc., )
+
+4.3.  Mitigations
+
+   When ECH is deployed, if it becomes impossible to maintain blocking
+   or filtering at network level, mitigations may still be possible at
+   the endpoint.
+
+   There are few attempts to provide solutions [VFDNSERRORSVIDEO],
+   [VFDNSERRORSSLIDES] or [BRCMWEBEXT] which is based on the idea to
+   inspect the destination before anything goes on the wire, within the
+   web browser via a web extension.
+
+   This is not a panacea as a web extension, in residential user context
+   and in particular in COP context needs to be voluntarily installed
+   and so can be easily disabled.  Moreover this is only web browser
+   context.
+
+   In this particular case, the fact that web browsers do not exhibit
+   standard APIs adds to the difficulty to the need to orchestrate the
+   web extension with the operating system.  An area where Regulators
+   may consider be prescriptive.
+
+5.  Impact of ECH in private network contexts (Enterprises or other
+    organizations)
+
+5.1.  Context
+
+5.1.1.  The main requirements
 
    Enterprises and Organizations need to protect themselves for a vast
    number of reasons, mainly:
@@ -492,7 +569,7 @@ Table of Contents
       growing in both scope and complexity as they are added to by
       various national and regional bodies around the world.
 
-4.1.2.  A degrading threat landscape
+5.1.2.  A degrading threat landscape
 
    In addition, the general threat landscape which was already very
    large (see [I-D.draft-mcfadden-smart-threat-changes]), has
@@ -516,7 +593,7 @@ Table of Contents
    attacks are increasing in severity, to the extent that this is now
    being measured at macroscopic level in some countries:
 
-   *  EUR1B loss of revenue for French organizations from January to
+   *  €1B loss of revenue for French organizations from January to
       August 2022 [LOSSINREVENUE]
 
    *  Loss in capitalisation between 1-5% [LOSSINCAP]
@@ -537,7 +614,7 @@ Table of Contents
    *  need to access a cloud proxy which requires an agent to be
       installed on the device to steer the traffic to the right place.
 
-4.2.  Additional considerations
+5.2.  Additional considerations
 
    In such circumstances, requiring software or custom configurations to
    be installed on those devices may be problematic (see
@@ -563,9 +640,9 @@ Table of Contents
       SNI, in these conditions, is undesirable from a timing, resources,
       capacities and risks perspectives.
 
-4.3.  Implications
+5.3.  Implications
 
-4.3.1.  Examples of regulatory implications
+5.3.1.  Examples of regulatory implications
 
    Regulators are accelerating their lawfare capabilities at accelerated
    pace and new legislations is impacting on the actions of enterprises
@@ -579,7 +656,7 @@ Table of Contents
    growing concern that an ECH enabled ecosystem may clash with future
    regulatory requirements.
 
-4.3.2.  Impact of ECH deployment on Network Security Operations
+5.3.2.  Impact of ECH deployment on Network Security Operations
 
    Enterprises approach to endpoint control varies significantly
    depending on size, use cases and a vast number of other factors.
@@ -621,7 +698,7 @@ Table of Contents
    global disabling of ECH, yet mindful it might not be sufficient if an
    adversary finds a way to not use the enterprise DNS resolver)
 
-4.3.2.1.  Reminders on Network Security
+5.3.2.1.  Reminders on Network Security
 
    Network Security is a set of security capabilities which is
    articulated as part of a defense strategy, e.g.  Defense In Depth
@@ -637,7 +714,7 @@ Table of Contents
    [I-D.draft-ietf-opsec-indicators-of-compromise]) has two main
    implications
 
-4.3.2.2.  Implications from loss of Meta Data
+5.3.2.2.  Implications from loss of Meta Data
 
    The loss of visibility of the SNI, at TLS level, will prevent
    transparent proxies from applying corporate policies to manage risk
@@ -651,7 +728,7 @@ Table of Contents
    *  corporate lists of excluded sites for compliance or policy reasons
       need alternatives ways to be blocked.
 
-4.3.2.3.  Implications from loss of Selective Decrypt
+5.3.2.3.  Implications from loss of Selective Decrypt
 
    TLS proxies also have the ability to selectively intercept, avoiding
    any visibility into or modification of the original application
@@ -673,7 +750,7 @@ Table of Contents
    privacy as it may require the proxy to decrypt the whole TLS
    connection.
 
-4.3.3.  Specific implications for SMBs
+5.3.3.  Specific implications for SMBs
 
    Small and Medium Business (SMBs) form a particularly vulnerable
    subset of enterprises and organizations and span from Small Office
@@ -689,9 +766,9 @@ Table of Contents
    Service Providers (typically network operators, mid range and small
    service providers).
 
-5.  Public Network Service Providers
+6.  Public Network Service Providers
 
-5.1.  Context
+6.1.  Context
 
    In Public Networks the national, regional and international
    legislator has to balance between freedom of access to the
@@ -707,7 +784,7 @@ Table of Contents
       defining the conditions and the procedures to be respected by
       those who engage in the blocking, filtering or takedown of online
       material.  In the absence of a specific or targeted legal
-      framework, several countries rely on an existing "general" legal
+      framework, several countries rely on an existing “general” legal
       framework that is not specific to the Internet to conduct what is,
       generally speaking, limited blocking or takedown of unlawful
       online material.  Here the approach has been differentiated in
@@ -722,9 +799,9 @@ Table of Contents
       administrative or judicial authority which has competence to take
       appropriate action and the procedures to be followed.
 
-5.2.  Mitigations
+6.2.  Mitigations
 
-5.2.1.  Current approaches and procedures
+6.2.1.  Current approaches and procedures
 
    In relation to specific areas where the public interest has to be
    protected more strongly, such as child abuse crimes, terrorism,
@@ -767,12 +844,12 @@ Table of Contents
 
    *  Takedown or removal of Internet content, on the other hand, will
       instead broadly refer to demands or measures aimed at the website
-      operator (or "host") to remove or delete the offending website
+      operator (or “host”) to remove or delete the offending website
       content or sub content.
 
    In these considerations we will refer to blocking only.
 
-5.2.2.  The blocking use case
+6.2.2.  The blocking use case
 
    This can be achieved through a number of techniques, including the
    blocking of the Domain Name System (DNS), the analysis of the SNI
@@ -811,7 +888,7 @@ Table of Contents
    operators need to use SNI analysis as well in order to fulfil legal
    obligations.
 
-5.3.  Implications
+6.3.  Implications
 
    The adoption of ECH will cause additional problems and limit the
    possibility of implementing operators fulfilling their legal blocking
@@ -823,9 +900,9 @@ Table of Contents
    In addition, operators that do not fulfil their legal obligations may
    be exposed to legal or regulatory remedies.
 
-6.  General issues
+7.  General issues
 
-6.1.  Threat Detection
+7.1.  Threat Detection
 
    [RFC8404] identifies a number of issues arising from increased
    encryption of data, some of which apply to ECH.  For example, it
@@ -851,7 +928,7 @@ Table of Contents
    because it has been encrypted; if SNI data is lost too, alongside
    DNS, defences are weakened and the attack surface increased.
 
-6.2.  Endpoint security limits
+7.2.  Endpoint security limits
 
    (Editorial note: Elaborate on endpoint security complications as
    [I-D.draft-taddei-smart-cless-introduction] as well as [MAGECART]
@@ -861,11 +938,11 @@ Table of Contents
    harder to detect attacks.  The endpoints components (operating
    system, applications, browsers, etc.) cannot be judge and jury.)
 
-6.3.  Network management
+7.3.  Network management
 
    (Editorial note: this is a placeholder for future issues)
 
-6.4.  Future operational deployment issues due to the introduction of
+7.4.  Future operational deployment issues due to the introduction of
       the Client Facing servers themselves
 
    (Editorial note: this is a placeholder for future issues;
@@ -886,7 +963,7 @@ Table of Contents
 
    )
 
-6.5.  Migration issues
+7.5.  Migration issues
 
    (Editorial note: this is a placeholder for future issues;
 
@@ -895,22 +972,22 @@ Table of Contents
 
    )
 
-7.  Potential further development of this work
+8.  Potential further development of this work
 
-7.1.  Potential development of this document.
+8.1.  Potential development of this document.
 
    This section lists potential development of this work in particular
    for the General Issues section.
 
    *  There are need for further clarifications from the ECH draft, e.g.
       The link between the Client Facing and the backend servers are not
-      clear enough and need further description.  It can't be just 'left
-      to the implementation'.  The action is still underway and feedback
+      clear enough and need further description.  It can’t be just ‘left
+      to the implementation’. The action is still underway and feedback
       to the TLS working group will be provided.
 
    *  Will there be any impact to the DNS by adding so many new RRs?
 
-7.2.  Potential development outside of the scope of this document
+8.2.  Potential development outside of the scope of this document
 
    This document infers a number of ideas that could be relevant for
    other groups and in other deliverables.  In particular regarding what
@@ -927,7 +1004,7 @@ Table of Contents
       review the current ECH proposal from the perspective of a
       respectful inspection protocol.
 
-8.  Conclusion
+9.  Conclusion
 
    Access to SNI data is sometimes necessary in order for institutions,
    including those in the education and finance sectors, to discharge
@@ -957,7 +1034,7 @@ Table of Contents
    and preferences of client software, end-users and network operators
    to be balanced.
 
-9.  Security Considerations
+10.  Security Considerations
 
    In addition to introducing new operational and financial issues, the
    introduction of SNI encryption poses new challenges for threat
@@ -965,13 +1042,13 @@ Table of Contents
 
    This I-D should help improve security in deployments of ECH.
 
-10.  IANA Considerations
+11.  IANA Considerations
 
    This document has no IANA actions.
 
-11.  References
+12.  References
 
-11.1.  Normative References
+12.1.  Normative References
 
    [RFC6066]  Eastlake 3rd, D., "Transport Layer Security (TLS)
               Extensions: Extension Definitions", RFC 6066,
@@ -982,7 +1059,7 @@ Table of Contents
               (DoH)", RFC 8484, DOI 10.17487/RFC8484, October 2018,
               <https://www.rfc-editor.org/rfc/rfc8484>.
 
-11.2.  Informative References
+12.2.  Informative References
 
    [Bloomberg]
               Spezzati, S., Robinson, M., and L. Beyoud, "Wall Street's
@@ -991,6 +1068,11 @@ Table of Contents
               articles/2022-08-16/wall-street-sticker-shock-whatsapp-
               fines-were-years-in-making>.
 
+   [BRCMWEBEXT]
+              Broadcom, "Symantec Browser Protection", n.d.,
+              <https://chromewebstore.google.com/detail/symantec-
+              browser-protecti/hielpjjagjimpgppnopiibaefhfpbpfn>.
+
    [CIPA]     FCC, "Children's Internet Protection Act (CIPA)", 30
               December 2019, <https://www.fcc.gov/consumers/guides/
               childrens-internet-protection-act/>.
@@ -998,6 +1080,11 @@ Table of Contents
    [Coroner]  Henderson, "Prevention of future deaths report", 26
               November 2021, <https://www.judiciary.uk/publications/
               frances-thomas-prevention-of-future-deaths-report/>.
+
+   [DECRETO28]
+              Repubblica Italiana, "DECRETTO-LEGGE 30 aprile 2020,
+              n.28", n.d., <https://www.gazzettaufficiale.it/eli/
+              id/2020/04/30/20G00046/sg>.
 
    [ECH_Roundtable]
               419 Consulting, "Encrypted Client Hello - Notes from an
@@ -1023,9 +1110,9 @@ Table of Contents
    [I-D.draft-ietf-tls-esni]
               Rescorla, E., Oku, K., Sullivan, N., and C. A. Wood, "TLS
               Encrypted Client Hello", Work in Progress, Internet-Draft,
-              draft-ietf-tls-esni-17, 9 October 2023,
+              draft-ietf-tls-esni-18, 4 March 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              esni-17>.
+              esni-18>.
 
    [I-D.draft-mcfadden-smart-threat-changes]
               McFadden, M., "BCP72 - A Problem Statement", Work in
@@ -1085,6 +1172,12 @@ Table of Contents
               ext=Definition(s)%3A,and%20missions%20of%20the%20organizat
               ion.>.
 
+   [NOEPSCAN] IAB, "IAB Statement on Encryption and Mandatory Client-
+              side Scanning of wp-content", 15 December 2023,
+              <https://datatracker.ietf.org/doc/statement-iab-statement-
+              on-encryption-and-mandatory-client-side-scanning-of-
+              content/>.
+
    [RFC7258]  Farrell, S. and H. Tschofenig, "Pervasive Monitoring Is an
               Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
               2014, <https://www.rfc-editor.org/rfc/rfc7258>.
@@ -1108,6 +1201,25 @@ Table of Contents
               "SolarWinds (Sunburst) Attack What You Need to Know",
               December 2020, <https://symantec.broadcom.com/en/
               solarwinds-sunburst-attacks>.
+
+   [SREN]     Gouvernement français, "Projet de loi visant à sécuriser
+              et réguler l'espace numérique", n.d.,
+              <https://www.assemblee-nationale.fr/dyn/16/dossiers/
+              DLR5L16N47884>.
+
+   [VFDNSERRORSSLIDES]
+              Vodafone, "Slides of Vodafone presentation on Use of DNS
+              Errors to improve Browsing User Experience With network
+              based malware protection", n.d.,
+              <https://datatracker.ietf.org/meeting/116/materials/
+              slides-116-dnsop-dns-errors-implementation-proposal-
+              slides-116-dnsop-update-on-dns-errors-implementation-00>.
+
+   [VFDNSERRORSVIDEO]
+              Vodafone, "Video of Vodafone presentation on Use of DNS
+              Errors to improve Browsing User Experience With network
+              based malware protection", n.d.,
+              <https://www.youtube.com/watch?v=xh_uQo46yhE&t=2471s>.
 
 Appendix A.  Acknowledgment
 

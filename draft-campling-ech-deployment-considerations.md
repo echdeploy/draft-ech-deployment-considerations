@@ -454,9 +454,9 @@ In this pseudo code, this considers the level of control an enterprise has over 
 
 * (2) TLS "probe" sessions to validate not only the certificate and SAN entries, but also the ability of the destination to complete the TLS handshake.
 
-the attacker tries to bypass the middlebox by using www.example.org as SNI on a TLS session to c2.attacker.xxx. The middlebox will resolve www.example.org and connect upstream to www.example.org, not to c2.attacker.xxx.
+The attacker tries to bypass the middlebox by using www.example.org as SNI on a TLS session to c2.attacker.xxx. The middlebox will resolve www.example.org and connect upstream to www.example.org, not to c2.attacker.xxx.
 
-Implementing (2) forces the attacker to implement this relay, and when combined with (1) gives the middlebox a mechanism to detect an anomaly where the true endpoint dstip seems to have "jumped".
+Implementing (2) forces the attacker to relay traffic to the true endpoint, and when combined with (1) gives the middlebox a mechanism to detect an anomaly where the true endpoint dstip seems to have "jumped".
 
 In an enterprise environment where the client device is compromised the network security device will use the techniques described above to improve the reliability of SNI as a control. One can understand that the attacker can also improve its chances of not being detected, but it has to move up the Pyramid of Pain {{PAINPYRAMID}} - just spoofing the SNI is an unreliable way to bypass advanced network security devices.
 

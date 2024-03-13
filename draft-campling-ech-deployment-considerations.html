@@ -26,7 +26,7 @@ range of services to end-users, including the potential weakening of cybersecuri
 Some mitigations are identified that may be useful for inclusion by those considering the adoption
 of support for ECH in their software. 
     " name="description">
-<meta content="xml2rfc 3.17.4" name="generator">
+<meta content="xml2rfc 3.20.0" name="generator">
 <meta content="ECH" name="keyword">
 <meta content="Operators" name="keyword">
 <meta content="Schools" name="keyword">
@@ -34,20 +34,20 @@ of support for ECH in their software.
 <meta content="Operational Security" name="keyword">
 <meta content="draft-campling-ech-deployment-considerations-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.17.4
+  xml2rfc 3.20.0
     Python 3.9.6
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 3.9.1
-    pycountry 22.3.5
+    Jinja2 3.1.3
+    lxml 4.9.4
+    platformdirs 4.2.0
+    pycountry 23.12.11
     PyYAML 6.0.1
     requests 2.31.0
-    setuptools 68.0.0
+    setuptools 69.1.1
     six 1.16.0
-    wcwidth 0.2.6
+    wcwidth 0.2.13
 -->
 <link href="draft-campling-ech-deployment-considerations.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -670,7 +670,7 @@ sub, sup {
 }
 #toc nav li {
   line-height: 1.3em;
-  margin: 0.75em 0;
+  margin: 2px 0;
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
@@ -763,7 +763,7 @@ hr.addr {
     z-index: 2;
     top: 0;
     right: 0;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
@@ -887,16 +887,13 @@ hr.addr {
     border-top: none;
     padding-top: 0;
   }
-  figure, pre {
+  figure, pre, .vcard {
     page-break-inside: avoid;
-  }
-  figure {
-    overflow: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
-  h2+*, h3+*, h4+*, h5+*, h6+* {
+  :is(h2, h3, h4, h5, h6)+*, dd {
     page-break-before: avoid;
   }
   pre {
@@ -909,6 +906,9 @@ hr.addr {
   }
   td {
     border-top: 1px solid #ddd;
+  }
+  .toplink {
+    display: none;
   }
 }
 
@@ -1010,28 +1010,6 @@ address div.right {
   text-align: right;
 }
 
-/* Give the table caption label the same styling as the figcaption */
-
-@media print {
-  .toplink {
-    display: none;
-  }
-
-  /* avoid overwriting the top border line with the ToC header */
-  #toc {
-    padding-top: 1px;
-  }
-
-  /* Avoid page breaks inside dl and author address entries */
-  dd {
-    page-break-before: avoid;
-  }
-  .vcard {
-    page-break-inside: avoid;
-  }
-
-}
-
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
 :root {
@@ -1068,11 +1046,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ECH Deployment Considerations</td>
-<td class="right">January 2024</td>
+<td class="right">March 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Campling, et al.</td>
-<td class="center">Expires 27 July 2024</td>
+<td class="center">Expires 14 September 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1085,12 +1063,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-campling-ech-deployment-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-01-24" class="published">24 January 2024</time>
+<time datetime="2024-03-13" class="published">13 March 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-07-27">27 July 2024</time></dd>
+<dd class="expires"><time datetime="2024-09-14">14 September 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1153,7 +1131,7 @@ of support for ECH in their software.<a href="#section-abstract-2" class="pilcro
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 July 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 September 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1438,11 +1416,14 @@ firewalls, parental controls, content filtering to prevent access to malware
 and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc. Beyond network security, there are various operational impacts of different types e.g. network management, content filtering, etc.<a href="#section-1.2-3" class="pilcrow">¶</a></p>
 <p id="section-1.2-4">Whilst this document identifies operational issues:<a href="#section-1.2-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-1.2-5.1">it does not consider solutions nor question the development of the ECH proposal itself<a href="#section-1.2-5.1" class="pilcrow">¶</a>
+<li class="normal" id="section-1.2-5.1">
+            <p id="section-1.2-5.1.1">it does not consider solutions nor question the development of the ECH proposal itself<a href="#section-1.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-1.2-5.2">it doesn't attempt to be exhaustive,<a href="#section-1.2-5.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-1.2-5.2">
+            <p id="section-1.2-5.2.1">it doesn't attempt to be exhaustive,<a href="#section-1.2-5.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-1.2-5.3">it will start by focusing on one category of middleboxes: proxies.<a href="#section-1.2-5.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-1.2-5.3">
+            <p id="section-1.2-5.3.1">it will start by focusing on one category of middleboxes: proxies.<a href="#section-1.2-5.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1562,8 +1543,34 @@ I would like to note that depending on the middlebox design, it is more about a 
 More specifically, in terms of privacy, it overcomes the plain text server certificate exchange issue by masking the server’s host identity through the encrypted server certificate. So as middleboxes inspection capabilities are designed based on the server certificate, all vendors worked on how to adapt their capabilities to support TLS 1.3 (e.g ServerHello encryption but not only).<a href="#section-2.5.2-1" class="pilcrow">¶</a></p>
 <p id="section-2.5.2-2">So how do providers support TLS 1.3 inspection then?<a href="#section-2.5.2-2" class="pilcrow">¶</a></p>
 <p id="section-2.5.2-3">The most common technique is first to get the SNI from the ClientHello (which is still shared in plain text format.) and then replays / establish a new full TLS session initiated from the proxy server itself to the destination server to retrieve the server certificate details before determining the web category; Once identified, selective inspection can be performed on the real TLS session initiated by the user client.<a href="#section-2.5.2-3" class="pilcrow">¶</a></p>
-<p id="section-2.5.2-4">As the SNI is not reliable, proxies accept the SNI asis but do without trusting it, then they perform checks at various level to verify this SNI and they step by step enrich the evaluation, therefore bringing more possibilites to interpret which policy to apply. This could end up with the proxy deciding to block the connection, or the proxy to let the connection happened with a verified or corrected SNI.<a href="#section-2.5.2-4" class="pilcrow">¶</a></p>
-<p id="section-2.5.2-5">See Appendix for some initial data gathering on the reliability of the SNI.<a href="#section-2.5.2-5" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-4">As the SNI is not reliable, proxies accept the SNI asis but do without trusting it, then they perform checks at various level to verify this SNI and they step by step enrich the evaluation, therefore bringing more possibilites to interpret which policy to apply.<a href="#section-2.5.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-5">This could end up with the proxy deciding to block the connection, or the proxy to let the connection happened with a verified or corrected SNI.<a href="#section-2.5.2-5" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-6">The below applies in enterprise context:<a href="#section-2.5.2-6" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-7">Indeed network security middleboxes utilize various techniques to improve the reliability of the control in an enterprise environment, inter alia:<a href="#section-2.5.2-7" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.5.2-8.1">
+              <p id="section-2.5.2-8.1.1">(1) DNS Hostname lookup of SNI and optional destination redirect or failure on mismatch<a href="#section-2.5.2-8.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-2.5.2-9">Let's consider the below pseudo code:<a href="#section-2.5.2-9" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-2.5.2-10">
+<pre>
+dstip_client = destination as observed on client side of middlebox
+dstip_sni = gethostbyname(SNI)
+Option 1: if (dstip_sni != dstip_client) then reset connection.
+Option 2: dstip = dstip_sni, i.e. redirect the connection to dstip_sni, where "redirect" is implementation specific.
+</pre><a href="#section-2.5.2-10" class="pilcrow">¶</a>
+</div>
+<p id="section-2.5.2-11">In this pseudo code, this considers the level of control an enterprise has over DNS (including DoH requests) and gethostbyname is not referring to a simple lookup and is not just about comparing IP addresses.<a href="#section-2.5.2-11" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.5.2-12.1">
+              <p id="section-2.5.2-12.1.1">(2) TLS "probe" sessions to validate not only the certificate and SAN entries, but also the ability of the destination to complete the TLS handshake.<a href="#section-2.5.2-12.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-2.5.2-13">The attacker tries to bypass the middlebox by using www.example.org as SNI on a TLS session to c2.attacker.xxx. The middlebox will resolve www.example.org and connect upstream to www.example.org, not to c2.attacker.xxx.<a href="#section-2.5.2-13" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-14">Implementing (2) forces the attacker to relay traffic to the true endpoint, and when combined with (1) gives the middlebox a mechanism to detect an anomaly where the true endpoint dstip seems to have "jumped".<a href="#section-2.5.2-14" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-15">In an enterprise environment where the client device is compromised the network security device will use the techniques described above to improve the reliability of SNI as a control. One can understand that the attacker can also improve its chances of not being detected, but it has to move up the Pyramid of Pain <span>[<a href="#PAINPYRAMID" class="cite xref">PAINPYRAMID</a>]</span> - just spoofing the SNI is an unreliable way to bypass advanced network security devices.<a href="#section-2.5.2-15" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-16">See Appendix for some initial data gathering on the reliability of the SNI.<a href="#section-2.5.2-16" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="with-tls-13-with-ech-extension">
@@ -1688,11 +1695,14 @@ operating.  Neither option is desirable.<a href="#section-3.4-1" class="pilcrow"
           </h4>
 <p id="section-4.1.1-1">Enterprises and Organizations need to protect themselves for a vast number of reasons, mainly:<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.1-2.1">Reduce their Risks. And in particular as part of any Cyber Resilience strategy.<a href="#section-4.1.1-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.1.1-2.1">
+              <p id="section-4.1.1-2.1.1">Reduce their Risks. And in particular as part of any Cyber Resilience strategy.<a href="#section-4.1.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.1-2.2">Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).<a href="#section-4.1.1-2.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.1.1-2.2">
+              <p id="section-4.1.1-2.2.1">Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).<a href="#section-4.1.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.1-2.3">Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. These requirements are growing in both scope and complexity as they are added to by various national and regional bodies around the world.<a href="#section-4.1.1-2.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.1.1-2.3">
+              <p id="section-4.1.1-2.3.1">Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. These requirements are growing in both scope and complexity as they are added to by various national and regional bodies around the world.<a href="#section-4.1.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -1704,29 +1714,37 @@ operating.  Neither option is desirable.<a href="#section-3.4-1" class="pilcrow"
           </h4>
 <p id="section-4.1.2-1">In addition, the general threat landscape which was already very large (see <span>[<a href="#I-D.draft-mcfadden-smart-threat-changes" class="cite xref">I-D.draft-mcfadden-smart-threat-changes</a>]</span>), has significantly increased in three ways:<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.2-2.1">COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantage, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.<a href="#section-4.1.2-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.1.2-2.1">
+              <p id="section-4.1.2-2.1.1">COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantage, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.<a href="#section-4.1.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.2-2.2">The Supply Chain is under stress as per the <span>[<a href="#SOLARWIND" class="cite xref">SOLARWIND</a>]</span> attack<a href="#section-4.1.2-2.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.1.2-2.2">
+              <p id="section-4.1.2-2.2.1">The Supply Chain is under stress as per the <span>[<a href="#SOLARWIND" class="cite xref">SOLARWIND</a>]</span> attack<a href="#section-4.1.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.2-2.3">Nation State attacks are continuing to evolve, for example as noted to those linked to the current Ukraine crisis.<a href="#section-4.1.2-2.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.1.2-2.3">
+              <p id="section-4.1.2-2.3.1">Nation State attacks are continuing to evolve, for example as noted to those linked to the current Ukraine crisis.<a href="#section-4.1.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-4.1.2-3">Attacks are now damaging enterprises and other organizations with ransomware being the number 1 issue by a considerable margin. The attacks are increasing in severity, to the extent that this is now being measured at macroscopic level in some countries:<a href="#section-4.1.2-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.2-4.1">EUR1B loss of revenue for French organizations from January to August 2022 <span>[<a href="#LOSSINREVENUE" class="cite xref">LOSSINREVENUE</a>]</span><a href="#section-4.1.2-4.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.1.2-4.1">
+              <p id="section-4.1.2-4.1.1">€1B loss of revenue for French organizations from January to August 2022 <span>[<a href="#LOSSINREVENUE" class="cite xref">LOSSINREVENUE</a>]</span><a href="#section-4.1.2-4.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.2-4.2">Loss in capitalisation between 1-5% <span>[<a href="#LOSSINCAP" class="cite xref">LOSSINCAP</a>]</span><a href="#section-4.1.2-4.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.1.2-4.2">
+              <p id="section-4.1.2-4.2.1">Loss in capitalisation between 1-5% <span>[<a href="#LOSSINCAP" class="cite xref">LOSSINCAP</a>]</span><a href="#section-4.1.2-4.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.2-4.3">Degradation by credit notation agencies <span>[<a href="#LOSSINCREDITSCORE" class="cite xref">LOSSINCREDITSCORE</a>]</span><a href="#section-4.1.2-4.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.1.2-4.3">
+              <p id="section-4.1.2-4.3.1">Degradation by credit notation agencies <span>[<a href="#LOSSINCREDITSCORE" class="cite xref">LOSSINCREDITSCORE</a>]</span><a href="#section-4.1.2-4.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-4.1.2-5">Another implication from the COVID crisis is the acceleration of BYOD
 with the current reliance on remote working. This has created two side effects for remote employees, contractors and third parties that need to connect to one or more enterprise
 networks on a temporary basis:<a href="#section-4.1.2-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.2-6.1">need to use a VPN access to the corporate network, which brings all the benefits (e.g. protected access to corporate network) and risks that VPNs may open (e.g. lateral movement when the end point is compromised),<a href="#section-4.1.2-6.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.1.2-6.1">
+              <p id="section-4.1.2-6.1.1">need to use a VPN access to the corporate network, which brings all the benefits (e.g. protected access to corporate network) and risks that VPNs may open (e.g. lateral movement when the end point is compromised),<a href="#section-4.1.2-6.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.2-6.2">need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.<a href="#section-4.1.2-6.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.1.2-6.2">
+              <p id="section-4.1.2-6.2.1">need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.<a href="#section-4.1.2-6.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -1745,9 +1763,11 @@ may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introducti
 <p id="section-4.2-3">Finally there is a global shortage of cybersecurity personnel. Any expansion of technical requirements, for example to mitigate the operational challenges through the introduction of ECH, will exacerbate the problem.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <p id="section-4.2-4">All the above conditions are weighing on capabilities to defend, both:<a href="#section-4.2-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.2-5.1">Directly: a lack of visibility on a key meta data like the SNI will cause significant issues to enterprises and organizations<a href="#section-4.2-5.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.2-5.1">
+            <p id="section-4.2-5.1.1">Directly: a lack of visibility on a key meta data like the SNI will cause significant issues to enterprises and organizations<a href="#section-4.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.2-5.2">Indirectly: should ECH happen and should alternative be provided, managing migrations to any alternative not requiring access to the SNI, in these conditions, is undesirable from a timing, resources, capacities and risks perspectives.<a href="#section-4.2-5.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-4.2-5.2">
+            <p id="section-4.2-5.2.1">Indirectly: should ECH happen and should alternative be provided, managing migrations to any alternative not requiring access to the SNI, in these conditions, is undesirable from a timing, resources, capacities and risks perspectives.<a href="#section-4.2-5.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1776,15 +1796,20 @@ may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introducti
 <p id="section-4.3.2-4">As some Browser makers made the use of ECH optional, this gives a first approach for enterprises to disable ECH for their employees.<a href="#section-4.3.2-4" class="pilcrow">¶</a></p>
 <p id="section-4.3.2-5">However this doesn't provide an holistic solution. Indeed enterprises will need to consider a number of issues:<a href="#section-4.3.2-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.1">Browsers which do not offer an option to disable ECH<a href="#section-4.3.2-6.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-6.1">
+              <p id="section-4.3.2-6.1.1">Browsers which do not offer an option to disable ECH<a href="#section-4.3.2-6.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.3.2-6.2">Browsers that will make ECH non optional in the future<a href="#section-4.3.2-6.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-6.2">
+              <p id="section-4.3.2-6.2.1">Browsers that will make ECH non optional in the future<a href="#section-4.3.2-6.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.3.2-6.3">Non-browsers applications which are designed to use libraries enforcing ECH, without any option to disable it<a href="#section-4.3.2-6.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-6.3">
+              <p id="section-4.3.2-6.3.1">Non-browsers applications which are designed to use libraries enforcing ECH, without any option to disable it<a href="#section-4.3.2-6.3.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.3.2-6.4">All the range of BYOD use cases where enterprises do not control the endpoint<a href="#section-4.3.2-6.4" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-6.4">
+              <p id="section-4.3.2-6.4.1">All the range of BYOD use cases where enterprises do not control the endpoint<a href="#section-4.3.2-6.4.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.3.2-6.5">Adversaries leveraging ECH e.g. to hide their command and control communications, e.g. in Ransomware cases.<a href="#section-4.3.2-6.5" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-6.5">
+              <p id="section-4.3.2-6.5.1">Adversaries leveraging ECH e.g. to hide their command and control communications, e.g. in Ransomware cases.<a href="#section-4.3.2-6.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-4.3.2-7">Whilst, disabling ECH wherever possible provides one approach to mitigate ECH deployment issues, as per above, other mitigations approaches need to be offered to enterprises.<a href="#section-4.3.2-7" class="pilcrow">¶</a></p>
@@ -1805,9 +1830,11 @@ may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introducti
             </h5>
 <p id="section-4.3.2.2-1">The loss of visibility of the SNI, at TLS level, will prevent transparent proxies from applying corporate policies to manage risk and compliancy. Typical examples:<a href="#section-4.3.2.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2.2-2.1">categories of compromised sites cannot be applied anymore, exposing employees and their organisations to potential cybersecurity risks; alternative approaches to block access to theses sites need to be found<a href="#section-4.3.2.2-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2.2-2.1">
+                <p id="section-4.3.2.2-2.1.1">categories of compromised sites cannot be applied anymore, exposing employees and their organisations to potential cybersecurity risks; alternative approaches to block access to theses sites need to be found<a href="#section-4.3.2.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="normal" id="section-4.3.2.2-2.2">corporate lists of excluded sites for compliance or policy reasons need alternatives ways to be blocked.<a href="#section-4.3.2.2-2.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-4.3.2.2-2.2">
+                <p id="section-4.3.2.2-2.2.1">corporate lists of excluded sites for compliance or policy reasons need alternatives ways to be blocked.<a href="#section-4.3.2.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </section>
@@ -1851,9 +1878,11 @@ may be problematic (see <span>[<a href="#I-D.draft-taddei-smart-cless-introducti
 <p id="section-5.1-1">In Public Networks the national, regional and international legislator has to balance between freedom of access to the information on the one hand, and safety of the Internet and the protection of other fundamental rights on the other hand.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.1-2">There are 2 main approaches:<a href="#section-5.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.1-3.1">First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal Internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing "general" legal framework that is not specific to the Internet to conduct what is, generally speaking, limited blocking or takedown of unlawful online material. Here the approach has been differentiated in relying on self regulation from the private sector or limited political or legislative intervention to specific areas.<a href="#section-5.1-3.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.1-3.1">
+            <p id="section-5.1-3.1.1">First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal Internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing “general” legal framework that is not specific to the Internet to conduct what is, generally speaking, limited blocking or takedown of unlawful online material. Here the approach has been differentiated in relying on self regulation from the private sector or limited political or legislative intervention to specific areas.<a href="#section-5.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-5.1-3.2">The other approach has been to set up a legal framework specifically aimed at the regulation of the Internet and other digital media, including the blocking, filtering and removal of Internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.<a href="#section-5.1-3.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-5.1-3.2">
+            <p id="section-5.1-3.2.1">The other approach has been to set up a legal framework specifically aimed at the regulation of the Internet and other digital media, including the blocking, filtering and removal of Internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.<a href="#section-5.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1874,9 +1903,11 @@ Additionally in some states the authorities can request the removal of content t
 <p id="section-5.2.1-3">Generally speaking, the grounds relied on broadly correspond to the interests protected under Article 10(2) of the European Convention of Human Rights (ECHR), namely: the protection of national security, territorial integrity or public safety, the prevention of disorder or crime, the protection of health or morals, the protection of the reputation or rights of others, and the prevention of the disclosure of information received in confidence.
 From the methodology we have to distinguish between blocking or takedown of content.<a href="#section-5.2.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2.1-4.1">The blocking, filtering or prevention of access to Internet content are generally technical measures intended to restrict access to information or resources typically hosted in another jurisdiction. Such action is normally taken by the Internet access provider through hardware or software products that block specific targeted content from being received or displayed on the devices of customers of the Internet access provider.<a href="#section-5.2.1-4.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2.1-4.1">
+              <p id="section-5.2.1-4.1.1">The blocking, filtering or prevention of access to Internet content are generally technical measures intended to restrict access to information or resources typically hosted in another jurisdiction. Such action is normally taken by the Internet access provider through hardware or software products that block specific targeted content from being received or displayed on the devices of customers of the Internet access provider.<a href="#section-5.2.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-5.2.1-4.2">Takedown or removal of Internet content, on the other hand, will instead broadly refer to demands or measures aimed at the website operator (or "host") to remove or delete the offending website content or sub content.<a href="#section-5.2.1-4.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-5.2.1-4.2">
+              <p id="section-5.2.1-4.2.1">Takedown or removal of Internet content, on the other hand, will instead broadly refer to demands or measures aimed at the website operator (or “host”) to remove or delete the offending website content or sub content.<a href="#section-5.2.1-4.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-5.2.1-5">In these considerations we will refer to blocking only.<a href="#section-5.2.1-5" class="pilcrow">¶</a></p>
@@ -1966,11 +1997,14 @@ DNS, defences are weakened and the attack surface increased.<a href="#section-6.
         </h3>
 <p id="section-6.4-1">(Editorial note: this is a placeholder for future issues;<a href="#section-6.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.4-2.1">Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience.<a href="#section-6.4-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-6.4-2.1">
+            <p id="section-6.4-2.1.1">Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience.<a href="#section-6.4-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.4-2.2">What happens if Client Facing servers are controlled by malicious actors?<a href="#section-6.4-2.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-6.4-2.2">
+            <p id="section-6.4-2.2.1">What happens if Client Facing servers are controlled by malicious actors?<a href="#section-6.4-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.4-2.3">The Client Facing servers are acting as a new category of middleboxes. In this shift left movement, until the attack surface is minimal and complexities are removed, you have to rely on third parties for inspection. In these conditions, on which basis can they be more trusted than any other middleboxes? Is this creating a concentration problem?<a href="#section-6.4-2.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-6.4-2.3">
+            <p id="section-6.4-2.3.1">The Client Facing servers are acting as a new category of middleboxes. In this shift left movement, until the attack surface is minimal and complexities are removed, you have to rely on third parties for inspection. In these conditions, on which basis can they be more trusted than any other middleboxes? Is this creating a concentration problem?<a href="#section-6.4-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-6.4-3">)<a href="#section-6.4-3" class="pilcrow">¶</a></p>
@@ -1983,7 +2017,8 @@ DNS, defences are weakened and the attack surface increased.<a href="#section-6.
         </h3>
 <p id="section-6.5-1">(Editorial note: this is a placeholder for future issues;<a href="#section-6.5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.5-2.1">If ECH is enforced what are the solutions to all the above problems and what are the migration paths?<a href="#section-6.5-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-6.5-2.1">
+            <p id="section-6.5-2.1.1">If ECH is enforced what are the solutions to all the above problems and what are the migration paths?<a href="#section-6.5-2.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-6.5-3">)<a href="#section-6.5-3" class="pilcrow">¶</a></p>
@@ -2003,9 +2038,11 @@ DNS, defences are weakened and the attack surface increased.<a href="#section-6.
         </h3>
 <p id="section-7.1-1">This section lists potential development of this work in particular for the General Issues section.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-7.1-2.1">There are need for further clarifications from the ECH draft, e.g. The link between the Client Facing and the backend servers are not clear enough and need further description. It can't be just 'left to the implementation'. The action is still underway and feedback to the TLS working group will be provided.<a href="#section-7.1-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-7.1-2.1">
+            <p id="section-7.1-2.1.1">There are need for further clarifications from the ECH draft, e.g. The link between the Client Facing and the backend servers are not clear enough and need further description. It can’t be just ‘left to the implementation’. The action is still underway and feedback to the TLS working group will be provided.<a href="#section-7.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-7.1-2.2">Will there be any impact to the DNS by adding so many new RRs?<a href="#section-7.1-2.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-7.1-2.2">
+            <p id="section-7.1-2.2.1">Will there be any impact to the DNS by adding so many new RRs?<a href="#section-7.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -2017,11 +2054,14 @@ DNS, defences are weakened and the attack surface increased.<a href="#section-6.
         </h3>
 <p id="section-7.2-1">This document infers a number of ideas that could be relevant for other groups and in other deliverables. In particular regarding what type of solutions could be considered<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-7.2-2.1">There is a need to address the apparent disconnect between user privacy and security, it should be possible to provide both rather than one compromising the other.<a href="#section-7.2-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-7.2-2.1">
+            <p id="section-7.2-2.1.1">There is a need to address the apparent disconnect between user privacy and security, it should be possible to provide both rather than one compromising the other.<a href="#section-7.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-7.2-2.2">What prevents a Client Facing server providing security solutions to protect the data path?<a href="#section-7.2-2.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-7.2-2.2">
+            <p id="section-7.2-2.2.1">What prevents a Client Facing server providing security solutions to protect the data path?<a href="#section-7.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-7.2-2.3">Given some of the many challenges there is the opportunity to review the current ECH proposal from the perspective of a respectful inspection protocol.<a href="#section-7.2-2.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-7.2-2.3">
+            <p id="section-7.2-2.3.1">Given some of the many challenges there is the opportunity to review the current ECH proposal from the perspective of a respectful inspection protocol.<a href="#section-7.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -2081,6 +2121,7 @@ detection which this document outlines.<a href="#section-9-1" class="pilcrow">¶
       <h2 id="name-references">
 <a href="#section-11" class="section-number selfRef">11. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
 <section id="section-11.1">
         <h3 id="name-normative-references">
 <a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
@@ -2096,6 +2137,8 @@ detection which this document outlines.<a href="#section-9-1" class="pilcrow">¶
 <dd class="break"></dd>
 </dl>
 </section>
+</div>
+<div id="sec-informative-references">
 <section id="section-11.2">
         <h3 id="name-informative-references">
 <a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
@@ -2127,7 +2170,7 @@ detection which this document outlines.<a href="#section-9-1" class="pilcrow">¶
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-tls-esni">[I-D.draft-ietf-tls-esni]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-17</span>, <time datetime="2023-10-09" class="refDate">9 October 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-17">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-17</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-18</span>, <time datetime="2024-03-04" class="refDate">4 March 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-18">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-18</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.draft-mcfadden-smart-threat-changes">[I-D.draft-mcfadden-smart-threat-changes]</dt>
         <dd>
@@ -2173,6 +2216,10 @@ detection which this document outlines.<a href="#section-9-1" class="pilcrow">¶
         <dd>
 <span class="refAuthor">NIST</span>, <span class="refTitle">"Glossary - defense-in-depth"</span>, <span>n.d.</span>, <span>&lt;<a href="https://csrc.nist.gov/glossary/term/defense_in_depth#:~:text=Definition(s)%3A,and%20missions%20of%20the%20organization.">https://csrc.nist.gov/glossary/term/defense_in_depth#:~:text=Definition(s)%3A,and%20missions%20of%20the%20organization.</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="PAINPYRAMID">[PAINPYRAMID]</dt>
+        <dd>
+<span class="refAuthor">EDR</span>, <span class="refTitle">"The Pyramid of Pain"</span>, <time datetime="2024-01-17" class="refDate">17 January 2024</time>, <span>&lt;<a href="https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html">https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC7258">[RFC7258]</dt>
         <dd>
 <span class="refAuthor">Farrell, S.</span> and <span class="refAuthor">H. Tschofenig</span>, <span class="refTitle">"Pervasive Monitoring Is an Attack"</span>, <span class="seriesInfo">BCP 188</span>, <span class="seriesInfo">RFC 7258</span>, <span class="seriesInfo">DOI 10.17487/RFC7258</span>, <time datetime="2014-05" class="refDate">May 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7258">https://www.rfc-editor.org/rfc/rfc7258</a>&gt;</span>. </dd>
@@ -2195,6 +2242,7 @@ detection which this document outlines.<a href="#section-9-1" class="pilcrow">¶
 <dd class="break"></dd>
 </dl>
 </section>
+</div>
 </section>
 <div id="acknowledgment">
 <section id="appendix-A">
@@ -2247,19 +2295,26 @@ Google DNS dominated the counts at 5.3% of all mismatched sessions. A close seco
 <a href="#appendix-B.4" class="section-number selfRef">B.4. </a><a href="#name-take-away-observations" class="section-name selfRef">Take away observations</a>
         </h3>
 <ul class="normal">
-<li class="normal" id="appendix-B.4-1.1">IoT and API based traffic is by far the largest offender as compared to Browser based initiated sessions.<a href="#appendix-B.4-1.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-B.4-1.1">
+            <p id="appendix-B.4-1.1.1">IoT and API based traffic is by far the largest offender as compared to Browser based initiated sessions.<a href="#appendix-B.4-1.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-B.4-1.2">Long-lived TLS session counts were dwarfed by the chatter of the API calls using short lived yet pervasively reporting. For instance there were new sessions at a rate of every 20 seconds per IoT device.<a href="#appendix-B.4-1.2" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-B.4-1.2">
+            <p id="appendix-B.4-1.2.1">Long-lived TLS session counts were dwarfed by the chatter of the API calls using short lived yet pervasively reporting. For instance there were new sessions at a rate of every 20 seconds per IoT device.<a href="#appendix-B.4-1.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-B.4-1.3">The consumer mismatched sessions were all using TLS v1.3. Which reaffirmed the need to decrypt TLS v1.3 traffic. These sessions, if established without TLS interception, may have gone unreported by NGFW, which makes policy decisions on SNI vs SAN. Conversely, the corporate traffic was a close split between TLS v1.3 and v1.2.<a href="#appendix-B.4-1.3" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-B.4-1.3">
+            <p id="appendix-B.4-1.3.1">The consumer mismatched sessions were all using TLS v1.3. Which reaffirmed the need to decrypt TLS v1.3 traffic. These sessions, if established without TLS interception, may have gone unreported by NGFW, which makes policy decisions on SNI vs SAN. Conversely, the corporate traffic was a close split between TLS v1.3 and v1.2.<a href="#appendix-B.4-1.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-B.4-1.4">The presence of VPN tunnels masked a clearer picture of the corporate traffic usage.<a href="#appendix-B.4-1.4" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-B.4-1.4">
+            <p id="appendix-B.4-1.4.1">The presence of VPN tunnels masked a clearer picture of the corporate traffic usage.<a href="#appendix-B.4-1.4.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-B.4-1.5">SNI Mismatches are more prevalent in the wild than first thought.<a href="#appendix-B.4-1.5" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-B.4-1.5">
+            <p id="appendix-B.4-1.5.1">SNI Mismatches are more prevalent in the wild than first thought.<a href="#appendix-B.4-1.5.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-B.4-1.6">SNI Mismatches has a side cause which policy rules have to be enumerated twice for category matching. And the second category matching is more intensive since it has to enumerate the entire SAN list which can be very large.<a href="#appendix-B.4-1.6" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-B.4-1.6">
+            <p id="appendix-B.4-1.6.1">SNI Mismatches has a side cause which policy rules have to be enumerated twice for category matching. And the second category matching is more intensive since it has to enumerate the entire SAN list which can be very large.<a href="#appendix-B.4-1.6.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-B.4-1.7">Fixing the session hygiene for corporate owned applications could potentially improve performance of the security stack.<a href="#appendix-B.4-1.7" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-B.4-1.7">
+            <p id="appendix-B.4-1.7.1">Fixing the session hygiene for corporate owned applications could potentially improve performance of the security stack.<a href="#appendix-B.4-1.7.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>

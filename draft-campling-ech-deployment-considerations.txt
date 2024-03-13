@@ -5,13 +5,13 @@
 opsec                                                     A. J. Campling
 Internet-Draft                                    419 Consulting Limited
 Intended status: Informational                                  P. Vixie
-Expires: 27 July 2024                                           Red Barn
+Expires: 14 September 2024                                      Red Barn
                                                                D. Wright
                                                 UK Safer Internet Centre
                                                                A. Taddei
                                                               S. Edwards
                                                                 Broadcom
-                                                         24 January 2024
+                                                           13 March 2024
 
 
             Encrypted Client Hello Deployment Considerations
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 July 2024.
+   This Internet-Draft will expire on 14 September 2024.
 
 Copyright Notice
 
@@ -369,9 +369,54 @@ Table of Contents
    without trusting it, then they perform checks at various level to
    verify this SNI and they step by step enrich the evaluation,
    therefore bringing more possibilites to interpret which policy to
-   apply.  This could end up with the proxy deciding to block the
-   connection, or the proxy to let the connection happened with a
-   verified or corrected SNI.
+   apply.
+
+   This could end up with the proxy deciding to block the connection, or
+   the proxy to let the connection happened with a verified or corrected
+   SNI.
+
+   The below applies in enterprise context:
+
+   Indeed network security middleboxes utilize various techniques to
+   improve the reliability of the control in an enterprise environment,
+   inter alia:
+
+   *  (1) DNS Hostname lookup of SNI and optional destination redirect
+      or failure on mismatch
+
+   Let's consider the below pseudo code:
+
+dstip_client = destination as observed on client side of middlebox
+dstip_sni = gethostbyname(SNI)
+Option 1: if (dstip_sni != dstip_client) then reset connection.
+Option 2: dstip = dstip_sni, i.e. redirect the connection to dstip_sni, where "redirect" is implementation specific.
+
+   In this pseudo code, this considers the level of control an
+   enterprise has over DNS (including DoH requests) and gethostbyname is
+   not referring to a simple lookup and is not just about comparing IP
+   addresses.
+
+   *  (2) TLS "probe" sessions to validate not only the certificate and
+      SAN entries, but also the ability of the destination to complete
+      the TLS handshake.
+
+   The attacker tries to bypass the middlebox by using www.example.org
+   as SNI on a TLS session to c2.attacker.xxx.  The middlebox will
+   resolve www.example.org and connect upstream to www.example.org, not
+   to c2.attacker.xxx.
+
+   Implementing (2) forces the attacker to relay traffic to the true
+   endpoint, and when combined with (1) gives the middlebox a mechanism
+   to detect an anomaly where the true endpoint dstip seems to have
+   "jumped".
+
+   In an enterprise environment where the client device is compromised
+   the network security device will use the techniques described above
+   to improve the reliability of SNI as a control.  One can understand
+   that the attacker can also improve its chances of not being detected,
+   but it has to move up the Pyramid of Pain [PAINPYRAMID] - just
+   spoofing the SNI is an unreliable way to bypass advanced network
+   security devices.
 
    See Appendix for some initial data gathering on the reliability of
    the SNI.
@@ -516,7 +561,7 @@ Table of Contents
    attacks are increasing in severity, to the extent that this is now
    being measured at macroscopic level in some countries:
 
-   *  EUR1B loss of revenue for French organizations from January to
+   *  €1B loss of revenue for French organizations from January to
       August 2022 [LOSSINREVENUE]
 
    *  Loss in capitalisation between 1-5% [LOSSINCAP]
@@ -707,7 +752,7 @@ Table of Contents
       defining the conditions and the procedures to be respected by
       those who engage in the blocking, filtering or takedown of online
       material.  In the absence of a specific or targeted legal
-      framework, several countries rely on an existing "general" legal
+      framework, several countries rely on an existing “general” legal
       framework that is not specific to the Internet to conduct what is,
       generally speaking, limited blocking or takedown of unlawful
       online material.  Here the approach has been differentiated in
@@ -767,7 +812,7 @@ Table of Contents
 
    *  Takedown or removal of Internet content, on the other hand, will
       instead broadly refer to demands or measures aimed at the website
-      operator (or "host") to remove or delete the offending website
+      operator (or “host”) to remove or delete the offending website
       content or sub content.
 
    In these considerations we will refer to blocking only.
@@ -904,8 +949,8 @@ Table of Contents
 
    *  There are need for further clarifications from the ECH draft, e.g.
       The link between the Client Facing and the backend servers are not
-      clear enough and need further description.  It can't be just 'left
-      to the implementation'.  The action is still underway and feedback
+      clear enough and need further description.  It can’t be just ‘left
+      to the implementation’. The action is still underway and feedback
       to the TLS working group will be provided.
 
    *  Will there be any impact to the DNS by adding so many new RRs?
@@ -1023,9 +1068,9 @@ Table of Contents
    [I-D.draft-ietf-tls-esni]
               Rescorla, E., Oku, K., Sullivan, N., and C. A. Wood, "TLS
               Encrypted Client Hello", Work in Progress, Internet-Draft,
-              draft-ietf-tls-esni-17, 9 October 2023,
+              draft-ietf-tls-esni-18, 4 March 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              esni-17>.
+              esni-18>.
 
    [I-D.draft-mcfadden-smart-threat-changes]
               McFadden, M., "BCP72 - A Problem Statement", Work in
@@ -1084,6 +1129,11 @@ Table of Contents
               <https://csrc.nist.gov/glossary/term/defense_in_depth#:~:t
               ext=Definition(s)%3A,and%20missions%20of%20the%20organizat
               ion.>.
+
+   [PAINPYRAMID]
+              EDR, "The Pyramid of Pain", 17 January 2024,
+              <https://detect-respond.blogspot.com/2013/03/the-pyramid-
+              of-pain.html>.
 
    [RFC7258]  Farrell, S. and H. Tschofenig, "Pervasive Monitoring Is an
               Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May

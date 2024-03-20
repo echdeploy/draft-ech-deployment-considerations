@@ -6,7 +6,7 @@ docname: draft-campling-ech-deployment-considerations-latest
 ipr: trust200902
 cat: info
 submissiontype: IETF
-area: SEC
+area: OPS
 wg: opsec
 
 stand_alone: yes

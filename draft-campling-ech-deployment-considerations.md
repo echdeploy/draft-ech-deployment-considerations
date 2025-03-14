@@ -723,6 +723,10 @@ DNS, defences are weakened and the attack surface increased.
 
 )
 
+## Issues pushing protection to endpoints
+
+The solution to lack of network visibility is often to move the security/safety tool to the client. This works acceptably well in some circumstances, for example on Windows desktops. However, many safety tools on Android and IOS (particularly 3rd party parental controls) rely on the self same network technology. Usually this is a proxy running locally, which obviates the issue s of unreliability and cost for a mobile device, but retains all the challenges of inspection on-network when it comes to issues like ECH.
+
 ## Migration issues
 
 (Editorial note: this is a placeholder for future issues;

@@ -253,7 +253,7 @@ informative:
     title: Slides of Vodafone presentation on Use of DNS
               Errors to improve Browsing User Experience With network
               based malware protection
-    https://datatracker.ietf.org/meeting/116/materials/
+    target: https://datatracker.ietf.org/meeting/116/materials/
               slides-116-dnsop-dns-errors-implementation-proposal-
               slides-116-dnsop-update-on-dns-errors-implementation-00
   VFDNSERRORSVIDEO:

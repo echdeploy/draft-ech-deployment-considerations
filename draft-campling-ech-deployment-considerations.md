@@ -320,26 +320,36 @@ be accessing content in a way that violates privacy considerations".
 
 ## Scope, objectives and limits of this document
 
-This document considers the implications of ECH for private, edge and public networks using the examples of education establishments, enterprises and public operators. It addresses the limitations of {{RFC8744}}
-by providing more information about the issues posed by the
+This document considers the implications of ECH for private, edge and
+public networks using the examples of education establishments,
+enterprises and public operators.  It addresses the limitations of
+{{RFC8744}} by providing more information about the issues posed by the
 introduction of ECH due to the loss of visibility of SNI data on
-private networks building on the report from a roundtable discussion {{ECH_Roundtable}}.
+private networks building on the report from a roundtable discussion
+{{ECH_Roundtable}}.
 
-The objective of this document is to detail some operational impacts of ECH. It will focus specifically on
-the impact of encrypting the SNI data by ECH,
-but it should be noted that other elements in the client hello may also be relevant for some
-on-path security methods.
+The objective of this document is to detail some operational impacts
+of ECH.  It will focus specifically on the impact of encrypting the
+SNI data by ECH, but it should be noted that other elements in the
+client hello may also be relevant for some on-path security methods.
 
 The data encapsulated by ECH is of legitimate interest to on-path
-security actors including those providing inline malware detection,
-firewalls, parental controls, content filtering to prevent access to malware
-and other risky traffic, mandatory security controls (e.g. Data Loss Prevention) etc. Beyond network security, there are various operational impacts of different types e.g. network management, content filtering, etc.
+security actors.  This includes those providing inline malware 
+detection, firewalls, parental controls, content filtering to prevent 
+access to malware and other risky traffic, mandatory security 
+controls (e.g. Data Loss Prevention) etc.  Beyond network security, 
+the introduction of ECH has various operational impacts of different 
+types e.g. network management, content filtering, etc.
 
 Whilst this document identifies operational issues:
 
-* it does not consider solutions nor question the development of the ECH proposal itself
-* it doesn't attempt to be exhaustive,
-* it will start by focusing on one category of middleboxes: proxies.
+*  it does not consider solutions nor question the development of the
+ECH proposal itself as there are use cases that benefit from its 
+deployment;
+
+*  it does not attempt to be exhaustive,
+
+*  it will start by focusing on one category of middleboxes: proxies.
 
 # General considerations about the encryption of the Client Hello
 

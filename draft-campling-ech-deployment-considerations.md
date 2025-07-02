@@ -1122,13 +1122,14 @@ notes that an early trigger for DDoS mitigation involves
 distinguishing attacker traffic from legitimate user traffic; this
 become more difficult if traffic sources are obscured.
 
-The various indicators of compromise (IoCs) are documented in {{I-D.draft-ietf-opsec-indicators-of-compromise}}, which also describes how they
-are used effectively in cyber defence. For example, section 4.1.1 of
-the document describes the importance of IoCs as part of a defence-
-in-depth strategy; in this context, SNI is just one of the range of
-indicators that can be used to build up a resilient defence (see
-section 3.1 in the same document on IoC types and the 'pyramid of
-pain').
+The various indicators of compromise (IoCs) are documented in
+{{I-D.draft-ietf-opsec-indicators-of-compromise}}, which also describes
+how they are used effectively in cyber defence.  For example, section
+4.1.1 of the document describes the importance of IoCs as part of a
+defence- in-depth strategy; in this context, SNI is just one of the
+range of indicators that can be used to build up a resilient defence
+(see section 3.1 in the same document on IoC types and the 'pyramid
+of pain').
 
 In the same Internet-Draft, section 6.1 expands on the importance of
 the defence in depth strategy.  In particular, it explains the role
@@ -1141,33 +1142,56 @@ DNS, defences are weakened and the attack surface increased.
 
 ## Endpoint security limits
 
-(Editorial note: Elaborate on endpoint security complications as {{I-D.draft-taddei-smart-cless-introduction}} as well as {{MAGECART}} {{MITB}} {{MITB-MITRE}} {{MALVERTISING}} showed that in some cases, the only way to detect an attack is through the use of network-based security. The loss of visibility of the SNI data will make it much harder to detect attacks. The endpoints components (operating system, applications, browsers, etc.) cannot be judge and jury.)
+Editorial note: Elaborate on endpoint security complications as
+{{I-D.draft-taddei-smart-cless-introduction}} as well as {{MAGECART}}
+{{MITB}} {{MITB-MITRE}} {{MALVERTISING}} showed that in some cases, the
+only way to detect an attack is through the use of network-based
+security.  The loss of visibility of the SNI data will make it much
+harder to detect attacks.  The endpoints components (operating
+system, applications, browsers, etc.) cannot be judge and jury.)
 
 ## Network management
 
 (Editorial note: this is a placeholder for future issues)
 
-## Future operational deployment issues due to the introduction of the Client Facing servers themselves
+## Future operational deployment issues due to the introduction of the 
+Client Facing servers
 
 (Editorial note: this is a placeholder for future issues;
 
-  * Consolidation considerations - the use of ECH may accelerate the move of content away from standalone servers and on to CDNs, reducing infrastructure resilience.
+*  Consolidation considerations - the use of ECH may accelerate the
+move of content away from standalone servers and on to CDNs,
+reducing infrastructure resilience.
 
-  * What happens if Client Facing servers are controlled by malicious actors?
+*  What happens if Client Facing servers are controlled by malicious
+actors?
 
-  * The Client Facing servers are acting as a new category of middleboxes. In this shift left movement, until the attack surface is minimal and complexities are removed, you have to rely on third parties for inspection. In these conditions, on which basis can they be more trusted than any other middleboxes? Is this creating a concentration problem?
+*  The Client Facing servers are acting as a new category of
+middleboxes.  In this shift left movement, until the attack
+surface is minimal and complexities are removed, you have to rely
+on third parties for inspection.  In these conditions, on which
+basis can they be more trusted than any other middleboxes?  Is
+this creating a concentration problem?
 
 )
 
 ## Issues pushing protection to endpoints
 
-The solution to lack of network visibility is often to move the security/safety tool to the client. This works acceptably well in some circumstances, for example on Windows desktops. However, many safety tools on Android and IOS (particularly 3rd party parental controls) rely on the self same network technology. Usually this is a proxy running locally, which obviates the issue s of unreliability and cost for a mobile device, but retains all the challenges of inspection on-network when it comes to issues like ECH.
+The solution to lack of network visibility is often to move the 
+security/safety tool to the client. This works acceptably well in some 
+circumstances, for example on Windows desktops. However, many safety 
+tools on Android and IOS (particularly 3rd party parental controls) 
+rely on the self same network technology. Usually this is a proxy 
+running locally, which obviates the issue s of unreliability and 
+cost for a mobile device, but retains all the challenges of inspection
+ on-network when it comes to issues like ECH.
 
 ## Migration issues
 
 (Editorial note: this is a placeholder for future issues;
 
-* If ECH is enforced what are the solutions to all the above problems and what are the migration paths?
+*  If ECH is enforced what are the solutions to all the above
+problems and what are the migration paths?
 
 )
 

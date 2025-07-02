@@ -930,61 +930,115 @@ Therefore, even where technical solutions exist that allow them to
 meet their operational and any compliance obligations, affordability and 
 expertise may present SMBs with significant difficulties.
 
-# Public Network Service Providers
+# Use Cases: The Impact of ECH on Public Network Service Providers
 
 ## Context
 
-In Public Networks the national, regional and international legislator has to balance between freedom of access to the information on the one hand, and safety of the Internet and the protection of other fundamental rights on the other hand.
+Public network operators often have significant obligations placed upon 
+them by national, regional or international legislators and regulators.  These 
+may cover aspects such as freedom of access to the Internet, the protection 
+of fundamental rights and protection of the underlying infrastructure from 
+malicious actors.
 
 There are 2 main approaches:
 
-* First, there are countries which do not have any specific legislation on the issue of blocking, filtering and takedown of illegal Internet content: there is no legislative or other regulatory system put in place by the state with a view to defining the conditions and the procedures to be respected by those who engage in the blocking, filtering or takedown of online material. In the absence of a specific or targeted legal framework, several countries rely on an existing “general” legal framework that is not specific to the Internet to conduct what is, generally speaking, limited blocking or takedown of unlawful online material. Here the approach has been differentiated in relying on self regulation from the private sector or limited political or legislative intervention to specific areas.
+*  First, there are countries which do not have any specific
+legislation on the issue of blocking, filtering and takedown of
+illegal Internet content: there is no legislative or other
+regulatory system put in place by the state with a view to
+defining the conditions and the procedures to be respected by
+those who engage in the blocking, filtering or takedown of online
+material.  In the absence of a specific or targeted legal
+framework, some countries rely on an existing ÒgeneralÓ legal
+framework that is not specific to the Internet to conduct what is 
+limited blocking or takedown of unlawful online material.  It 
+relies on self-regulation by network operators or limited
+political or legislative interventions in specific areas.
 
-* The other approach has been to set up a legal framework specifically aimed at the regulation of the Internet and other digital media, including the blocking, filtering and removal of Internet content. Such legislation typically provides for the legal grounds on which blocking or removal may be warranted, the administrative or judicial authority which has competence to take appropriate action and the procedures to be followed.
+*  The other approach is to set up a legal framework
+specifically aimed at the regulation of the Internet and other
+digital media, including the blocking, filtering and removal of
+Internet content.  Such legislation typically defines the legal 
+grounds when blocking or removal may be warranted, the
+administrative or judicial authority which has competence to take
+appropriate action and the procedures to be followed.
 
-## Mitigations
+## Content Takedown and Blocking
 
-### Current approaches and procedures
+### Definitions
 
-In relation to specific areas where the public interest has to be protected more strongly, such as child abuse crimes, terrorism, criminality and national security, many states have a framework for the urgent removal of Internet content regarding the above materials without the need of a court order. In such circumstances, administrative authorities, police authorities or public prosecutors are given specific powers to order Internet access providers to block access without advance judicial authority. It is common to see such orders requiring action on the part of the Internet access provider within 24 hours, and without any notice being given to the content provider or host themselves.
+It is useful to distinguish between blocking or takedown of content.
 
-Particularly in relation to material concerning child abuse and other serious crimes, many countries adopt a “list” system, whereby a central list of blocked URLs or domain names are maintained and updated by the relevant administrative authority. This is notified to the relevant Internet access providers, who are required to ensure that blocking is enforced.
-Additionally in some states the authorities can request the removal of content that infringes intellectual property, privacy or defamation rights. In this case the removal need to be requested by a court order.
+*  The blocking, filtering or prevention of access to Internet
+content are generally technical measures intended to restrict
+access to information or resources typically hosted in another
+jurisdiction.  Such action is normally taken by an Internet
+access provider through hardware or software products that block
+specific targeted content from being received or displayed on the
+devices of customers of the Internet access provider.
 
-Generally speaking, the grounds relied on broadly correspond to the interests protected under Article 10(2) of the European Convention of Human Rights (ECHR), namely: the protection of national security, territorial integrity or public safety, the prevention of disorder or crime, the protection of health or morals, the protection of the reputation or rights of others, and the prevention of the disclosure of information received in confidence.
-From the methodology we have to distinguish between blocking or takedown of content.
+*  Takedown or removal of Internet content, on the other hand, will
+instead broadly refer to demands or measures aimed at the website
+operator (or ÒhostÓ) to remove or delete the offending website
+content or sub content.
 
-* The blocking, filtering or prevention of access to Internet content are generally technical measures intended to restrict access to information or resources typically hosted in another jurisdiction. Such action is normally taken by the Internet access provider through hardware or software products that block specific targeted content from being received or displayed on the devices of customers of the Internet access provider.
-
-* Takedown or removal of Internet content, on the other hand, will instead broadly refer to demands or measures aimed at the website operator (or “host”) to remove or delete the offending website content or sub content.
-
-In these considerations we will refer to blocking only.
+The following comments apply to blocking only.
 
 ### The blocking use case
 
-This can be achieved through a number of techniques, including the blocking of the Domain Name System (DNS), the analysis of the SNI field or the Uniform Resource Locator (URL).
-Given the increasing adoption of encryption techniques often a mixture of the above techniques is needed.
+This can be achieved through a number of techniques, including the
+blocking of the Domain Name System (DNS), the analysis of the SNI
+field or the Uniform Resource Locator (URL).  Given the increasing
+adoption of encryption, a mixture of the above techniques are often 
+needed.
 
-In particular for the most serious crimes such as child abuse or national security many countries adopt a “list” methodology, where a central list of blocked Domains or URLs is maintained by the authorities and updated on a regular basis (daily or even hourly) and shared with Public Network Operators that have to enforce the blocking.
+For the most serious crimes such as child abuse or national security 
+many countries adopt a ÒlistÓ methodology, where a central list of 
+blocked Domains or URLs is maintained by the authorities and/or trusted 
+flaggers and updated on a regular basis (daily or even hourly) and shared 
+with Public Network Operators that have to enforce the blocking.
 
-In many jurisdictions there are legal consequences for the Operator not complying with the blocking order.
+In many jurisdictions there are legal consequences for any Operator
+that does not comply with a blocking order.
 
-Technically the blocking can be implemented using techniques that have been adapted over time as new technologies have been introduced.
+Technically the blocking can be implemented using techniques that
+have been adapted over time as new technologies have been introduced.
 
-Historically  depending on the content of the list the technique have been based on DNS or proxy blocking.
+Historically, depending on the content of the list, the techniques have
+mainly been based on DNS or proxy blocking.
 
-DNS is effective on Domains (the whole domain is blocked), while proxy is effective either on Domain (for encrypted traffic) or URL (for unencrypted traffic).
+DNS-based blocking  is effective on Domains (the whole domain is 
+blocked), while a proxy is effective either on Domain (for encrypted 
+traffic) or URL (for unencrypted traffic).
 
-Given that nowadays the vast majority of traffic is encrypted, the capability of blocking based on URL is limited to a small portion of traffic and proxy blocking is as effective as that based on the DNS.
+Given that the vast majority of Internet traffic is encrypted, the
+capability of blocking based on URLs is limited to a small portion of
+traffic and proxy blocking is as effective as that based on the DNS.
 
-Theoretically DNS blocking would be the preferred option for operators given the more limited investments necessary to implement blocking of the Domains, but given the increased usage of external encrypted DNS services DNS blocking is becoming less effective and operators need to use SNI analysis as well in order to fulfil legal obligations.
+Theoretically, DNS blocking would be the preferred option for
+operators given the more limited investments necessary to implement
+blocking of Domains.  However, with the increased usage of external
+encrypted DNS services, DNS blocking is becoming less effective so
+operators need to use SNI analysis as well in order to fulfil legal
+obligations.
 
-## Implications
+## The implications of ECH for public network operators
 
-The adoption of ECH will cause additional problems and limit the possibility of implementing operators fulfilling their legal blocking obligations, exposing the population to illegal content related to crimes such as Child Sex Abuse Material (CSAM), malware and other malicious content, and possibly even content deemed to be detrimental to National Security.
+he adoption of ECH will cause additional problems for operators and 
+limit the possibility of them fulfilling their legal blocking obligations, 
+exposing the population to illegal content related to crimes such as 
+Child Sex Abuse and Exploitation (CSAE), malware and other
+malicious content, and possibly even content deemed to be detrimental
+to National Security.
 
-In addition, operators that do not fulfil their legal obligations may be exposed to legal or regulatory remedies.
+If existing techniques for content blocking are rendered ineffective, 
+operators may increasingly consider the use of IP blocking to meet any 
+legal or regulatory obligations.  The major downside of such an approach 
+is that it is a relatively crude method, risking significant over-blocking, 
+especially where multiple services are hosted on a shared server.
 
+Operators that do not fulfil their legal obligations may be exposed to legal 
+or regulatory remedies.
 
 # General issues
 

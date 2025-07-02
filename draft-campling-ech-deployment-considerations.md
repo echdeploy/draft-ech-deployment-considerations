@@ -706,6 +706,78 @@ adequately manage these technologies.  Alternatively, the establishment
 will have to prevent all third-party devices from operating.  Neither 
 option is without negative consequences.
 
+# Use cases: Child Online Protection
+
+## Context
+
+In the context of Child Online Protection (COP), the primary aim for
+illegal content is removal of content at source.  Blocking and
+filtering adds friction, but it is not the end result.  Block lists
+allow to reduce access while giving time to entities dedicated to
+Child Online Protection to work to have content removed.
+
+In this context, when the SNI is key doing that for encrypted
+websites and in particular when hosts are slow to remove content as
+it is the case in popular hosting countries.
+
+But for legal content that is harmful, or not appropriate for young
+people or in the workplace, e.g. sexual content, gambling, self-harm,
+animal cruelty, the content cannot be removed if it is not illegal.
+
+The only option is to detect and block.  Implementing ECH is removing
+a key tool e.g. for schools to meet their statutory requirements to
+prevent their networks being used to access content that is harmful
+or inappropriate for children, same with employees in enterprise
+networks.
+
+At the moment some countries either incentivise or make it mandatory
+that operators may offer network based service such as parental
+controls {{DECRETO28}} or have laws in the making {{SREN}}.  These would
+typically be implemented as DNS and/or SNI based controls.
+
+However these controls can be circumvented by children who know how
+to change their DNS parameters to point back to "adult" DNS services.
+
+(TBD: add UK examples on suicide, IWF next report, the term CSAM,
+etc.)
+
+##  Implications
+
+As there is a vast global unawareness of ECH, few people in charge
+realize the problem posed by ECH and are caught by surprise to even
+consider mitigations approaches or a migration plan.
+
+In Child Online Protection use cases, most of the time, there is
+little to no programmatic control, or control at all, over the
+endpoints or the networks, not to mention BYOD.
+
+And even on the network, the IAB is taking a direction [NOEPSCAN]
+which doesn't seem to give a chance to prepare a migration to an
+alternative solution on the endpoint.
+
+(TBD: How encryption is hindering investigations when children want
+to report issues, etc., )
+
+##  Mitigations
+
+When ECH is deployed, if it becomes impossible to maintain blocking
+or filtering at network level, mitigations may still be possible at
+the endpoint.
+
+There are few attempts to provide solutions {{VFDNSERRORSVIDEO}},
+{{VFDNSERRORSSLIDES}} or {{BRCMWEBEXT}} which is based on the idea to
+inspect the destination before anything goes on the wire, within the
+web browser via a web extension.
+
+This is not a panacea as a web extension, in residential user context
+and in particular in COP context needs to be voluntarily installed
+and so can be easily disabled.  Moreover this is only web browser
+context.
+
+In this particular case, the fact that web browsers do not exhibit
+standard APIs adds to the difficulty to the need to orchestrate the
+web extension with the operating system.  An area where Regulators
+may consider be prescriptive.
 
 # Use Cases: The Impact of ECH on private network contexts (enterprises or 
 other organisations)

@@ -275,7 +275,7 @@ This data could be used for various purposes, including the determination
 of policy decisions, in some cases for security or compliance reasons.  As 
 part of a wider initiative by the IETF to achieve end-to-end encryption, a
 proposed extension to TLS 1.3 called Encrypted Client Hello (ECH)
-[I-D.draft-ietf-tls-esni] is attempting to encrypt all the remaining
+{{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining
 metadata in the clear.
 
 There are use cases where encryption of the SNI data may be a useful
@@ -296,7 +296,7 @@ undertaken lightly, given both the architectural impact on the
 Internet and the potentially adverse security implications for end users.
 Given these considerations, the deployment of ECH should not be 
 undertaken without either the knowledge of or consultation with 
-end users, as outlined in [RFC8890].
+end users, as outlined in {{RFC8890}}.
 
 Whilst it is reasonable to counter that Virtual Private Networks (VPNs) 
 also establish opaque paths, a primary difference is that the use of a 
@@ -304,15 +304,15 @@ VPN is a deliberate act by the user, rather than a choice made by
 client software, potentially without either the knowledge and/or 
 consent of the end-user or device owner.
 
-[RFC7258] discusses the critical need to protect users' privacy when
+{{RFC7258}} discusses the critical need to protect users' privacy when
 developing IETF specifications and also recognises that making
 networks unmanageable to mitigate pervasive monitoring is not an
 acceptable outcome.
 
-[RFC8404] discusses current security and network operations as well
+{{RFC8404}} discusses current security and network operations as well
 as management practices that may be impacted by the shift to
 increased use of encryption to help guide protocol development in
-support of manageable and secure networks.  As [RFC8404] notes, "the
+support of manageable and secure networks.  As {{RFC8404}} notes, "the
 implications for enterprises that own the data on their networks or
 that have explicit agreements that permit the monitoring of user
 traffic are very different from those for service providers who may

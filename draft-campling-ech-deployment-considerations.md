@@ -227,6 +227,42 @@ informative:
     date: 2022-09-04
     title: BAROMÈTRE ANOZR WAY DU RANSOMWARE
     target: https://anozrway.com/wp-content/uploads/dlm_uploads/2022/09/ANOZR-WAY_Barometre-Ransomware_edition-septembre-2022.pdf
+  BRCMWEBEXT:
+    author:
+    -org: Broadcom
+    title: Symantec Browser Protection
+    target: https://chromewebstore.google.com/detail/symantec-
+              browser-protecti/hielpjjagjimpgppnopiibaefhfpbpfn
+  DECRETO28:
+    author:
+    -org: Repubblica Italiana
+    title: DECRETTO-LEGGE 30 aprile 2020,
+              n.28
+    target: https://www.gazzettaufficiale.it/eli/
+              id/2020/04/30/20G00046/sg
+  SREN:
+    author:
+    -org: Gouvernement français
+    title: Projet de loi visant à sécuriser
+              et réguler l'espace numérique
+    target: https://www.assemblee-nationale.fr/dyn/16/dossiers/
+              DLR5L16N47884
+  VFDNSERRORSSLIDES:
+    author:
+    -org: Vodafone
+    title: Slides of Vodafone presentation on Use of DNS
+              Errors to improve Browsing User Experience With network
+              based malware protection
+    https://datatracker.ietf.org/meeting/116/materials/
+              slides-116-dnsop-dns-errors-implementation-proposal-
+              slides-116-dnsop-update-on-dns-errors-implementation-00
+  VFDNSERRORSVIDEO:
+    author:
+      -org: Vodafone
+    title: Video of Vodafone presentation on Use of DNS
+              Errors to improve Browsing User Experience With network
+              based malware protection
+    target: https://www.youtube.com/watch?v=xh_uQo46yhE&t=2471s
 
   RFC8890:
   RFC7258:

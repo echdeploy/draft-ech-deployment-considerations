@@ -1199,21 +1199,33 @@ problems and what are the migration paths?
 
 ## Potential development of this document.
 
-This section lists potential development of this work in particular for the General Issues section.
+This section lists potential development of this work in particular
+for the General Issues section.
 
-*  There are need for further clarifications from the ECH draft, e.g. The link between the Client Facing and the backend servers are not clear enough and need further description. It can’t be just ‘left to the implementation’. The action is still underway and feedback to the TLS working group will be provided.
+*  There is a need for further clarification from the ECH draft, e.g.
+the links between the Client Facing and the backend servers are not
+clear enough and need further description.  It canÕt be just Ôleft
+to the implementationÕ. The action is still underway and feedback
+to the TLS working group will be provided.
 
-* Will there be any impact to the DNS by adding so many new RRs?
+*  Will there be any impact to the DNS by adding so many new RRs?
 
 ## Potential development outside of the scope of this document
 
-This document infers a number of ideas that could be relevant for other groups and in other deliverables. In particular regarding what type of solutions could be considered
+This document infers a number of ideas that could be relevant for
+other groups and in other deliverables.  In particular, regarding what
+type of solutions could be considered
 
-* There is a need to address the apparent disconnect between user privacy and security, it should be possible to provide both rather than one compromising the other.
+*  There is a need to address the apparent disconnect between user
+privacy and security, it should be possible to provide both, rather
+than one compromising the other.
 
-* What prevents a Client Facing server providing security solutions to protect the data path?
+*  What prevents a Client Facing server from providing security 
+solutions to protect the data path?
 
-* Given some of the many challenges there is the opportunity to review the current ECH proposal from the perspective of a respectful inspection protocol.
+*  Given some of the many challenges, there is the opportunity to
+review the current ECH proposal from the perspective of a
+respectful inspection protocol.
 
 # Conclusion
 

@@ -439,11 +439,17 @@ as is the case with ECH, will disrupt the use of transparent proxies,
 requiring far more intrusive data inspection to be undertaken
 instead.
 
-## Why relying on the SNI and not the DNS
+## Why rely on the SNI and not the DNS
 
-As per the Introduction section of {{RFC8744}} "More and more services are colocated on multiplexed servers," the SNI was introduced to allow "direct connections to the appropriate service implementation".
+Where multiple services are hosted on a shared server, the use of 
+the DNS in isolation would be insufficient to establish a connection to 
+the target service.  As per the Introduction section of {{RFC8744}} "More 
+and more services are collocated on multiplexed servers," so the SNI was 
+introduced to allow "direct connections to the appropriate service 
+implementation".
 
-By design, a proxy cannot rely only on the DNS to ensure establishing the connection, the SNI is simply required by design.
+In other words, a proxy cannot rely only on the DNS to ensure the 
+establishment of a connection, the SNI is simply required by design.
 
 ## About the unreliability of the SNI
 

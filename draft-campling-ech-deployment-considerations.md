@@ -267,37 +267,52 @@ of support for ECH in their software.
 
 ## Background
 
-In order to establish its handshake, the TLS protocol needs to start with a first handshake message called the Client Hello. As this handshake message is in clear text, it exposes metadata, e.g. the Server Name Indication (SNI) which allow middleboxes on path to make policy decisions, in particular but not only for security reasons. As part of a wider initiative to achieve end-to-end encryption, a proposed extension to TLS 1.3 called Encrypted Client Hello (ECH) {{I-D.draft-ietf-tls-esni}} is attempting to encrypt all the remaining metadata in the clear.
+In order to establish its handshake, the TLS protocol needs to start
+with a first handshake message called the Client Hello.  As this
+handshake message is in clear text, it exposes metadata, including the
+Server Name Indication (SNI), which on-path middleboxes can see.
+This data could be used for various purposes, including the determination
+of policy decisions, in some cases for security or compliance reasons.  As 
+part of a wider initiative by the IETF to achieve end-to-end encryption, a
+proposed extension to TLS 1.3 called Encrypted Client Hello (ECH)
+[I-D.draft-ietf-tls-esni] is attempting to encrypt all the remaining
+metadata in the clear.
 
-There are use cases where encryption of the SNI data may be a useful precaution to reduce the risk of pervasive monitoring that offers some benefits (e.g Enterprises offering services for their own customers will appreciate that their customers' privacy be better protected). However ECH presents challenges for other use cases (e.g. Enterprises needing network security controls for compliance reasons).
+There are use cases where encryption of the SNI data may be a useful
+precaution to reduce the risk of pervasive monitoring that offers
+some benefits (e.g Enterprises offering services for their own
+customers will appreciate that their customers' privacy be better
+protected).  However ECH presents challenges for other use cases 
+(e.g.  Enterprises needing network security controls for compliance
+reasons).
 
 The Internet was envisaged as a network of networks, each able to
-determine what data to transmit and receive from their peers.
+determine what data to transmit and receive from its peers.
 Developments like ECH mark a fundamental change in the architecture
 of the Internet, allowing opaque paths to be established from
-endpoints to commercial services, some potentially without the
-knowledge or permission of the device owners.  This change should not
-be undertaken lightly given both the architectural impact on the
-Internet and potentially adverse security implications for end users.
-Given these implications, it certainly should not be undertaken
-without either the knowledge of or consultation with end users, as
-outlined in {{RFC8890}}.
+endpoints to services, some potentially without the knowledge or 
+permission of the device owners.  This change should not be 
+undertaken lightly, given both the architectural impact on the
+Internet and the potentially adverse security implications for end users.
+Given these considerations, the deployment of ECH should not be 
+undertaken without either the knowledge of or consultation with 
+end users, as outlined in [RFC8890].
 
-Whilst it is reasonable to counter that VPNs also establish opaque
-paths, a primary difference is that the use of a VPN is a deliberate
-act by the user, rather than a choice made by client software,
-potentially without either the knowledge and/or consent of the end-
-user or device owner.
+Whilst it is reasonable to counter that Virtual Private Networks (VPNs) 
+also establish opaque paths, a primary difference is that the use of a 
+VPN is a deliberate act by the user, rather than a choice made by 
+client software, potentially without either the knowledge and/or 
+consent of the end-user or device owner.
 
-{{RFC7258}} discusses the critical need to protect users'
-privacy when developing IETF specifications and also recognises that
-making networks unmanageable to mitigate pervasive monitoring is not
-an acceptable outcome.
+[RFC7258] discusses the critical need to protect users' privacy when
+developing IETF specifications and also recognises that making
+networks unmanageable to mitigate pervasive monitoring is not an
+acceptable outcome.
 
-{{RFC8404}} discusses current security and network operations
-as well as management practices that may be impacted by the shift to
+[RFC8404] discusses current security and network operations as well
+as management practices that may be impacted by the shift to
 increased use of encryption to help guide protocol development in
-support of manageable and secure networks.  As {{RFC8404}} notes, "the
+support of manageable and secure networks.  As [RFC8404] notes, "the
 implications for enterprises that own the data on their networks or
 that have explicit agreements that permit the monitoring of user
 traffic are very different from those for service providers who may

@@ -412,30 +412,32 @@ between a client requesting a resource and the server providing that
 resource.  Instead of connecting directly, the client directs the
 request to the proxy server which evaluates the request before
 performing the required network activity.  Proxies are used for
-various purposes including load balancing, privacy and security.
+various purposes, including load balancing, privacy and security.
 
-Proxies can be used explicity or transparently.
+Proxies can be used explicitly or transparently.
 
-In explicit proxy model, proxies are accessed by configuring a user's
-application or network settings, with traffic diverted to the proxy
-rather than the target destination.
+*  With the explicit proxy model, proxies are accessed by configuring 
+a user's application or network settings, with traffic diverted to the 
+proxy rather than the target destination.
 
-With "transparent" proxying, the
-proxy intercepts packets directed to the destination, making it seem
-as though the request is handled by the target destination itself.
+*  With "transparent" proxying, the proxy intercepts packets directed 
+to the destination, making it seem to the end point that the request has 
+been handled by the target destination directly.
 
 A key advantage of transparent proxies is that they work without
 requiring the configuration of user devices or software.  They are
 commonly used by organisations to provide content filtering for
 devices that they don't own that are connected to their networks.
 For example, some education environments use transparent proxies to
-implement support for “bring your own device” (BYOD) without needing to load software on third-
-party devices.
+implement support for Òbring your own deviceÓ (BYOD) without needing
+to load software on third- party devices.
 
 Transparent proxies use SNI data to understand whether a user is
 accessing inappropriate content without the need to inspect data
 beyond the SNI field.  Because of this, encryption of the SNI field,
-as is the case with ECH, will disrupt the use of transparent proxies, requiring far more intrusive data inspection to be undertaken instead.
+as is the case with ECH, will disrupt the use of transparent proxies,
+requiring far more intrusive data inspection to be undertaken
+instead.
 
 ## Why relying on the SNI and not the DNS
 

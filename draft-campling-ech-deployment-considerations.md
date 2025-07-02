@@ -630,14 +630,14 @@ The critical problem is not being able to identify the destination
 service in order to get the destination server certificate details.
 
 
-# The Education Sector
+# Use Cases: The Impact of ECH on the Education Sector
 
 ## Context
 
 Focusing specifically on the education sector, the primary issue
 caused by ECH is that it is likely to circumvent the safeguards
 applied to protect children through content filtering, whether in the
-school or home environments, adding to adverse impacts already
+school or home environments, adding to the adverse impacts already
 introduced through the use of encrypted DNS protocols such as DNS
 over HTTPS {{RFC8484}}.
 
@@ -647,30 +647,31 @@ extremist and other content that is deemed either age-inappropriate
 or unsuitable for other reasons.  Any bypassing of content filtering
 by client software on devices will be problematic and may compromise
 duties placed on education establishments.  For example: schools in
-England and Wales have obligations to provide "appropriate
-filtering systems" {{KCSE}}; schools in the US use Internet
-filters and implement other measures to protect children from harmful
-online content as a condition for the receipt of certain federal
-funding, especially E-rate funds {{CIPA}}.
+England and Wales have obligations to provide "appropriate filtering
+systems" {{KCSE}}; schools in the US use Internet filters and implement
+other measures to protect children from harmful online content as a
+condition for the receipt of certain federal funding, especially
+E-rate funds {{CIPA}}.
 
 ## Why Content Filtering Matters to Schools
 
 The impact that ineffective content filtering can have on an
-educational institutions should not be underestimated.  For example, a
-coroner in the UK in 2021 ruled that a school's failure to prevent a
-pupil from accessing harmful material online on its equipment
-contributed to her taking her own life {{Coroner}}.  In this particular
-instance, the filtering software installed at the school was either
-faulty or incorrectly configured but the case highlights the harmful risks
-posed if the filtering is bypassed by client software using ECH.
+educational institutions should not be underestimated.  For example,
+a coroner in the UK in 2021 ruled that a school's failure to prevent
+a pupil from accessing harmful material on the Internet using its 
+equipment contributed to her taking her own life {{Coroner}}.  In 
+this particular instance, the filtering software installed at the school 
+was either faulty or incorrectly configured but the case highlights 
+the serious risks posed if the content filtering is bypassed by client 
+software using ECH.
 
 
 ## Mitigations
 
 Whilst it may be possible for schools to overcome some of the issues
 ECH raises by adopting similar controls to those used by enterprises,
-it should be noted that most schools have a very different budget for
-IT compared to enterprises and usually have very limited technical
+it should be noted that many schools have a very different budget for
+IT compared to enterprises and may have very limited technical
 support capabilities.  Therefore, even where technical solutions
 exist that may allow them to continue to meet their compliance
 obligations, affordability and operational expertise will present
@@ -685,12 +686,12 @@ This will have a negative impact on budgets and may be operationally
 challenging if institutions have made a significant investment in the
 deployment and use of particular applications and technologies.
 
-There are instances where policies in education establishments allow
+There are instances where policies in educational establishments allow
 for the use of equipment not owned by the institution, including
 personal devices and the devices of contractors and site visitors.
 These devices are unlikely to be configured to use the institution's
-proxy but can nevertheless connect to the school network using a
-transparent proxy (see below).  Transparent proxies used for
+proxy, but can nevertheless connect to the school network using a
+transparent proxy (see section 2.3).  Transparent proxies used for
 filtering will typically use SNI data to understand whether a user is
 accessing inappropriate data, so encrypting the SNI field will
 disrupt the use of these transparent proxies.
@@ -698,11 +699,12 @@ disrupt the use of these transparent proxies.
 ## Implications
 
 In the event that transparent proxies are no longer effective,
-institutions will either have to require more invasive software to be
-installed on third party devices before they can be used along with
-ensuring they have the capability to comprehend and adequately manage
-these technologies or will have to prevent those devices from
-operating.  Neither option is desirable.
+institutions will have to require more invasive software to be
+installed on third-party devices before they can be used, assuming that
+ensuring the establishment has the capability to comprehend and 
+adequately manage these technologies.  Alternatively, the establishment 
+will have to prevent all third-party devices from operating.  Neither 
+option is without negative consequences.
 
 
 # Impact of ECH in private network contexts (Enterprises or other organizations)

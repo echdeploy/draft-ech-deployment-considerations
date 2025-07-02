@@ -1229,14 +1229,16 @@ respectful inspection protocol.
 
 # Conclusion
 
-Access to SNI data is sometimes necessary in order for institutions,
-including those in the education and finance sectors, to discharge
-their compliance obligations.  The introduction of ECH in client
+Access to SNI data is sometimes necessary for organisations 
+operating private networks, such as those in the education and 
+finance sectors, to protect their operations and to discharge their 
+compliance obligations.  The introduction of ECH in client
 software poses operational challenges that could be overcome on
 devices owned by those institutions if policy settings are supported
 within the software that allows the ECH functionality to be disabled.
 
-(Editorial note: these two below paragraph need revision towards the end of the development of this draft)
+(Editorial note: these two below paragraph need revision towards the
+end of the development of this draft)
 
 Third-party devices pose an additional challenge, primarily because
 the use of ECH will render transparent proxies inoperable.  The most
@@ -1249,10 +1251,10 @@ the ability for network access by third-party devices.
 An additional option that warrants further consideration is the
 development of a standard that allows a network to declare its policy
 regarding ECH and other such developments.  Clients would then have
-the option to continue in setting up a connection if they are happy
+the option to continue setting up a connection if they are happy
 to accept those policies, or to disconnect and try alternative
-network options if not.  Such a standard is outside of the scope of
-this document but may provide a mechanism that allows the interests
+network options if not.  Such a standard is outside the scope of this 
+document but may provide a mechanism that allows the interests
 and preferences of client software, end-users and network operators
 to be balanced.
 
@@ -1262,8 +1264,6 @@ In addition to introducing new operational and financial issues, the
 introduction of SNI encryption poses new challenges for threat
 detection which this document outlines.
 
-This I-D should help improve security in deployments of ECH.
-
 # IANA Considerations
 
 This document has no IANA actions.
@@ -1272,43 +1272,9 @@ This document has no IANA actions.
 
 # Acknowledgment
 
-In memory of Simon Edwards who passed away in the night of 8th-9th of January 2023.
+In memory of Simon Edwards who passed away in the night of 8th-9th of 
+January 2023.
 
 In addition to the authors, this document is the product of an
-informal group of experts including the people listed in the Contributors list in Appendix.
-
-# Initial data illustrating SNI unreliability
-
-## Data collections
-
-In this appendix a couple data sets were collected from SSL Session logs from a Symantec SSLV.  The goal was to see how prevalent are TLS sessions being established where the Server Name Indicator (SNI) was incorrect as compared to the Subject Alternative Name (SAN) contained within the Server Certificate. Applications and browsers that are establishing these mismatched connections have TLS Hygiene issues. In other words these sessions are being improperly established. None of the traffic was for nefarious means. However, an improperly defined SNI can be used to fool inspection devices to bypass security rules and measures.
-
-The first set was based on consumer traffic which includes Internet of Things, Social Media, and Corporate access traffic. The dataset of session log entries were over 63K event entries over a 24 hour period.
-
-The second dataset was from a telecommunications customer with Proxy Offloading. The log entries were for a period of 24 hours and contained over 5M log events entries. Since this customer is using a Symantec Edge Proxy aligned with SSLV. The session data is for explicit clients. Guest or Internet of things type traffic is a much lower percentage of total traffic. However the existence of Mismatched SNIs persisted.
-
-
-## Consumer Network Traffic
-
-For consumer based network traffic Mismatched SNIs were very prevalent. Actually out of new sessions the majority of the sessions were with mismatched SNIs as compared to properly matched SNIs. These were the result of many many short lived TLS sessions that persistently 'phone home'. 22% of all traffic was mismatched as compared to only 4% was properly matched. The rest of the log activity was non session related.
-
-The services that were in the top 20 offenders for mismatched SNIs includes Google, Apple, Adware, IoT.
-Google DNS dominated the counts at 5.3% of all mismatched sessions. A close second at 4.8% was Samsung Smart things. But, if I add up common services like Google, Apple, Adware, and the remainder: 13%, 9.8%, 8%, and 10% respectively.
-
-For matched traffic Amazon Alexa stood tall at 25%, with a runner up for Broadcom Cloud Proxy at 7.9%. Both Google and Apple did have a minority of properly established sessions. In other words some of their stuff is clean.
-
-## Corporate Customer Traffic
-
-Since the traffic was proxy traffic the session hygiene was much better. The majority of new TLS sessions were properly established with matching SNIs/SANs. The vast majority of this traffic was VPN based. Likely masking out consumer like traffic invisible within the VPN tunnels. For instance there was 0.8% Google.com traffic reported. But, there was a small percentage ~1.3% Google API traffic that was mismatched. I would have expected more search engine activity.
-
-Looking across the distribution of domain names for mismatched sessions. 29.6% of the traffic was related to Corporate applications. These applications could be updated and corrected. The next runner up coming in at 7.4% was for Akamai which also could be updated. Office applications and the remainder each individually accounted for 2.4% of the traffic.
-
-## Take away observations
-
-* IoT and API based traffic is by far the largest offender as compared to Browser based initiated sessions.
-* Long-lived TLS session counts were dwarfed by the chatter of the API calls using short lived yet pervasively reporting. For instance there were new sessions at a rate of every 20 seconds per IoT device.
-* The consumer mismatched sessions were all using TLS v1.3. Which reaffirmed the need to decrypt TLS v1.3 traffic. These sessions, if established without TLS interception, may have gone unreported by NGFW, which makes policy decisions on SNI vs SAN. Conversely, the corporate traffic was a close split between TLS v1.3 and v1.2.
-* The presence of VPN tunnels masked a clearer picture of the corporate traffic usage.
-* SNI Mismatches are more prevalent in the wild than first thought.
-* SNI Mismatches has a side cause which policy rules have to be enumerated twice for category matching. And the second category matching is more intensive since it has to enumerate the entire SAN list which can be very large.
-* Fixing the session hygiene for corporate owned applications could potentially improve performance of the security stack.
+informal group of experts including the people listed in the 
+Contributors list in Appendix.

@@ -707,112 +707,228 @@ will have to prevent all third-party devices from operating.  Neither
 option is without negative consequences.
 
 
-# Impact of ECH in private network contexts (Enterprises or other organizations)
+# Use Cases: The Impact of ECH on private network contexts (enterprises or 
+other organisations)
 
 ## Context
 
 ### The main requirements
 
-Enterprises and Organizations need to protect themselves for a vast number of reasons, mainly:
+EEnterprises and other organisations need to protect themselves for a vast
+number of reasons, including to:
 
-* Reduce their Risks. And in particular as part of any Cyber Resilience strategy.
-* Protect their Reputation. The term Reputation includes many aspects way beyond the traditional enterprises and organization assets (data, etc.).
-* Comply to a growing diverse set of Policies, Regulations, Certifications, Labeling and Guidelines. These requirements are growing in both scope and complexity as they are added to by various national and regional bodies around the world.
+*  Reduce their risks.  In particular, as part of any Cyber
+Resilience strategy.
+
+*  Protect their reputation.  The term reputation includes many
+aspects beyond an organisation's traditional assets, such as its data.  
+For example, a "successful" cyber attack may impact brand equity, 
+market capitalisation and creditworthiness.
+
+* Compliance with a growing diverse set of policies, regulations,
+certifications, labelling and guidelines.  These requirements are
+growing in both scope and complexity as they are added to by
+various national and regional bodies around the world.
 
 ### A degrading threat landscape
 
-In addition, the general threat landscape which was already very large (see {{I-D.draft-mcfadden-smart-threat-changes}}), has significantly increased in three ways:
+The general threat landscape was already very large (see 
+{{I-D.draft-mcfadden-smart-threat-changes}}).  Nevertheless, it has
+significantly increased in three ways:
 
-* COVID crisis generally accelerated the overall attack landscape. Indeed as the crisis forced many enterprises and organizations to accelerate their digital transformation, it increased the opportunity for cyber criminals and nation states to launch more attacks, leverage innovations to their advantage, better select their targets, increase their efficiency and increase their rewards, in particular with Ransomware based attacks.
-* The Supply Chain is under stress as per the {{SOLARWIND}} attack
-* Nation State attacks are continuing to evolve, for example as noted to those linked to the current Ukraine crisis.
+*  COVID crisis generally accelerated the overall attack landscape.
+As the crisis forced many enterprises and organisations to
+accelerate their digital transformation, it increased the
+opportunity for cyber criminals and nation states to launch more
+attacks, leverage innovations to their advantage, better select
+their targets, increase their efficiency and increase their
+rewards, in particular with ransomware-based attacks.
 
-Attacks are now damaging enterprises and other organizations with ransomware being the number 1 issue by a considerable margin. The attacks are increasing in severity, to the extent that this is now being measured at macroscopic level in some countries:
+*  The Supply Chain is under stress as per the {{SOLARWIND}} attack
 
-* €1B loss of revenue for French organizations from January to August 2022 {{LOSSINREVENUE}}
-* Loss in capitalisation between 1-5% {{LOSSINCAP}}
-* Degradation by credit notation agencies {{LOSSINCREDITSCORE}}
+*  Nation State attacks are continuing to evolve, for example as
+noted to those linked to the current Ukraine crisis.
 
-Another implication from the COVID crisis is the acceleration of BYOD
-with the current reliance on remote working. This has created two side effects for remote employees, contractors and third parties that need to connect to one or more enterprise
-networks on a temporary basis:
+Malicious attacks are now damaging enterprises and other 
+organisations, with ransomware being the number one issue by 
+a considerable margin.  Attacks are increasing in severity, to the 
+extent that this is now being measured at the macroscopic level in 
+some countries:
 
-* need to use a VPN access to the corporate network, which brings all the benefits (e.g. protected access to corporate network) and risks that VPNs may open (e.g. lateral movement when the end point is compromised),
-* need to access a cloud proxy which requires an agent to be installed on the device to steer the traffic to the right place.
+*  EUR1B loss of revenue for French organisations from January to
+August 2022 {{LOSSINREVENUE}}
+
+*  Loss in capitalisation between 1-5% {{LOSSINCAP}}
+
+*  Degradation by credit notation agencies {{LOSSINCREDITSCORE}}
+
+Another implication arising from the COVID crisis is the acceleration of BYOD
+to support remote working.  This has created two side effects for remote 
+employees, contractors and third parties (the latter two may need to 
+connect to one or more enterprise networks on a temporary basis):
+
+*  need to use a VPN to access the corporate network, which brings
+all the benefits (e.g. protected access to the corporate network) and
+risks that VPNs may open (e.g. the potential for lateral movement 
+when the endpoint is compromised),
+
+*  need to access a cloud proxy, which requires an agent to be
+installed on the device to steer the traffic to the right place.
 
 ## Additional considerations
 
-In such circumstances, requiring
-software or custom configurations to be installed on those devices
-may be problematic (see {{I-D.draft-taddei-smart-cless-introduction}}).
+In such circumstances, requiring software or custom configurations to
+be installed on those devices may be problematic (see
+{{I-D.draft-taddei-smart-cless-introduction}}).
 
-This is why network security solutions are required and this is why the use of ECH to prevent access to the SNI data makes it impossible for blue teams to defend (see the next sections for details).
+This is why network security solutions are required, and this is why
+the use of ECH to prevent access to the SNI data makes it impossible
+for blue teams to defend (see the next sections for details).
 
-Finally there is a global shortage of cybersecurity personnel. Any expansion of technical requirements, for example to mitigate the operational challenges through the introduction of ECH, will exacerbate the problem.
+Finally, there is a global shortage of cybersecurity personnel.  Any
+expansion of technical requirements, for example, to mitigate the
+operational challenges through the introduction of ECH, will
+exacerbate the problem.
 
-All the above conditions are weighing on capabilities to defend, both:
+All the above conditions are weighing on the capabilities to defend,
+both:
 
-* Directly: a lack of visibility on a key meta data like the SNI will cause significant issues to enterprises and organizations
-* Indirectly: should ECH happen and should alternative be provided, managing migrations to any alternative not requiring access to the SNI, in these conditions, is undesirable from a timing, resources, capacities and risks perspectives.
+*  Directly: a lack of visibility on a key metadata like the SNI
+will cause significant issues to enterprises and other organisations
 
+*  Indirectly: should ECH happen and should alternatives be provided,
+managing migrations to any alternative not requiring access to the
+SNI, in these conditions, is undesirable from a timing, resource,
+capacity and risk perspective.
 
 
 ## Implications
 
 ### Examples of regulatory implications
 
-Regulators are accelerating their lawfare capabilities at accelerated pace and new legislations is impacting on the actions of enterprises with increased precision. The EU GDPR had ripple effects such as requiring Financial Institutions to use selective decrypt in order to implement Data Loss Prevention. The recent indication that US regulators are in the process of levying fines of $200m each on a number of institutions because they were unable to track all communications by their employees using WhatsApp or Signal , {{Bloomberg}}, creates new auditability constraints. It is with growing concern that an ECH enabled ecosystem may clash with future regulatory requirements.
+Regulators are accelerating their lawfare capabilities at an accelerated
+pace and new legislation is impacting the actions of enterprises
+with increased precision.  The EU GDPR had ripple effects, such as
+requiring Financial Institutions to use selective decrypt in order to
+implement Data Loss Prevention.  US regulators levied fines of $200m 
+each on a number of institutions because they were unable to track all
+communications by their employees using WhatsApp or Signal,
+{{Bloomberg}}, creates new auditability constraints.  It is with
+growing concern that an ECH-enabled ecosystem may clash with future
+regulatory requirements.
 
 ### Impact of ECH deployment on Network Security Operations
 
-Enterprises approach to endpoint control varies significantly depending on size, use cases and a vast number of other factors.
+The approach to endpoint control by enterprises varies significantly 
+depending on size, use cases and a vast number of other factors.
 
-For example, large enterprises generally exert control over their endpoints, yet to the limits of some use cases they may need to implement, e.g. BYOD. The latter was accelerated, as per above, due to COVID forcing more flexibility in the extended work force (employees, contractors, etc.).
+For example, large enterprises generally exert control over their
+endpoints, yet this may impact some use cases they need to implement, 
+e.g.  BYOD.  The latter was accelerated, as per above, due to COVID 
+requiring more flexibility in the extended workforce (employees, 
+contractors, etc.).
 
-On the contrary, small and some medium businesses may not be in the position to control their endpoints to the same extent (see specific implications for SMBs section below).
+Small and at least some medium businesses may not be able to control 
+their endpoints to the same extent (see specific implications for SMBs 
+section below).
 
-As some Browser makers made the use of ECH optional, this gives a first approach for enterprises to disable ECH for their employees.
+As some browser makers made the use of ECH optional, this gives a
+first opportunity for enterprises to disable ECH for their employees.
 
-However this doesn't provide an holistic solution. Indeed enterprises will need to consider a number of issues:
+However, this doesn't provide an holistic solution.  Indeed enterprises 
+will need to consider several issues:
 
-* Browsers which do not offer an option to disable ECH
-* Browsers that will make ECH non optional in the future
-* Non-browsers applications which are designed to use libraries enforcing ECH, without any option to disable it
-* All the range of BYOD use cases where enterprises do not control the endpoint
-* Adversaries leveraging ECH e.g. to hide their command and control communications, e.g. in Ransomware cases.
+*  Browsers which do not offer an option to disable ECH
 
-Whilst, disabling ECH wherever possible provides one approach to mitigate ECH deployment issues, as per above, other mitigations approaches need to be offered to enterprises.
+*  Browsers that will make ECH non-optional in the future
 
-(Editor's note: we need to describe how to strip the RRs to force a global disabling of ECH, yet mindful it might not be sufficient if an adversary finds a way to not use the enterprise DNS resolver)
+*  Non-browser applications which are designed with software libraries
+that implement ECH without any option to disable it
+
+*  All BYOD use cases where enterprises do not control the endpoint
+
+*  Adversaries leveraging ECH, e.g. to hide their command and control
+communications, such as for ransomware.
+
+Whilst disabling ECH wherever possible provides one approach to
+mitigate ECH deployment issues, as per above, other mitigation
+approaches also need to be offered to enterprises.
+
+(Editor's note: we need to describe how to strip the RRs to force a
+global disabling of ECH, yet mindful it might not be sufficient if an
+adversary finds a way to not use the enterprise DNS resolver)
 
 #### Reminders on Network Security
 
-Network Security is a set of security capabilities which is articulated as part of a defense strategy, e.g. Defense In Depth {{NIST-DID}}, Zero Trust, SASE/SSE, etc. and can trigger and enable other security capabilities such as sandboxing, Data Loss Prevention, Cloud Access Service Broker (CASB), etc. One constituency is a Web Proxy, combining both a TLS proxy and an application level (HTTP) proxy.
+Network Security is a set of security capabilities which is
+articulated as part of a defence strategy, e.g. Defence-in-Depth
+{{NIST-DID}}, Zero Trust, Secure Access Service Edge or Security 
+Service Edge (SASE/SSE), etc. and can trigger and enable other 
+security capabilities such as sandboxing, Data Loss Prevention,
+Cloud Access Service Broker (CASB), etc.  One constituency is a Web
+proxy, combining both a TLS proxy and an application-level (HTTP)
+proxy.
 
-In the same way that {{I-D.draft-ietf-opsec-ns-impact}} showed the impact of TLS1.3 on operational security, a loss of visibility of the SNI as indicator of compromise (see {{I-D.draft-ietf-opsec-indicators-of-compromise}}) has two main implications
+In the same way that {{I-D.draft-ietf-opsec-ns-impact}} showed the
+impact of TLS1.3 on operational security, a loss of visibility of the
+SNI as an indicator of compromise (see
+{{I-D.draft-ietf-opsec-indicators-of-compromise}}) has two main
+implications
 
 #### Implications from loss of Meta Data
 
-The loss of visibility of the SNI, at TLS level, will prevent transparent proxies from applying corporate policies to manage risk and compliancy. Typical examples:
+The loss of visibility of the SNI, at the TLS level, will prevent
+transparent proxies from applying corporate policies to manage risk
+and compliance.  Typical examples include:
 
-* categories of compromised sites cannot be applied anymore, exposing employees and their organisations to potential cybersecurity risks; alternative approaches to block access to theses sites need to be found
-* corporate lists of excluded sites for compliance or policy reasons need alternatives ways to be blocked.
+* Categories of compromised sites cannot be applied any more,
+exposing employees and their organisations to potential
+cybersecurity risks; alternative approaches to block access to
+theses sites need to be found
+
+*  corporate lists of excluded sites for compliance or policy reasons
+need alternative methods to be blocked.
 
 #### Implications from loss of Selective Decrypt
 
-TLS proxies also have the ability to selectively intercept, avoiding any visibility into or modification of the original application protocol payload - but such selective intercept relies heavily on knowledge of the origin content server hostname, which can be extracted in plaintext from the TLS ClientHello SNI (server name) field.
+TLS proxies also have the ability to selectively intercept, avoiding
+any visibility into or modification of the original application
+protocol payload - but such selective intercept relies heavily on
+knowledge of the origin content server hostname, which can be
+extracted in plaintext from the TLS ClientHello SNI (server name)
+field.
 
-This capability allows the application proxy, in particular an HTTPS proxy to engage efficiently specific security controls, e.g. Data Loss Prevention, Sandboxing, etc.
+This capability allows the application proxy, in particular an HTTPS
+Proxy, to engage specific security controls when needed, e.g.  Data
+Loss Prevention, Sandboxing, etc.  The loss of SNI visibility will 
+make it more difficult for corporate user flows to be intercepted, 
+with it becoming impossible for BYOD use cases.
 
-The loss of SNI visibility will make it more difficult for corporate user flows to be intercepted, with it becoming impossible for BYOD use cases.
-
-This will create inefficiencies, will require more resources and will increase security risks. It will also be counter productive for privacy as it may require the proxy to decrypt the whole TLS connection.
+This will create inefficiencies, will require more resources and will
+increase security risks.  It will also be counterproductive for
+privacy as it may require the proxy to decrypt the whole TLS
+connection.
 
 ### Specific implications for SMBs
 
-Small and Medium Business (SMBs) form a particularly vulnerable subset of enterprises and organizations and span from Small Office Home Office (SOHO, sometimes a one person business) to Medium Business with strong variations depending on the country (a 50 employee company is considered the upper range of SMB business in developing countries while it is up to 25,000 in some developed countries).
+Small and Medium Businesses (SMBs) form a particularly vulnerable
+subset of enterprises and organisations and range from Small Office
+Home Office (SOHO, sometimes a one-person business) to medium
+sized business with strong variations depending on the country.  For 
+example, a 50 employee company is considered the upper range of 
+SMB business in developing countries, while it is up to 25,000 in some 
+developed countries.
 
-Similarly to the above education use case and irrespective of definitions, many SMBs have very limited in-house capabilities to defend themselves, with security often outsourced to Managed Security Service Providers (typically network operators, mid range and small service providers).
+Similarly to the above education use case, and irrespective of
+definitions, many SMBs have very limited in-house capabilities to
+defend themselves, with security often outsourced to Managed Security
+Service Providers (typically network operators, mid-range and small
+service providers).  Budget constraints may impose limits on the level 
+support that is on offer to the organisation.
+
+Therefore, even where technical solutions exist that allow them to 
+meet their operational and any compliance obligations, affordability and 
+expertise may present SMBs with significant difficulties.
 
 # Public Network Service Providers
 

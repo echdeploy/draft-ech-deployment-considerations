@@ -382,7 +382,27 @@ lacking in either importance or validity.
 
 ## Why are middleboxes using the SNI?
 
-For middleboxes to be able to perform their job they need to identify the destination of the requested communication. Before TLS1.3 a middlebox could rely on, at least, 3 metadata sources: The certificate, the DNS name and the SNI. A middlebox may have used some or all of these metadata to determine the destination in the best possible way. Yet, as part of the current initiative to complete end-to-end encryption, the certificate was encrypted into TLS1.3, then DoH/DoT/DoQ are encrypting the DNS flow to its resolver making it harder for middleboxes to use this information. Even if the DNS data can be accessed, it can be misleading in some situations (does it point to the real destination, or just the site hosting server name, or a proxy?) and the SNI was invented to overcome some of the limitations of the DNS data by providing additional information. However, the SNI in itself may be unreliable which is why middleboxes start by non-trusting it until they have validated the information that it provides.
+For middleboxes to be able to perform their job they need to identify
+the destination of the requested communication.  Before TLS1.3, a
+middlebox could rely on at least three metadata sources: the
+certificate, the DNS name and the SNI.  A middlebox may have used
+some or all of this metadata to determine the destination of the 
+communication.  
+
+As part of the current initiative to provide complete end-to-end 
+encryption, the visibility of this data has progressively diminished.  
+Firstly the certificate was encrypted into TLS1.3, then encrypted DNS
+protocols such as DNS-over-TLS, DNS-over-HTTP and DNS-over-QUIC 
+have been introduced to encrypt the DNS flow to its resolver, 
+making it harder for middleboxes to use this information.  
+
+Even in situations where the DNS data can be accessed, it can be 
+misleading (does it point to the real destination, or just the site hosting
+server name, or a proxy?).  The SNI was invented to overcome some
+of the limitations of the DNS data by providing additional
+information.  However, the SNI in itself may also be unreliable, which 
+is why middleboxes start by not trusting it until they have validated
+the information that it provides (see Section 2.5 for more details).
 
 
 ## The case of Proxies

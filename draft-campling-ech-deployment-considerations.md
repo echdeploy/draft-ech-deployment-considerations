@@ -355,32 +355,30 @@ deployment;
 
 ## About encrypting the Server Name Indication (SNI)
 
-{{RFC8744}} describes the general problem of encrypting the
-Server Name Identification (SNI) TLS extension.  The document
-includes a brief description of what it characterises as
-"unanticipated" usage of SNI information (section 2.1) as well as a
-brief (two paragraph) assessment of alternative options in the event
-that the SNI data is encrypted (section 2.3).
+{{{RFC8744}} describes the general problem of encrypting the Server Name
+Identification (SNI) TLS extension.  The document includes a brief
+description of what it characterises as "unanticipated" usage of SNI
+information (section 2.1) as well as a brief  assessment of alternative 
+options if the SNI data is encrypted (section 2.3).
 
 The text in {{RFC8744}} suggests that most of the unanticipated SNI
 usage "could also be implemented by monitoring DNS traffic or
 controlling DNS usage", although it does then acknowledge the
-difficulties posed by encrypted DNS protocols.  It asserts, with
+difficulties posed by encrypted DNS protocols.  It asserts, but with
 limited evidence, that "most of 'the unanticipated usage' functions
-can, however, be realized by other means", although without
+can, however, be realised by other means", although without
 considering or quantifying the affordability, operational complexity,
 technical capability of affected parties or privacy implications that
 might be involved.  It is unclear from the document whether any
 stakeholders that may be impacted by the encryption of SNI data have
-been consulted; it certainly does not appear to be the case that any such
-consultation has taken place.
+been consulted
 
 The characterisation of "unanticipated usage" of SNI data could be
 taken to imply that such usage was not approved and therefore
 inappropriate in some manner.  The reality is that the development of
 the Internet has many examples of permissionless innovation and so
-this "unanticipated usage" of SNI data should not be dismissed as lacking in
-either importance or validity.
+this "unanticipated usage" of SNI data should not be dismissed as
+lacking in either importance or validity.
 
 ## Why are middleboxes using the SNI?
 

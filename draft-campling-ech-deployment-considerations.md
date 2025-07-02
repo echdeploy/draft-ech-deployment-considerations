@@ -451,42 +451,183 @@ implementation".
 In other words, a proxy cannot rely only on the DNS to ensure the 
 establishment of a connection, the SNI is simply required by design.
 
-## About the unreliability of the SNI
+## The unreliability of the SNI
 
-SNI is by design not reliable therefore prompting the question for why and how middelboxes are using it in the first place. Before anything, in Security, in general, unreliability is a useful source of information in itself.
+SNI is not reliable by design, prompting the question why and how 
+middleboxes are using it in the first place.  It should be considered that,
+in security, in general, unreliability can be a useful source of information.
 
-Referring to {{RFC6066}}, TLS extenisons, including SNI, are designed to be backward compatible. This means that if the server doesn't recognize the SNI value, the TLS handshake should continue anyway.
+Referring to {{RFC6066}}, TLS extensions, including SNI, are designed
+to be backwards compatible.  This means that if the server doesn't
+recognise the SNI value, the TLS handshake should continue anyway.
 
-In other terms, SNI value can 1) be empty or 2) have an alternative name which is different from the real name of the destination server without impacting the establishment of the TLS session.
-This can also be easily exploited by bad actors indeed to bypass security middle boxes. E.g A malware could just be coded to provide an SNI value that is mapped to finance or healthcare categories to bypass inspection (it is not that easy, but there is a way to do it).
+In other terms, the SNI value can 1) be empty or 2) have an alternative
+name which is different from the real name of the destination server
+without impacting the establishment of the TLS session.  Bad actors can 
+easily exploit this to bypass security middle boxes.  For example, 
+malware can be coded to provide an SNI value that is mapped to 
+a confidential category, such as personal finance or healthcare, to bypass 
+inspection in a selective decryption regime.
 
-### With TLS 1.2
+###  How Unreliable is the SNI?
+To illustrate the degree of unreliability of SNI data, two  data sets were 
+collected from SSL Session logs from a Symantec SSLV.  The goal was to 
+see how the prevalence of TLS sessions being established where the 
+Server Name Indicator (SNI) was incorrect when compared to the Subject 
+Alternative Name (SAN) contained within the Server Certificate.  
+Applications and browsers that are establishing these mismatched 
+connections have TLS hygiene issues because these sessions are 
+being improperly established.  
 
-User client generates “ClientHello” with SNI in plain text to the destination server. If accepted, the server responds to the user client request with the “ServerHello” message containing the intended server certificate alongside other encryption-related information in the plain text mode as well.
-Middleboxes can then see/inspect 1/ the SNI in the “ClientHello” and 2/ the server certificate details in the “ServerHello” message.
-Middleboxes can perform selective inspection based on the destination service details (service requested by the user client) extracted from the server certificate.
-I would like to note that depending on the middlebox design, it is more about a correlation of different source of information to confirm the right destination service. But still only information within the server certificate is reliable to perform accurate web categorization and then do selective inspection of any kind of web/content filtering.
+None of the traffic in question was malicious.  However, an improperly
+defined SNI could be used by an attacker to fool inspection devices to 
+bypass security rules and measures.
 
-### With TLS 1.3
+####  The Datasets
 
-TLS 1.3 improves significantly over the TLS 1.2 in terms of security and privacy aspects.
-More specifically, in terms of privacy, it overcomes the plain text server certificate exchange issue by masking the server’s host identity through the encrypted server certificate. So as middleboxes inspection capabilities are designed based on the server certificate, all vendors worked on how to adapt their capabilities to support TLS 1.3 (e.g ServerHello encryption but not only).
+The first dataset was based on consumer traffic, which includes Internet
+of Things, Social Media, and Corporate access traffic.  The dataset
+of session log entries was over 63K event entries over a 24-hour
+period.
 
-So how do providers support TLS 1.3 inspection then?
+The second dataset was from a telecommunications customer with 
+Proxy Offloading.  The log entries were from a 24-hour period and
+contained over five million log event entries.  Since this customer was 
+using a Symantec Edge Proxy aligned with SSLV, the session data was for
+explicit clients and guest or Internet-of-things type traffic was a much 
+lower percentage of total traffic.  However, the existence of mismatched 
+SNIs persisted.
 
-The most common technique is first to get the SNI from the ClientHello (which is still shared in plain text format.) and then replays / establish a new full TLS session initiated from the proxy server itself to the destination server to retrieve the server certificate details before determining the web category; Once identified, selective inspection can be performed on the real TLS session initiated by the user client.
+####  Consumer Network Traffic
 
-As the SNI is not reliable, proxies accept the SNI asis but do without trusting it, then they perform checks at various level to verify this SNI and they step by step enrich the evaluation, therefore bringing more possibilites to interpret which policy to apply. This could end up with the proxy deciding to block the connection, or the proxy to let the connection happened with a verified or corrected SNI.
+For consumer-based network traffic, mismatched SNIs were very
+prevalent.  Out of the new sessions, the majority were with mismatched 
+SNIs rather than properly matched SNIs.  These were the result of 
+many short-lived TLS sessions that persistently 'phone home'. 
+22% of all traffic was mismatched compared to only 4% that was 
+properly matched.  The rest of the log activity was non-session related.
 
-See Appendix for some initial data gathering on the reliability of the SNI.
+The top 20 services for mismatched SNIs in this sample included 
+Google, Apple, Adware and IoT.  Google DNS was the highest 
+category with 5.3% of all mismatched sessions, followed by Samsung 
+Smart things with 4.8%.  Common services like Google, Apple, 
+Adware and the remainder comprised 13%, 9.8%, 8%, and 10%
+respectively.
 
-### With TLS 1.3 with ECH extension
+For matched traffic, Amazon Alexa was the biggest category with 25%, 
+followed by Broadcom Cloud Proxy with 7.9%. Both Google and Apple 
+services had a minority of properly established sessions.  
 
-The entire legacy ClientHello message (Inner ClientHello) is encrypted, encapsulated and sent as part of the new ClientHello wrapper message (Outer ClientHello); So middleboxes cannot identity the destination service anymore and cannot replay the TLS session to the destination server because it has no clue about it. (May be DNS knows but not all the time, see other issue here created by myself).
+####  Corporate Customer Traffic
 
-So TLS ECH has an impact on enterprise security and compliance (including selective inspection) not because of SNI (which is not reliable) encryption but because there is no other information about the destination server is available and that can be used to fetch and retrieve the server certificate (Which is indeed reliable) to perform web categorization.
+Because the corporate dataset was proxy traffic, the session hygiene 
+was much better Ð most new TLS sessions were properly established 
+with matching SNIs/SANs.  Note that the vast majority of this traffic 
+was VPN-based, likely masking consumer-like traffic within the VPN 
+tunnels.  
 
-We don’t care about SNI and its reliability, we need just to know the destination service to get the destination server certificate details.
+Looking across the distribution of domain names for mismatched
+sessions, 29.6% of the traffic was related to corporate applications.
+These applications could be updated and corrected.  The next highest
+category at 7.4% was Akamai, which could also be updated.  Office 
+applications and the remainder each individually accounted for 2.4% 
+of the traffic.
+
+####  Conclusions
+
+*  IoT and API based traffic is by far the largest offender for 
+mismatched SNIs compared to browser-based initiated sessions.
+
+*  Long-lived TLS session counts were dwarfed by the chatter of the
+API calls using short lived sessions that were pervasively reporting.  
+For example, there were new sessions at a rate of every 20 seconds per
+IoT device.
+
+*  The consumer mismatched sessions were all using TLS v1.3, 
+reaffirming the need to decrypt TLS v1.3 traffic.  These sessions,
+if established without TLS interception, may have gone unreported
+by NGFW, which makes policy decisions on SNI vs SAN.  Conversely,
+the corporate traffic was a close split between TLS v1.3 and v1.2.
+
+*  The presence of VPN tunnels masked a clearer picture of the
+corporate traffic usage.
+
+*  SNI mismatches are more prevalent in the wild than first thought.
+
+*  The existence of SNI mismatches has a side effect - policy rules 
+have to be enumerated a second time for category matching.  And 
+the second category matching is more intensive since it has to 
+enumerate the entire SAN list, which can be very large.
+
+*  Fixing the session hygiene for corporate-owned applications could
+improve the performance of the security stack.
+
+### Middleboxes and TLS 1.2
+
+hen attempting to set up a connection, the user client generates the 
+ÒClientHelloÓ with the SNI in plain text indicating the destination server.  
+If accepted, the server responds to the user client request with the 
+"ServerHello" message containing the intended server certificate 
+alongside other encryption-related information in plain text 
+mode.  Middleboxes can then see and inspect both the SNI value in 
+the "ClientHello" and the server certificate details in the "ServerHello" 
+message.  Middleboxes can then perform selective inspection based 
+on the destination service details (the service requested by the
+user client) extracted from the server certificate.  
+
+Depending on the middlebox design, the correlation of different sources 
+of information is used to confirm the real destination service.  However, 
+only information within the server certificate is sufficiently reliable to 
+perform accurate web categorisation and then undertake selective 
+inspection if required to initiate any necessary web or content filtering.
+
+### Middleboxes and TLS 1.3
+
+TLS 1.3 offers significant improvements over TLS 1.2 in terms of 
+Its security and privacy properties.  More specifically, in terms of privacy, it
+overcomes the plain text server certificate exchange issue by masking
+the serverÕs host identity through the encrypted server certificate.  As 
+the inspection capabilities of middleboxes are designed based on the
+server certificate, all vendors worked to adapt their capabilities to support 
+TLS 1.3 (e.g ServerHello encryption).
+
+How do providers undertake inspection?
+
+The most common technique to support TLS 1.3 inspection is to 
+get the SNI from the ClientHello (which is still shared in plain text format in 
+TLS 1.3) before establishing a new full TLS session initiated from the proxy
+server to the destination server.  Once the server certificate has been 
+retrieved, the web category can be determined, after which selective 
+inspection can be performed on the real TLS session initiated by the 
+user client.
+
+As the SNI is not reliable (see 2.5.1), proxies provisionally accept the 
+SNI but do so without trusting it, then perform a range of checks 
+to verify the data.  This step-by-step approach enriches the 
+evaluation and informs which policy to apply.  This could end up 
+with the proxy deciding to block the connection, or it may let the 
+connection complete with a verified or corrected SNI.
+
+### Middleboxes and TLS 1.3 with ECH extension
+
+The entire legacy ClientHello message (Inner ClientHello) is
+encrypted, encapsulated and sent as part of the new ClientHello
+wrapper message (Outer ClientHello); So middleboxes cannot identity
+the destination service anymore and cannot replay the TLS session to
+the destination server.  In some cases, the DNS data may provide 
+information, but only if it is not using an encrypted protocol; even then, 
+this cannot be compared with the SNI.
+
+So TLS 1,3 with ECH has an impact on security and compliance 
+capabilities (including selective inspection), not because of the lack 
+of visibility of the SNI (which is not reliable in isolation) due to 
+encryption, but because other information about the destination server 
+is available and can be used to fetch and retrieve the server 
+certificate (which is indeed reliable) to apply appropriate policies such
+as web categorisation.
+
+The critical problem is not being able to identify the destination 
+service in order to get the destination server certificate details.
 
 
 # The Education Sector

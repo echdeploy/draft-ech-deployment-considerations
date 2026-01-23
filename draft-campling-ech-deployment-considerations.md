@@ -82,12 +82,6 @@ contributor: # Same structure as author list, but goes into contributors
   uri: https://www.linkedin.com/in/celine-leroy-1a534252/
   contribution: |
     Thank you to Céline for her work on cybersecurity financial impacts on enterprises.
-- name: Daniel Engberg
-  org: Skandinaviska Enskilda Banken AB (SEB)
-  email: daniel.engberg@seb.se
-  uri: https://www.linkedin.com/in/daniel-engberg-1561aaa/
-  contribution: |
-    Validate the issues for his organization.
 - name: Gianpiero Tavano
   org: Broadcom
   email: Gianpiero.Tavano@broadcom.com
@@ -407,7 +401,7 @@ considering or quantifying the affordability, operational complexity,
 technical capability of affected parties or privacy implications that
 might be involved.  It is unclear from the document whether any
 stakeholders that may be impacted by the encryption of SNI data have
-been consulted
+been consulted.
 
 The characterisation of "unanticipated usage" of SNI data could be
 taken to imply that such usage was not approved and therefore
@@ -465,8 +459,8 @@ requiring the configuration of user devices or software.  They are
 commonly used by organisations to provide content filtering for
 devices that they don't own that are connected to their networks.
 For example, some education environments use transparent proxies to
-implement support for Òbring your own deviceÓ (BYOD) without needing
-to load software on third- party devices.
+implement support for "bring your own device" (BYOD) without needing
+to load software on third-party devices.
 
 Transparent proxies use SNI data to understand whether a user is
 accessing inappropriate content without the need to inspect data
@@ -510,7 +504,8 @@ To illustrate the degree of unreliability of SNI data, two  data sets were
 collected from SSL Session logs from a Symantec SSLV.  The goal was to 
 see how the prevalence of TLS sessions being established where the 
 Server Name Indicator (SNI) was incorrect when compared to the Subject 
-Alternative Name (SAN) contained within the Server Certificate.  
+Alternative Name (SAN) contained within the Server Certificate.
+
 Applications and browsers that are establishing these mismatched 
 connections have TLS hygiene issues because these sessions are 
 being improperly established.  
@@ -530,7 +525,7 @@ The second dataset was from a telecommunications customer with
 Proxy Offloading.  The log entries were from a 24-hour period and
 contained over five million log event entries.  Since this customer was 
 using a Symantec Edge Proxy aligned with SSLV, the session data was for
-explicit clients and guest or Internet-of-things type traffic was a much 
+explicit clients, and guest or Internet-of-things type traffic was a much 
 lower percentage of total traffic.  However, the existence of mismatched 
 SNIs persisted.
 
@@ -557,7 +552,7 @@ services had a minority of properly established sessions.
 ####  Corporate Customer Traffic
 
 Because the corporate dataset was proxy traffic, the session hygiene 
-was much better Ð most new TLS sessions were properly established 
+was much better, most new TLS sessions were properly established 
 with matching SNIs/SANs.  Note that the vast majority of this traffic 
 was VPN-based, likely masking consumer-like traffic within the VPN 
 tunnels.  
@@ -600,8 +595,9 @@ improve the performance of the security stack.
 
 ### Middleboxes and TLS 1.2
 
-hen attempting to set up a connection, the user client generates the 
-ÒClientHelloÓ with the SNI in plain text indicating the destination server.  
+When attempting to set up a connection, the user client generates the 
+"ClientHello" with the SNI in plain text indicating the destination server.
+
 If accepted, the server responds to the user client request with the 
 "ServerHello" message containing the intended server certificate 
 alongside other encryption-related information in plain text 
@@ -622,12 +618,12 @@ inspection if required to initiate any necessary web or content filtering.
 TLS 1.3 offers significant improvements over TLS 1.2 in terms of 
 Its security and privacy properties.  More specifically, in terms of privacy, it
 overcomes the plain text server certificate exchange issue by masking
-the serverÕs host identity through the encrypted server certificate.  As 
+the server's host identity through the encrypted server certificate.  As 
 the inspection capabilities of middleboxes are designed based on the
 server certificate, all vendors worked to adapt their capabilities to support 
 TLS 1.3 (e.g ServerHello encryption).
 
-How do providers undertake inspection?
+#### How do providers undertake inspection?
 
 The most common technique to support TLS 1.3 inspection is to 
 get the SNI from the ClientHello (which is still shared in plain text format in 
@@ -654,11 +650,11 @@ the destination server.  In some cases, the DNS data may provide
 information, but only if it is not using an encrypted protocol; even then, 
 this cannot be compared with the SNI.
 
-So TLS 1,3 with ECH has an impact on security and compliance 
+So TLS 1.3 with ECH has an impact on security and compliance 
 capabilities (including selective inspection), not because of the lack 
 of visibility of the SNI (which is not reliable in isolation) due to 
 encryption, but because other information about the destination server 
-is available and can be used to fetch and retrieve the server 
+is not available and can't be used to fetch and retrieve the server 
 certificate (which is indeed reliable) to apply appropriate policies such
 as web categorisation.
 
@@ -748,13 +744,13 @@ option is without negative consequences.
 
 In the context of Child Online Protection (COP), the primary aim for
 illegal content is removal of content at source.  Blocking and
-filtering adds friction, but it is not the end result.  Block lists
-allow to reduce access while giving time to entities dedicated to
-Child Online Protection to work to have content removed.
+filtering adds friction, but it is not the end result.  Block lists 
+reduce access while giving time to entities dedicated to
+Child Online Protection to work towards content removal.
 
-In this context, when the SNI is key doing that for encrypted
-websites and in particular when hosts are slow to remove content as
-it is the case in popular hosting countries.
+In this context, the SNI is key blocking encrypted websites hosting illegal 
+content, in particular when hosts are slow to remove content as is the case 
+in countries where much of the illegal content is hosted.
 
 But for legal content that is harmful, or not appropriate for young
 people or in the workplace, e.g. sexual content, gambling, self-harm,
@@ -781,7 +777,7 @@ etc.)
 
 As there is a vast global unawareness of ECH, few people in charge
 realize the problem posed by ECH and are caught by surprise to even
-consider mitigations approaches or a migration plan.
+consider mitigation approaches or a migration plan.
 
 In Child Online Protection use cases, most of the time, there is
 little to no programmatic control, or control at all, over the
@@ -813,16 +809,15 @@ context.
 In this particular case, the fact that web browsers do not exhibit
 standard APIs adds to the difficulty to the need to orchestrate the
 web extension with the operating system.  An area where Regulators
-may consider be prescriptive.
+may consider to be prescriptive.
 
-# Use Cases: The Impact of ECH on private network contexts (enterprises or 
-other organisations)
+# Use Cases: The Impact of ECH on private network contexts (enterprises or other organisations)
 
 ## Context
 
 ### The main requirements
 
-EEnterprises and other organisations need to protect themselves for a vast
+Enterprises and other organisations need to protect themselves for a vast
 number of reasons, including to:
 
 *  Reduce their risks.  In particular, as part of any Cyber
@@ -981,7 +976,7 @@ In the same way that {{I-D.draft-ietf-opsec-ns-impact}} showed the
 impact of TLS1.3 on operational security, a loss of visibility of the
 SNI as an indicator of compromise (see
 {{I-D.draft-ietf-opsec-indicators-of-compromise}}) has two main
-implications
+implications.
 
 #### Implications from loss of Meta Data
 
@@ -992,7 +987,7 @@ and compliance.  Typical examples include:
 * Categories of compromised sites cannot be applied any more,
 exposing employees and their organisations to potential
 cybersecurity risks; alternative approaches to block access to
-theses sites need to be found
+these sites need to be found
 
 *  corporate lists of excluded sites for compliance or policy reasons
 need alternative methods to be blocked.
@@ -1057,7 +1052,7 @@ regulatory system put in place by the state with a view to
 defining the conditions and the procedures to be respected by
 those who engage in the blocking, filtering or takedown of online
 material.  In the absence of a specific or targeted legal
-framework, some countries rely on an existing ÒgeneralÓ legal
+framework, some countries rely on an existing "general" legal
 framework that is not specific to the Internet to conduct what is 
 limited blocking or takedown of unlawful online material.  It 
 relies on self-regulation by network operators or limited
@@ -1087,7 +1082,7 @@ devices of customers of the Internet access provider.
 
 *  Takedown or removal of Internet content, on the other hand, will
 instead broadly refer to demands or measures aimed at the website
-operator (or ÒhostÓ) to remove or delete the offending website
+operator (or "host") to remove or delete the offending website
 content or sub content.
 
 The following comments apply to blocking only.
@@ -1101,7 +1096,7 @@ adoption of encryption, a mixture of the above techniques are often
 needed.
 
 For the most serious crimes such as child abuse or national security 
-many countries adopt a ÒlistÓ methodology, where a central list of 
+many countries adopt a "list" methodology, where a central list of 
 blocked Domains or URLs is maintained by the authorities and/or trusted 
 flaggers and updated on a regular basis (daily or even hourly) and shared 
 with Public Network Operators that have to enforce the blocking.
@@ -1132,7 +1127,7 @@ obligations.
 
 ## The implications of ECH for public network operators
 
-he adoption of ECH will cause additional problems for operators and 
+The adoption of ECH will cause additional problems for operators and 
 limit the possibility of them fulfilling their legal blocking obligations, 
 exposing the population to illegal content related to crimes such as 
 Child Sex Abuse and Exploitation (CSAE), malware and other
@@ -1162,13 +1157,13 @@ The various indicators of compromise (IoCs) are documented in
 {{I-D.draft-ietf-opsec-indicators-of-compromise}}, which also describes
 how they are used effectively in cyber defence.  For example, section
 4.1.1 of the document describes the importance of IoCs as part of a
-defence- in-depth strategy; in this context, SNI is just one of the
+defence-in-depth strategy; in this context, SNI is just one of the
 range of indicators that can be used to build up a resilient defence
 (see section 3.1 in the same document on IoC types and the 'pyramid
 of pain').
 
 In the same Internet-Draft, section 6.1 expands on the importance of
-the defence in depth strategy.  In particular, it explains the role
+the defence-in-depth strategy.  In particular, it explains the role
 that domains and IP addresses can play, especially where end-point
 defences are compromised or ineffective, or where endpoint security
 isn't possible, such as in BYOD, IoT and legacy environments.  SNI
@@ -1190,8 +1185,7 @@ system, applications, browsers, etc.) cannot be judge and jury.)
 
 (Editorial note: this is a placeholder for future issues)
 
-## Future operational deployment issues due to the introduction of the 
-Client Facing servers
+## Future operational deployment issues due to the introduction of the Client Facing servers
 
 (Editorial note: this is a placeholder for future issues;
 
@@ -1233,15 +1227,15 @@ problems and what are the migration paths?
 
 # Potential further development of this work
 
-## Potential development of this document.
+## Potential development of this document
 
 This section lists potential development of this work in particular
 for the General Issues section.
 
 *  There is a need for further clarification from the ECH draft, e.g.
 the links between the Client Facing and the backend servers are not
-clear enough and need further description.  It canÕt be just Ôleft
-to the implementationÕ. The action is still underway and feedback
+clear enough and need further description.  It can't be just 'left
+to the implementation'. The action is still underway and feedback
 to the TLS working group will be provided.
 
 *  Will there be any impact to the DNS by adding so many new RRs?
@@ -1250,7 +1244,7 @@ to the TLS working group will be provided.
 
 This document infers a number of ideas that could be relevant for
 other groups and in other deliverables.  In particular, regarding what
-type of solutions could be considered
+type of solutions could be considered:
 
 *  There is a need to address the apparent disconnect between user
 privacy and security, it should be possible to provide both, rather
